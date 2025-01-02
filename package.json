@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "express": "^4.21.2",
+    "jsdom": "^25.0.1",
+    "xml2js": "^0.6.2",
+    "xmldom": "^0.6.0",
+    "xpath": "^0.0.34",
+    "xslt": "^0.9.1",
+    "xslt-processor": "^3.3.1"
+  }
+}
