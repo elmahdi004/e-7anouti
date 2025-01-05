@@ -2,22 +2,35 @@ const express = require("express");
 const fs = require("fs").promises;
 const { Xslt, XmlParser } = require("xslt-processor");
 
+const cookieParser = require('cookie-parser');
+
 const app = express();
 const port = 3000;
 
 // Middleware to serve static files
 app.use(express.static("public"));
+app.use(cookieParser());
 
 
 // the main page route
 app.get("/", async (req, res) => {
-    try {
+            try {
+            if(!req.cookies.lang){
+                res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+            }
         // Read XML and XSLT files
         const xmlData = await fs.readFile("./data/products.xml", "utf8");
         const xslData = await fs.readFile("./pages/main.xsl", "utf8");
-
+        
         // Initialize the Xslt and XmlParser classes
-        const xslt = new Xslt();
+        const options = {
+            escape: false,
+            selfClosingTags: true,
+            parameters: [{ name:"lang",value: req.cookies.lang }],
+            outputMethod: 'xml'
+          };
+
+        const xslt = new Xslt(options);
         const xmlParser = new XmlParser();
 
 
@@ -42,6 +55,8 @@ app.get("/products", async (req, res) => {
         const xslData = await fs.readFile("./data/xslt/products.xsl", "utf8");
 
         // Initialize the Xslt and XmlParser classes
+       
+
         const xslt = new Xslt();
         const xmlParser = new XmlParser();
 

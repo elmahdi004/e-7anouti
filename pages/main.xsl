@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:param name="lang"/>
     <xsl:output method="html" indent="yes"/>
     <xsl:template match="/">
         <html>
+            <xsl:attribute name="dir">
+                <xsl:choose>
+                    <xsl:when test="$lang = 'ar'">rtl</xsl:when>
+                    <xsl:otherwise>ltr</xsl:otherwise>
+                </xsl:choose>
+            </xsl:attribute>
             <head>
                 <title>Product List</title>
                 <link rel="stylesheet" href="/style/style.css"/>
+
             </head>
             <body>
             <div class="section_one">
-                        <span></span>
+   <span></span>
             </div>
     <div class="navbar_section">
         <div class="content">
@@ -22,10 +30,11 @@
                 </div>
                 <div class="langue">
                     <img src="./icons/langue.svg" alt="world" srcset=""/>
-                    <select name="langue" id="">
+                    <select name="langue" id="langue">
+                        <option disabled>Langue</option>
                         <option value="en">English</option>
                         <option value="fr">French</option>
-                        <option value="es">Arabic</option>
+                        <option value="ar">Arabic</option>
                     </select>
                     <img src="./icons/toggle.svg" alt="world" srcset=""/>
                 </div>
@@ -42,16 +51,18 @@
     </div>
     <div class="header_section">
         <div class="section_one">
-            <h1>We bring store to your dore</h1>
-            <p>We help you to give fresh food items in your door very fast just order your disire products.</p>
-            <button>Shop Now</button>
+            <h1>
+                <xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='main-title']"/>
+            </h1>
+            <p><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='sub_title']"/></p>
+            <button><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='shopButton']"/></button>
         </div>
         <div class="section_two">
             <img src="./images/livereur 1.png" alt="main image" srcset=""/>
         </div>
     </div>
     <div class="categories_section">
-        <h1>Shop By Category</h1>
+        <h1><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='shopByCategory']"/></h1>
         <div class="container">
         <div class="categories">
             <div class="category">
@@ -103,7 +114,7 @@
         </div>
     </div>
     <div class="products_section">
-        <h1>Our Products</h1>
+        <h1><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='ourProducts']"/></h1>
         <div class="container">
             <div class="products">
                 <div class="product">
@@ -317,47 +328,47 @@
             </div>
         </div>
         <div class="discover">
-            <button>Discover more</button>
+            <button><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='discoverMore']"/></button>
         </div>
     </div>
     <div class="footer">
         <div class="container">
         <div class="links_section">
             <div class="company">
-                <h1>Brand</h1>
-                <h1>About us</h1>
-                <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
+                <h1><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='brand']"/></h1>
+                <h1><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='about-us']"/></h1>
+                <p><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='dummy-text']"/> </p>
             </div>
             <div class="links">
                 <div class="link">
-                    <h1>Contact info</h1>
+                    <h1><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='contact-info']"/></h1>
                     <ul>
                         <li><a href="#">elmahdibellaziz@gmail.com</a></li>
                         <li><a href="#">+212619664459</a></li>
-                        <li><a href="#">Rue hassan 2 , safi 46000 maroc</a></li>
+                        <li><a href="#"><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='address']"/></a></li>
                     </ul>
                 </div>
                 <div class="link">
-                    <h1>Links</h1>
+                    <h1><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='links']"/></h1>
                     <ul>
-                        <li><a href="#">Products link</a></li>
-                        <li><a href="#">My cart link</a></li>
-                        <li><a href="#">Contact page link</a></li>
+                        <li><a href="#"><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='products-link']"/></a></li>
+                        <li><a href="#"><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='my-cart-link']"/></a></li>
+                        <li><a href="#"><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='contact-page-link']"/></a></li>
                     </ul>
                 </div>
                 <div class="link">
-                    <h1>Links</h1>
+                    <h1><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='links']"/></h1>
                     <ul>
-                        <li><a href="#">Products link</a></li>
-                        <li><a href="#">Contact page link</a></li>
-                        <li><a href="#">My cart link</a></li>
+                        <li><a href="#"><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='products-link']"/></a></li>
+                        <li><a href="#"><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='my-cart-link']"/></a></li>
+                        <li><a href="#"><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='contact-page-link']"/></a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="line"></div>
+        <div class="line"><span></span></div>
         <div class="last_section">
-            <p>Copyright 2025 all rights reserved</p>
+            <p><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='copyright']"/></p>
             <div class="social_media">
                 <img src="./icons/ic_baseline-facebook.svg" alt="facebook" srcset=""/>
                 <img src="./icons/mdi_instagram.svg" alt="facebook" srcset=""/>
@@ -367,6 +378,18 @@
         </div>
     </div>
     </div>
+    <script>
+    let langue = document.getElementById('langue');
+langue.addEventListener('change', function() {
+    
+    const cookieName = 'lang';
+    const expires = new Date();
+    expires.setTime(expires.getTime() + (365 * 24 * 60 * 60 * 1000)); // 1 year 
+    document.cookie = `${cookieName}=${langue.value};expires=${expires.toUTCString()};path=/`;
+    window.location = "/";
+
+});
+    </script>
             </body>
         </html>
     </xsl:template>

@@ -5,6 +5,7 @@
     font-family: "Roboto", sans-serif;
     font-weight: 400;
 }
+
 :root{
     --main-color:#064C4F;
     --secon-color:#BAEA71;
@@ -142,6 +143,9 @@
     outline: none;
     background: none;
     appearance: none !important;
+}
+.navbar_section > .content > .part_one .langue select option:first-child{
+    color: grey;
 }
 .navbar_section > .content > .part_two{
     display: flex;
@@ -393,6 +397,7 @@ border-radius: 100px;cursor: pointer;    }
             opacity: 17%;
         }
         .footer .last_section{
+            padding: 10px 0;
             display: flex;
             justify-content: space-between;
         }

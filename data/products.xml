@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Products Data -->
+<Store>
 <products>
     <product id="1">
         <name>Product 1</name>
@@ -16,3 +18,70 @@
         <description>Product Description</description>
     </product>
 </products>
+
+<!-- languages Data-->
+<languages>
+    <lang code="en">
+        <content key="main-title">We bring store to your dore</content>
+        <content key="sub_title">We help you to give fresh food items in your door very fast just order your disire products.</content>
+        <content key="shopButton">Shop Now</content>
+        <content key="shopByCategory">Shop By Category</content>
+        <content key="ourProducts">Our Products</content>
+        <content key="discoverMore">Discover more</content>
+         <content key="brand">Brand</content>
+        <content key="about-us">About us</content>
+        <content key="dummy-text">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</content>
+        <content key="contact-info">Contact info</content>
+        <content key="links">Links</content>
+        <content key="products-link">Products link</content>
+        <content key="my-cart-link">My cart link</content>
+        <content key="contact-page-link">Contact page link</content>
+        <content key="address">Hassan Street 2, Safi 46000 Maroc</content>
+        <content key="copyright">Copyright 2025 all rights reserved</content>
+        <content key="search-hover">Search your product</content>
+    </lang>
+
+    <lang code="fr">
+        <content key="main-title">Nous apportons le magasin à votre porte.</content>
+        <content key="sub_title">Nous vous aidons à livrer des produits alimentaires frais à votre porte très rapidement, il vous suffit de commander vos produits désirés.</content>
+        <content key="shopButton">Achetez maintenant</content>
+        <content key="shopByCategory">Achetez par catégorie</content>
+        <content key="ourProducts">Nos Produits</content>
+        <content key="discoverMore">Découvrir plus</content>
+        <content key="brand">Marque</content>
+        <content key="about-us">À propos de nous</content>
+        <content key="dummy-text">est simplement un texte factice de l'industrie de l'impression et de la composition. Le Lorem Ipsum est le standard de l'industrie</content>
+        <content key="contact-info">Informations de contact</content>
+        <content key="links">Liens</content>
+        <content key="products-link">Lien vers les produits</content>
+        <content key="my-cart-link">Lien vers mon panier</content>
+        <content key="contact-page-link">Lien vers la page de contact</content>
+        <content key="address">Rue Hassan 2, Safi 46000 Maroc</content>
+        <content key="copyright">Droits d'auteur 2025, tous droits réservés</content>
+        <content key="search-hover">Recherchez votre produit</content>
+    </lang>
+
+    <lang code="ar">
+        <content key="main-title">نحن نجلب المتجر إلى باب منزلك</content>
+        <content key="sub_title">نحن نساعدك في توصيل المواد الغذائية الطازجة إلى باب منزلك بسرعة كبيرة، فقط اطلب المنتجات التي ترغب فيها</content>
+        <content key="shopButton">تسوق الآن</content>
+        <content key="shopByCategory">تسوق حسب الفئة</content>
+        <content key="ourProducts">منتجاتنا</content>
+        <content key="discoverMore">اكتشف المزيد</content>
+        <content key="brand">العلامة التجارية</content>
+        <content key="about-us">من نحن</content>
+        <content key="dummy-text">هو مجرد نص شكلي في صناعة الطباعة والتنضيد. كان لوريم إيبسوم هو المعيار في هذه الصناعة</content>
+        <content key="contact-info">معلومات الاتصال</content>
+        <content key="links">الروابط</content>
+        <content key="products-link">رابط المنتجات</content>
+        <content key="my-cart-link">رابط سلة المشتريات</content>
+        <content key="contact-page-link">رابط صفحة الاتصال</content>
+        <content key="address">شارع الحسن الثاني، آسفي 46000 المغرب</content>
+        <content key="copyright">حقوق الطبع والنشر 2025 جميع الحقوق محفوظة</content>
+        <content key="search-hover">ابحث عن منتجك</content>
+    </lang>
+</languages>
+
+
+
+</Store>
