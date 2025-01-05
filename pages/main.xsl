@@ -31,7 +31,7 @@
                 <div class="langue">
                     <img src="./icons/langue.svg" alt="world" srcset=""/>
                     <select name="langue" id="langue">
-                        <option disabled>Langue</option>
+                        <option>Langue</option>
                         <option value="en">English</option>
                         <option value="fr">French</option>
                         <option value="ar">Arabic</option>

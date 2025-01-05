@@ -19,7 +19,7 @@ app.get("/", async (req, res) => {
                 res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
             }
         // Read XML and XSLT files
-        const xmlData = await fs.readFile("./data/products.xml", "utf8");
+        const xmlData = await fs.readFile("./data/data.xml", "utf8");
         const xslData = await fs.readFile("./pages/main.xsl", "utf8");
         
         // Initialize the Xslt and XmlParser classes
