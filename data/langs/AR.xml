@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <lang code="ar">
+        <content key="main-title">نحن نجلب المتجر إلى باب منزلك</content>
+        <content key="sub_title">نحن نساعدك في توصيل المواد الغذائية الطازجة إلى باب منزلك بسرعة كبيرة، فقط اطلب المنتجات التي ترغب فيها</content>
+        <content key="shopButton">تسوق الآن</content>
+        <content key="shopByCategory">تسوق حسب الفئة</content>
+        <content key="ourProducts">منتجاتنا</content>
+        <content key="discoverMore">اكتشف المزيد</content>
+        <content key="brand">العلامة التجارية</content>
+        <content key="about-us">من نحن</content>
+        <content key="dummy-text">هو مجرد نص شكلي في صناعة الطباعة والتنضيد. كان لوريم إيبسوم هو المعيار في هذه الصناعة</content>
+        <content key="contact-info">معلومات الاتصال</content>
+        <content key="links">الروابط</content>
+        <content key="products-link">رابط المنتجات</content>
+        <content key="my-cart-link">رابط سلة المشتريات</content>
+        <content key="contact-page-link">رابط صفحة الاتصال</content>
+        <content key="address">شارع الحسن الثاني، آسفي 46000 المغرب</content>
+        <content key="copyright">حقوق الطبع والنشر 2025 جميع الحقوق محفوظة</content>
+        <content key="search-hover">ابحث عن منتجك</content>
+        <content key="category">فئة</content>
+    </lang>
