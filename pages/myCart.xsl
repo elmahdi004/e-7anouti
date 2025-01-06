@@ -41,9 +41,9 @@
                 </div>
             </div>
             <div class="part_two">
-                <div class="profile one">
+                <a href="/myCart" class="profile one">
                     <img src="./icons/bag.svg" alt="bag"/>
-                </div>
+                </a>
                 <div class="profile two">
                     <img src="./images/avatar.png" alt="bag"/>
                 </div>
@@ -133,7 +133,7 @@
                         <input type="text" placeholder="City"/>
                         <input type="text" placeholder="ZIP code"/>
                     <div class="total_price">
-                        <h2>Shipping Address</h2>
+                        <h2>Shipping Details</h2>
                         <div class="infos">
                             <div class="info_line">
                                 <p>Cart subtotal</p>

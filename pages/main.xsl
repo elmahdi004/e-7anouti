@@ -13,7 +13,6 @@
             <head>
                 <title>Product List</title>
                 <link rel="stylesheet" href="/style/style.css"/>
-
             </head>
             <body>
             <div class="section_one">
@@ -40,9 +39,9 @@
                 </div>
             </div>
             <div class="part_two">
-                <div class="profile one">
+                <a href="/myCart" class="profile one">
                     <img src="./icons/bag.svg" alt="bag"/>
-                </div>
+                </a>
                 <div class="profile two">
                     <img src="./images/avatar.png" alt="bag"/>
                 </div>
