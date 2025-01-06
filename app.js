@@ -159,14 +159,14 @@ app.get("/products", async (req, res) => {
 app.get('/products/:id', async (req, res) => {
     try {
         // Read XML and XSLT files
-        const xmlData = await fs.readFile("./data/xml/products.xml", "utf8");
-        const xslData = await fs.readFile("./data/xslt/product.xsl", "utf8");
+        const xmlData = await fs.readFile("./data/data.xml", "utf8");
+        const xslData = await fs.readFile("./pages/product.xsl", "utf8");
 
         // Initialize the Xslt and XmlParser classes
         const options = {
             escape: false,
             selfClosingTags: true,
-            parameters: [{ name: "productId", value: req.params.id }],
+            parameters: [{ name: "productId", value: req.params.id },{ name: "lang", value: req.cookies.lang }],
             outputMethod: 'xml'
         };
 
@@ -262,6 +262,15 @@ res.status(500).send("An error occurred during XSLT transformation.");
 app.listen(port, () => {
     console.log(`App is running at http://localhost:${port}`);
 });
+
+
+
+
+
+
+
+
+
 
 
 //lang routes - html

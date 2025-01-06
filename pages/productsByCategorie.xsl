@@ -44,7 +44,7 @@
             </div>
             <div class="part_two">
                 <a href="/myCart" class="profile one">
-                    <img src="./icons/bag.svg" alt="bag"/>
+                    <img src="/icons/bag.svg" alt="bag"/>
                 </a>
                 <div class="profile two">
                     <img src="/images/avatar.png" alt="bag"/>
@@ -61,7 +61,7 @@
         <div class="container">
             <div class="products">
                     <xsl:for-each select="/Store/products/product[@category-id=$catId]">
-                <a class="product">
+                <a class="product" href="/products/{@id}">
                     <div class="image_section">
                         <img src="/images/products/{image}" alt="product image" srcset=""/>
                     </div>

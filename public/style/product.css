@@ -1,0 +1,103 @@
+.product_details_section{
+    display: flex;
+    margin-top: 50px;
+    padding: 20px 0;
+}
+.product_details_section .images{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.product_details_section .images .main_image{
+    width: 400px;
+    height: 400px;
+    background-color: rgba(217, 217, 217, 22%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product_details_section .images .main_image img{
+    width: 300px;
+
+}
+.sub_images{
+    display: flex;
+    column-gap: 10px;
+}
+.sub_images > div{
+    background-color: rgba(217, 217, 217, 22%);
+    width: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.sub_images > div img{
+    width: 100px;
+}
+.container > h1{
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 20px;
+}
+.content{
+    margin-left: 41px;
+}
+.content .title{
+    color: var(--main-color);
+    font-weight: bold;
+}
+.content .stars{
+    margin: 10px 0;
+}
+.content h2{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 50px;
+}
+.content p{
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 30%);
+}
+.buttons button{
+    margin: 20px 10px;
+    padding: 15px 30px;
+    background-color: var(--secon-color);
+    border: none;
+    border-radius: 100px;
+    color: var(--main-color);
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+.buttons button:hover{
+    border: 1px solid var(--main-color);
+    transition: 0.5s all;
+
+}
+.buttons button:first-child{
+    background-color: rgba(186, 234, 113, 26%);
+}
+
+.pricing{
+    padding-top: 30px;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+    }
+.pricing h1{
+    font-size: 26px;
+    color: var(--main-color);
+    font-weight: bold;
+    }
+.pricing h2{
+    margin: 0;
+    color: #AAAAAA;
+    font-weight: 400;
+    font-size: 20px;
+    text-decoration: line-through;
+    }

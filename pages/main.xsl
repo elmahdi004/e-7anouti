@@ -85,7 +85,7 @@
         <div class="container">
                     <div class="products">
         <xsl:for-each select="/Store/products/product">
-                <div class="product">
+                <a class="product" href="/products/{@id}">
                     <div class="image_section">
                         <img src="/images/products/{image}" alt="product image" srcset=""/>
                     </div>
@@ -111,7 +111,7 @@
                         </div>
                     </div>
                 </div>  
-            </div>
+            </a>
             </xsl:for-each>
         </div>
         <div class="discover">

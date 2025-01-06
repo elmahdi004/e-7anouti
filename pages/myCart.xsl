@@ -42,7 +42,7 @@
             </div>
             <div class="part_two">
                 <a href="/myCart" class="profile one">
-                    <img src="./icons/bag.svg" alt="bag"/>
+                    <img src="/icons/bag.svg" alt="bag"/>
                 </a>
                 <div class="profile two">
                     <img src="./images/avatar.png" alt="bag"/>

@@ -133,7 +133,7 @@
             <stock>50</stock>
             <image>lait1.webp</image>
         </product>
-        <product id="1" category-id="1">
+        <product id="2" category-id="1">
             <name>
                 <lang code="en">Lait UHT entier sans lactose 1L - JAOUDA</lang>
                 <lang code="fr">Lait UHT entier sans lactose 1L - JAOUDA</lang>
@@ -149,7 +149,7 @@
             <stock>50</stock>
             <image>lait2.webp</image>
         </product>
-        <product id="1" category-id="1">
+        <product id="3" category-id="1">
             <name>
                 <lang code="en">Boisson lait d'amande intense bio 1L - BJORG</lang>
                 <lang code="fr">Boisson lait d'amande intense bio 1L - BJORG</lang>
