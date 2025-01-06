@@ -10,6 +10,14 @@ body,html{
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+    color: black;
+}
+h4{
+    font-size: 17px;
+
+}
 body{
     background-color: #F3F2F7;
 }

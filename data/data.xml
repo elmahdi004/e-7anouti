@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Products Data -->
 <Store>
-<products>
-    <product id="1">
-        <name>Product 1</name>
-        <price>$10.00</price>
-        <description>Product Description</description>
-    </product>
-    <product id="2">
-        <name>Product 2</name>
-        <price>$20.00</price>
-        <description>Product Description</description>
-    </product>
-    <product id="3">
-        <name>Product 3</name>
-        <price>$30.00</price>
-        <description>Product Description</description>
-    </product>
-</products>
+
 
 <!-- languages Data-->
 <languages>
@@ -135,44 +119,80 @@
     <products>
         <product id="1" category-id="1">
             <name>
-                <lang code="en">Apple</lang>
-                <lang code="fr">Pomme</lang>
+                <lang code="en">Lait UHT écrémé Linéa 1L - JAOUDA</lang>
+                <lang code="fr">Lait UHT écrémé Linéa 1L - JAOUDA</lang>
                 <lang code="ar">تفاحة</lang>
             </name>
             <description>
-                <lang code="en">Red and juicy apples</lang>
-                <lang code="fr">Pommes rouges et juteuses</lang>
+                <lang code="en">Lait écrémé stérilisé UHT. 0% de matière grasse. Lait naturel est garanti sans acides gras, ni cholestérol. Riche en protéines, calcium et phosphore du lait. Valeur énergétique : 32 Kcal pour 100 ml. Volume : 1 L.</lang>
+                <lang code="fr">Lait écrémé stérilisé UHT. 0% de matière grasse. Lait naturel est garanti sans acides gras, ni cholestérol. Riche en protéines, calcium et phosphore du lait. Valeur énergétique : 32 Kcal pour 100 ml. Volume : 1 L.</lang>
                 <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
-            <price currency="USD">1.20</price>
+            <price currency="DH">11.20</price>
             <stock>50</stock>
-            <image>apple.jpg</image>
+            <image>lait1.webp</image>
         </product>
-        <product id="2" category-id="2">
+        <product id="1" category-id="1">
             <name>
-                <lang code="en">Carrot</lang>
-                <lang code="fr">Carotte</lang>
-                <lang code="ar">جزر</lang>
+                <lang code="en">Lait UHT entier sans lactose 1L - JAOUDA</lang>
+                <lang code="fr">Lait UHT entier sans lactose 1L - JAOUDA</lang>
+                <lang code="ar">تفاحة</lang>
             </name>
             <description>
-                <lang code="en">Fresh organic carrots</lang>
-                <lang code="fr">Carottes bio fraîches</lang>
-                <lang code="ar">جزر عضوي طازج</lang>
+                <lang code="en">Lait UHT entier sans lactose 1L - JAOUDA</lang>
+                <lang code="fr">Lait UHT entier sans lactose 1L - JAOUDA</lang>
+                <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
-            <price currency="USD">0.80</price>
-            <stock>40</stock>
-            <image>carrot.jpg</image>
+            <price currency="DH">11.20</price>
+            <stock>50</stock>
+            <image>lait2.webp</image>
         </product>
-        <product id="3" category-id="1">
+        <product id="1" category-id="1">
             <name>
-                <lang code="en">Milk</lang>
-                <lang code="fr">Lait</lang>
-                <lang code="ar">حليب</lang>
+                <lang code="en">Boisson lait d'amande intense bio 1L - BJORG</lang>
+                <lang code="fr">Boisson lait d'amande intense bio 1L - BJORG</lang>
+                <lang code="ar">تفاحة</lang>
             </name>
-            <price currency="USD">1.50</price>
-            <stock>25</stock>
-            <image>milk.jpg</image>
+            <description>
+                <lang code="en">Boisson biologique à base d'amandes, avec arôme naturel, stérilisée UHT. Contenance : 1 L.</lang>
+                <lang code="fr">Boisson biologique à base d'amandes, avec arôme naturel, stérilisée UHT. Contenance : 1 L.</lang>
+                <lang code="ar">تفاح أحمر وعصير</lang>
+            </description>
+            <price currency="DH">74.20</price>
+            <stock>50</stock>
+            <image>lait3.webp</image>
         </product>
+        <product id="4" category-id="2">
+            <name>
+                <lang code="en">Farine de luxe boulangère 5Kg - AMGALITA</lang>
+                <lang code="fr">Farine de luxe boulangère 5Kg - AMGALITA</lang>
+                <lang code="ar">تفاحة</lang>
+            </name>
+            <description>
+                <lang code="en">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
+                <lang code="fr">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
+                <lang code="ar">تفاح أحمر وعصير</lang>
+            </description>
+            <price currency="DH">25.20</price>
+            <stock>50</stock>
+            <image>Boulangerie1.webp</image>
+        </product>
+        <product id="4" category-id="2">
+            <name>
+                <lang code="en">Farine de luxe boulangère 5Kg - AMGALITA</lang>
+                <lang code="fr">Farine de luxe boulangère 5Kg - AMGALITA</lang>
+                <lang code="ar">تفاحة</lang>
+            </name>
+            <description>
+                <lang code="en">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
+                <lang code="fr">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
+                <lang code="ar">تفاح أحمر وعصير</lang>
+            </description>
+            <price currency="DH">25.20</price>
+            <stock>50</stock>
+            <image>Boulangerie.webp</image>
+        </product>
+        
     </products>
 
 
