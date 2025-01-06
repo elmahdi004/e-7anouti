@@ -296,7 +296,7 @@
             </div>
         </div>
         <div class="discover">
-            <button><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='discoverMore']"/></button>
+            <button id="discover"><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='discoverMore']"/></button>
         </div>
     </div>
     <div class="footer">
@@ -357,6 +357,10 @@ langue.addEventListener('change', function() {
     window.location = "/";
 
 });
+dp = document.getElementById('discover');
+dp.onclick = function() {
+    window.location = "/products";
+}
     </script>
             </body>
         </html>
