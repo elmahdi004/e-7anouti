@@ -230,3 +230,9 @@ app.post("/langs", upload.single("langFile"), async (req, res) => {
         res.status(500).send("Error saving the uploaded file.");
     }
 });
+
+//route for CRUD users
+
+// Get all users (Read)
+
+// Get all users (Read)

@@ -114,6 +114,61 @@
             <image>milk.jpg</image>
         </product>
     </products>
+    <!-- Users  -->
+
+    <users>
+    <user>
+        <ID>1</ID>
+        <Name>John Doe</Name>
+        <Email>johndoe@example.com</Email>
+    </user>
+    <user>
+        <ID>2</ID>
+        <Name>Jane Smith</Name>
+        <Email>janesmith@example.com</Email>
+    </user>
+    <user>
+        <ID>3</ID>
+        <Name>Michael Brown</Name>
+        <Email>michaelbrown@example.com</Email>
+    </user>
+    <user>
+        <ID>4</ID>
+        <Name>Emily Davis</Name>
+        <Email>emilydavis@example.com</Email>
+    </user>
+    <user>
+        <ID>5</ID>
+        <Name>Chris Johnson</Name>
+        <Email>chrisjohnson@example.com</Email>
+    </user>
+    <user>
+        <ID>6</ID>
+        <Name>Sarah Lee</Name>
+        <Email>sarahlee@example.com</Email>
+    </user>
+    <user>
+        <ID>7</ID>
+        <Name>David Wilson</Name>
+        <Email>davidwilson@example.com</Email>
+    </user>
+    <user>
+        <ID>8</ID>
+        <Name>Anna Martinez</Name>
+        <Email>annamartinez@example.com</Email>
+    </user>
+    <user>
+        <ID>9</ID>
+        <Name>James Taylor</Name>
+        <Email>jamestaylor@example.com</Email>
+    </user>
+    <user>
+        <ID>10</ID>
+        <Name>Laura Harris</Name>
+        <Email>lauraharris@example.com</Email>
+    </user>
+</users>
+
 
 
 </Store>
