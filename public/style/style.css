@@ -315,13 +315,14 @@ font-weight: 600;
     align-items: center;
     }
 .products_section .products .product .infos-sections .pricing h1{
+    font-size: 20px;
     color: var(--main-color);
     font-weight: bold;
     }
 .products_section .products .product .infos-sections .pricing h2{
     color: #AAAAAA;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     text-decoration: line-through;
     }
     .products_section button{

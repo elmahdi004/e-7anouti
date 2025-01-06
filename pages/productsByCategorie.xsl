@@ -61,7 +61,7 @@
         <div class="container">
             <div class="products">
                     <xsl:for-each select="/Store/products/product[@category-id=$catId]">
-                <div class="product">
+                <a class="product">
                     <div class="image_section">
                         <img src="/images/products/{image}" alt="product image" srcset=""/>
                     </div>
@@ -82,17 +82,15 @@
                             <h1><xsl:value-of select="name/lang[@code=$lang]"/></h1>
                         </div>
                         <div class="pricing">
-                            <h1>$5.99</h1>
-                            <h2>$10.99</h2>
+                            <h1>MAD<xsl:value-of select="price"/></h1>
+                            <h2>MAD<xsl:value-of select="pre_price"/></h2>
                         </div>
                     </div>
-                </div>  
+                </a>  
                 </xsl:for-each>             
             </div>
         </div>
-        <div class="discover">
-            <button><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='discoverMore']"/></button>
-        </div>
+
     </div>
     <div class="footer">
         <div class="container">
