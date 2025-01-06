@@ -10,6 +10,9 @@
     --main-color:#064C4F;
     --secon-color:#BAEA71;
 }
+a{
+    color: black;
+}
 .roboto-thin {
     font-family: "Roboto", serif;
     font-weight: 100;

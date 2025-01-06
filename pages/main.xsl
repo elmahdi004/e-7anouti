@@ -7,7 +7,7 @@
             <xsl:attribute name="dir">
                 <xsl:choose>
                     <xsl:when test="$lang = 'ar'">rtl</xsl:when>
-                    <xsl:otherwise>ltr</xsl:otherwise>
+                        <xsl:otherwise>ltr</xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
             <head>
@@ -17,7 +17,7 @@
             </head>
             <body>
             <div class="section_one">
-   <span></span>
+    <span></span>
             </div>
     <div class="navbar_section">
         <div class="content">
@@ -65,51 +65,19 @@
         <h1><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='shopByCategory']"/></h1>
         <div class="container">
         <div class="categories">
+        <xsl:for-each select="/Store/categories/category">
+        <a href="/products/category/{@id}">
             <div class="category">
                 <div class="head">
-                    <img src="./images/fruits.png" alt="vegetables" srcset=""/>
+                    <img src="/images/categories/{image}" alt="vegetables" srcset=""/>
                 </div>
                 <div class="body">
-                    <h2>Fruits</h2>
-                    <p>+12 items</p>
+                    <h2><xsl:value-of select="name/lang[@code=$lang]"/></h2>
+                    <!-- <p>+<xsl:value-of select="count(/store/products/product[category-id = @id])"/> items</p> -->
                 </div>
             </div>
-            <div class="category">
-                <div class="head">
-                    <img src="./images/fruits.png" alt="vegetables" srcset=""/>
-                </div>
-                <div class="body">
-                    <h2>Fruits</h2>
-                    <p>+12 items</p>
-                </div>
-            </div>
-            <div class="category">
-                <div class="head">
-                    <img src="./images/fruits.png" alt="vegetables" srcset=""/>
-                </div>
-                <div class="body">
-                    <h2>Fruits</h2>
-                    <p>+12 items</p>
-                </div>
-            </div>
-            <div class="category">
-                <div class="head">
-                    <img src="./images/fruits.png" alt="vegetables" srcset=""/>
-                </div>
-                <div class="body">
-                    <h2>Fruits</h2>
-                    <p>+12 items</p>
-                </div>
-            </div>
-            <div class="category">
-                <div class="head">
-                    <img src="./images/fruits.png" alt="vegetables" srcset=""/>
-                </div>
-                <div class="body">
-                    <h2>Fruits</h2>
-                    <p>+13 items</p>
-                </div>
-            </div>
+            </a>
+            </xsl:for-each>
         </div>
         </div>
     </div>

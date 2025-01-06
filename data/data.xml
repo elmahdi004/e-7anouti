@@ -28,7 +28,7 @@
         <content key="shopByCategory">Shop By Category</content>
         <content key="ourProducts">Our Products</content>
         <content key="discoverMore">Discover more</content>
-         <content key="brand">Brand</content>
+        <content key="brand">Brand</content>
         <content key="about-us">About us</content>
         <content key="dummy-text">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</content>
         <content key="contact-info">Contact info</content>
@@ -39,6 +39,7 @@
         <content key="address">Hassan Street 2, Safi 46000 Maroc</content>
         <content key="copyright">Copyright 2025 all rights reserved</content>
         <content key="search-hover">Search your product</content>
+        <content key="category">Category</content>
     </lang>
 
     <lang code="fr">
@@ -59,6 +60,7 @@
         <content key="address">Rue Hassan 2, Safi 46000 Maroc</content>
         <content key="copyright">Droits d'auteur 2025, tous droits réservés</content>
         <content key="search-hover">Recherchez votre produit</content>
+        <content key="category">Catégorie</content>
     </lang>
 
     <lang code="ar">
@@ -79,9 +81,99 @@
         <content key="address">شارع الحسن الثاني، آسفي 46000 المغرب</content>
         <content key="copyright">حقوق الطبع والنشر 2025 جميع الحقوق محفوظة</content>
         <content key="search-hover">ابحث عن منتجك</content>
+        <content key="category">فئة</content>
     </lang>
 </languages>
 
+
+<!-- Categories Data-->
+ <categories>
+        <category id="1">
+        <name>
+            <lang code="en">Dairy</lang>
+            <lang code="fr">Produits laitiers</lang>
+            <lang code="ar">منتجات الألبان</lang>
+        </name>
+        <image>dairy.png</image>
+        </category>
+        <category id="2">
+        <name>
+            <lang code="en">Bakery</lang>
+            <lang code="fr">Boulangerie</lang>
+            <lang code="ar">المخبوزات</lang>
+        </name>
+        <image>bakery.png</image>
+        </category>
+        <category id="3">
+        <name>
+            <lang code="en">Seafood</lang>
+            <lang code="fr">Fruits de mer</lang>
+            <lang code="ar">المأكولات البحرية</lang>
+        </name>
+        <image>Seafood.png</image>
+        </category>
+        <category id="4">
+        <name>
+            <lang code="en">Beverages</lang>
+            <lang code="fr">Boissons</lang>
+            <lang code="ar">المشروبات</lang>
+        </name>
+        <image>Beverages.png</image>
+        </category>
+        <category id="5">
+        <name>
+            <lang code="en">Snacks</lang>
+            <lang code="fr">Collations</lang>
+            <lang code="ar">الوجبات الخفيفة</lang>
+        </name>
+        <image>Snacks.png</image>
+        </category>
+    </categories>
+
+<!-- Products Data-->
+
+    <products>
+        <product id="1" category-id="1">
+            <name>
+                <lang code="en">Apple</lang>
+                <lang code="fr">Pomme</lang>
+                <lang code="ar">تفاحة</lang>
+            </name>
+            <description>
+                <lang code="en">Red and juicy apples</lang>
+                <lang code="fr">Pommes rouges et juteuses</lang>
+                <lang code="ar">تفاح أحمر وعصير</lang>
+            </description>
+            <price currency="USD">1.20</price>
+            <stock>50</stock>
+            <image>apple.jpg</image>
+        </product>
+        <product id="2" category-id="2">
+            <name>
+                <lang code="en">Carrot</lang>
+                <lang code="fr">Carotte</lang>
+                <lang code="ar">جزر</lang>
+            </name>
+            <description>
+                <lang code="en">Fresh organic carrots</lang>
+                <lang code="fr">Carottes bio fraîches</lang>
+                <lang code="ar">جزر عضوي طازج</lang>
+            </description>
+            <price currency="USD">0.80</price>
+            <stock>40</stock>
+            <image>carrot.jpg</image>
+        </product>
+        <product id="3" category-id="1">
+            <name>
+                <lang code="en">Milk</lang>
+                <lang code="fr">Lait</lang>
+                <lang code="ar">حليب</lang>
+            </name>
+            <price currency="USD">1.50</price>
+            <stock>25</stock>
+            <image>milk.jpg</image>
+        </product>
+    </products>
 
 
 </Store>

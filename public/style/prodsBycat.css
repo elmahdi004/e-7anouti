@@ -1,0 +1,8 @@
+.prodByCategory{
+    padding-top: 10px !important;
+}
+.prodByCategory > h1{
+    margin-top: 10px;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
