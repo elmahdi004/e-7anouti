@@ -31,9 +31,14 @@
                     <img src="./icons/langue.svg" alt="world" srcset=""/>
                     <select name="langue" id="langue">
                         <option>Langue</option>
-                        <option value="en">English</option>
+                        <!-- <option value="en">English</option>
                         <option value="fr">French</option>
-                        <option value="ar">Arabic</option>
+                        <option value="ar">Arabic</option> -->
+                        <xsl:for-each select="/Store/languages/lang">
+                            <option value="{@code}">
+                                <xsl:value-of select="@title"/>
+                            </option>
+                        </xsl:for-each>
                     </select>
                     <img src="./icons/toggle.svg" alt="world" srcset=""/>
                 </div>
