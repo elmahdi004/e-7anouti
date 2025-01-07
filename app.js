@@ -210,7 +210,7 @@ app.get('/products/:id', async (req, res) => {
 });
 
 // My cart route
-app.get("/myCart", async (req, res) => {
+app.get("/myCart", isAuthenticatedMiddleware ,async (req, res) => {
     try {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
@@ -282,6 +282,42 @@ res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
 
+
+app.get("/admin/products", isAuthenticatedMiddleware ,async (req, res) => {
+    try {
+    if(!req.cookies.lang){
+        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+    }
+const authUser = req.session.user['$'].id
+const authRole = req.session.user['$'].role
+// Read XML and XSLT files
+const xmlData = await fs.readFile("./data/data.xml", "utf8");
+const xslData = await fs.readFile("./pages/admin/products/index.xsl", "utf8");
+
+// Initialize the Xslt and XmlParser classes
+const options = {
+    escape: false,
+    selfClosingTags: true,
+    parameters: [{ name:"lang",value: req.cookies.lang },{name:"authUser",value:authUser},{name:"authRole",value:authRole}],
+    outputMethod: 'xml'
+  };
+
+const xslt = new Xslt(options);
+const xmlParser = new XmlParser();
+
+
+const outXmlString = await xslt.xsltProcess(
+    xmlParser.xmlParse(xmlData),
+    xmlParser.xmlParse(xslData)
+);
+// Send the transformed HTML to the client
+res.set("Content-Type", "text/html");
+res.send(outXmlString); // Transformed XML or HTML as string
+} catch (error) {
+console.error("Error during XSLT transformation:", error);
+res.status(500).send("An error occurred during XSLT transformation.");
+}
+});
 
 app.get("/signup", async (req, res) => {
     try {
@@ -411,7 +447,41 @@ authenticate(email, password, async (err, authenticated) => {
 });
 
 
-app.get("/orders", isAuthenticatedMiddleware ,async (req, res) => {
+app.get("/admin/orders", isAuthenticatedMiddleware ,async (req, res) => {
+    try {
+    if(!req.cookies.lang){
+        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+    }
+    const authUser = req.session.user['$'].id
+    const authRole = req.session.user['$'].role
+// Read XML and XSLT files
+const xmlData = await fs.readFile("./data/data.xml", "utf8");
+const xslData = await fs.readFile("./pages/admin/orders_client/index.xsl", "utf8");
+// Initialize the Xslt and XmlParser classes
+const options = {
+    escape: false,
+    selfClosingTags: true,
+    parameters: [{ name:"lang",value: req.cookies.lang },{name:"authUser",value:authUser},{name:"authRole",value:authRole}],
+    outputMethod: 'xml'
+  };
+
+const xslt = new Xslt(options);
+const xmlParser = new XmlParser();
+
+
+const outXmlString = await xslt.xsltProcess(
+    xmlParser.xmlParse(xmlData),
+    xmlParser.xmlParse(xslData)
+);
+// Send the transformed HTML to the client
+res.set("Content-Type", "text/html");
+res.send(outXmlString); // Transformed XML or HTML as string
+} catch (error) {
+console.error("Error during XSLT transformation:", error);
+res.status(500).send("An error occurred during XSLT transformation.");
+}
+});
+app.get("/admin/m-orders", isAuthenticatedMiddleware ,async (req, res) => {
     try {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
@@ -432,6 +502,42 @@ const options = {
 const xslt = new Xslt(options);
 const xmlParser = new XmlParser();
 
+
+const outXmlString = await xslt.xsltProcess(
+    xmlParser.xmlParse(xmlData),
+    xmlParser.xmlParse(xslData)
+);
+// Send the transformed HTML to the client
+res.set("Content-Type", "text/html");
+res.send(outXmlString); // Transformed XML or HTML as string
+} catch (error) {
+console.error("Error during XSLT transformation:", error);
+res.status(500).send("An error occurred during XSLT transformation.");
+}
+});
+app.get("/logout", isAuthenticatedMiddleware ,async (req, res) => {
+    try {
+    if(!req.cookies.lang){
+        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+    }
+
+// Read XML and XSLT files
+const xmlData = await fs.readFile("./data/data.xml", "utf8");
+const xslData = await fs.readFile("./pages/main.xsl", "utf8");
+// Initialize the Xslt and XmlParser classes
+const options = {
+    escape: false,
+    selfClosingTags: true,
+    parameters: [{ name:"lang",value: req.cookies.lang }],
+    outputMethod: 'xml'
+  };
+
+const xslt = new Xslt(options);
+const xmlParser = new XmlParser();
+
+// destroy the session
+
+req.session.destroy();
 
 const outXmlString = await xslt.xsltProcess(
     xmlParser.xmlParse(xmlData),

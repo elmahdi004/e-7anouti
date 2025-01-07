@@ -506,3 +506,9 @@ color: #A4A4A4;
 .content{
     grid-column:9 span;
 }
+.table_section{
+    overflow-x: auto;
+}
+.option_b{
+    width: 100px !important;
+}

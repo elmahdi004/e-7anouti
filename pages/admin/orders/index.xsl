@@ -19,7 +19,6 @@
         <!-- Optional Bootstrap JavaScript Bundle (with Popper.js) -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>                <link rel="stylesheet" href="/style/style.css"/> -->
                 <link rel="stylesheet" href="/style/admin.css"/>
-
             </head>
             <body>
     <div class="open-dash" id="open-dash">
@@ -28,7 +27,7 @@
         </button>
     </div>
     <div class="logout-section">
-            <a href="">Logout</a>
+            <a href="/logout">Logout</a>
     </div>
     <div class="main row">
         <div class="dashboard" id="dashboard">
@@ -40,7 +39,7 @@
             </div>
             <div class="select">
                 <ul>
-                    <li class="active">
+                    <li class="">
                             <div>
                                 <a href="/admin" style="display:flex;column-gap:10px;">
                                     <div class="icon">
@@ -80,13 +79,13 @@
                     </xsl:for-each>
                     <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
                     <xsl:if test="@id = 3">
-                    <li class="">
+                    <li class="active">
                         <div>
                             <a href="/admin/m-orders" style="display:flex;column-gap:10px;">
                                 <div class="icon">
                                         <img src="/icons/dashboard/Orders.png" width="20px"/>
                                 </div>
-                                <h4>Orders for admin</h4>
+                                <h4>Orders</h4>
                             </a>
                         </div>
                     </li>
@@ -96,11 +95,11 @@
                     <xsl:if test="@id = 6">
                     <li class="/admin/orders">
                         <div>
-                            <a href="/vehicles" style="display:flex;column-gap:10px;">
+                            <a href="/admin/orders" style="display:flex;column-gap:10px;">
                                 <div class="icon">
                                         <img src="/icons/dashboard/Orders.png" width="20px"/>
                                 </div>
-                                <h4>Orders</h4>
+                                <h4>My Orders</h4>
                             </a>
                         </div>
                     </li>
@@ -161,12 +160,54 @@
                         </div>
                     </div>
                     <div class="body">
-                        Put your content here
-                        <button class="btn btn-primary">Oky</button>
+                    <div class="add_section">
+                        <h5 class="py-4">Orders list :</h5>
+                    </div>
+                    <div class="table_section">
+<table class="table">
+  <thead>
+    <tr>
+      <th >#</th>
+      <th >Date</th>
+      <th >Status</th>
+      <th >Address</th>
+      <th >Total</th>
+      <th >Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <xsl:for-each select="/Store/Orders/Order">
+    <tr>
+      <td><xsl:value-of select="@id"/></td>
+      <td><xsl:value-of select="Date"/></td>
+      <td><xsl:value-of select="Staus"/></td>
+      <td><xsl:value-of select="Address/street"/><span>, </span><xsl:value-of select="Address/city"/><span>&nbsp;</span><xsl:value-of select="Address/zip"/><span></span></td>
+      <td><xsl:value-of select="OrderTotal"/><span> MAD</span></td>
+      <td>
+        <select style="width:40px;" id="dropdown" class="form-select form-select-sm" aria-label="Default select example">
+  <option  selected></option>
+  <option value="/admin/orders/{@id}/delete">Update</option>
+  <option value="/admin/orders/{@id}/delete">Delete</option>
+  <option value="/admin/orders/{@id}/details">Details</option>
+</select>
+      </td>
+    </tr>
+    </xsl:for-each>
+  </tbody>
+</table>
+</div>
                     </div>
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('dropdown').addEventListener('change', function () {
+    const url = this.value;
+    if (url !== 'default') {
+      window.location.href = url; // Redirect to the selected URL
+    }
+  });
+    </script>
             </body>
         </html>
     </xsl:template>

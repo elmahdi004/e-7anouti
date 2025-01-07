@@ -28,7 +28,7 @@
         </button>
     </div>
     <div class="logout-section">
-            <a href="">Logout</a>
+            <a href="/logout">Logout</a>
     </div>
     <div class="main row">
         <div class="dashboard" id="dashboard">
@@ -86,7 +86,7 @@
                                 <div class="icon">
                                         <img src="/icons/dashboard/Orders.png" width="20px"/>
                                 </div>
-                                <h4>Orders for admin</h4>
+                                <h4>Orders</h4>
                             </a>
                         </div>
                     </li>
@@ -94,13 +94,13 @@
                     </xsl:for-each>
                     <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
                     <xsl:if test="@id = 6">
-                    <li class="/admin/orders">
+                    <li class="">
                         <div>
-                            <a href="/vehicles" style="display:flex;column-gap:10px;">
+                            <a href="/admin/orders" style="display:flex;column-gap:10px;">
                                 <div class="icon">
                                         <img src="/icons/dashboard/Orders.png" width="20px"/>
                                 </div>
-                                <h4>Orders</h4>
+                                <h4>My Orders</h4>
                             </a>
                         </div>
                     </li>
