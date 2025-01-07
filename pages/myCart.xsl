@@ -44,9 +44,9 @@
                 <a href="/myCart" class="profile one">
                     <img src="/icons/bag.svg" alt="bag"/>
                 </a>
-                <div class="profile two">
-                    <img src="./images/avatar.png" alt="bag"/>
-                </div>
+                <a class="profile two" href="/login">
+                    <img src="/images/avatar.png" alt="bag"/>
+                </a>
             </div>
         </div>
     </div>

@@ -330,6 +330,40 @@ res.status(500).send("An error occurred during XSLT transformation.");
 });
 
 
+app.get("/orders", async (req, res) => {
+    try {
+    if(!req.cookies.lang){
+        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+    }
+
+// Read XML and XSLT files
+const xmlData = await fs.readFile("./data/data.xml", "utf8");
+const xslData = await fs.readFile("./pages/admin/orders/index.xsl", "utf8");
+// Initialize the Xslt and XmlParser classes
+const options = {
+    escape: false,
+    selfClosingTags: true,
+    parameters: [{ name:"lang",value: req.cookies.lang }],
+    outputMethod: 'xml'
+  };
+
+const xslt = new Xslt(options);
+const xmlParser = new XmlParser();
+
+
+const outXmlString = await xslt.xsltProcess(
+    xmlParser.xmlParse(xmlData),
+    xmlParser.xmlParse(xslData)
+);
+// Send the transformed HTML to the client
+res.set("Content-Type", "text/html");
+res.send(outXmlString); // Transformed XML or HTML as string
+} catch (error) {
+console.error("Error during XSLT transformation:", error);
+res.status(500).send("An error occurred during XSLT transformation.");
+}
+});
+
 // // Start the server 
 app.listen(port, () => {
     console.log(`App is running at http://localhost:${port}`);

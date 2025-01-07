@@ -129,7 +129,7 @@
                 <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
             <price currency="DH">11.20</price>
-            <pre_price currency="DH">12.20</price>
+            <pre_price currency="DH">12.20</pre_price>
             <stock>50</stock>
             <image>lait1.webp</image>
         </product>
@@ -145,7 +145,7 @@
                 <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
             <price currency="DH">11.20</price>
-            <pre_price currency="DH">12.20</price>
+            <pre_price currency="DH">12.20</pre_price>
             <stock>50</stock>
             <image>lait2.webp</image>
         </product>
@@ -161,7 +161,7 @@
                 <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
             <price currency="DH">74.20</price>
-            <pre_price currency="DH">12.20</price>
+            <pre_price currency="DH">12.20</pre_price>
             <stock>50</stock>
             <image>lait3.webp</image>
         </product>
@@ -177,7 +177,7 @@
                 <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
             <price currency="DH">25.20</price>
-            <pre_price currency="DH">12.20</price>
+            <pre_price currency="DH">12.20</pre_price>
             <stock>50</stock>
             <image>Boulangerie1.webp</image>
         </product>
@@ -193,7 +193,7 @@
                 <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
             <price currency="DH">25.20</price>
-            <pre_price currency="DH">12.20</price>
+            <pre_price currency="DH">12.20</pre_price>
             <stock>50</stock>
             <image>Boulangerie.webp</image>
         </product>
@@ -209,7 +209,7 @@
                 <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
             <price currency="DH">25.20</price>
-            <pre_price currency="DH">12.20</price>
+            <pre_price currency="DH">12.20</pre_price>
             <stock>50</stock>
             <image>Sea.webp</image>
         </product>
@@ -229,7 +229,7 @@ Contenance : 4 x 250 ml = 1 L.</lang>
                 <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
             <price currency="DH">65.20</price>
-            <pre_price currency="DH">12.20</price>
+            <pre_price currency="DH">12.20</pre_price>
             <stock>50</stock>
             <image>boi.webp</image>
         </product>
@@ -247,7 +247,7 @@ Contenance : 50 cl.</lang>
                 <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
             <price currency="DH">15.20</price>
-            <pre_price currency="DH">12.20</price>
+            <pre_price currency="DH">12.20</pre_price>
             <stock>50</stock>
             <image>boi2.webp</image>
         </product>
@@ -267,7 +267,7 @@ Contenance : 184 g.</lang>
                 <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
             <price currency="DH">15.20</price>
-            <pre_price currency="DH">12.20</price>
+            <pre_price currency="DH">12.20</pre_price>
             <stock>50</stock>
             <image>mil.webp</image>
         </product>
@@ -285,67 +285,107 @@ Contenance : 100 ml.</lang>
                 <lang code="ar">تفاح أحمر وعصير</lang>
             </description>
             <price currency="DH">12.20</price>
-            <pre_price currency="DH">12.20</price>
+            <pre_price currency="DH">12.20</pre_price>
             <stock>50</stock>
             <image>mil2.webp</image>
         </product>
         
     </products>
-    <!-- Users  -->
+    <!-- Users  Data-->
 
-    <users>
-    <user>
-        <ID>1</ID>
-        <Name>John Doe</Name>
-        <Email>johndoe@example.com</Email>
+<users>
+    <user id="1" role="1">
+        <firstName>El Mahdi</firstName>
+        <lastName>Bellaziz</lastName>
+        <email>johndoe@example.com</email>
+        <password>12345678</password>
     </user>
-    <user>
-        <ID>2</ID>
-        <Name>Jane Smith</Name>
-        <Email>janesmith@example.com</Email>
+    <user id="2" role="2">
+        <firstName>Mohamed</firstName>
+        <lastName>ben ali</lastName>
+        <email>johndoe@example.com</email>
+        <password>12345678</password>
     </user>
-    <user>
-        <ID>3</ID>
-        <Name>Michael Brown</Name>
-        <Email>michaelbrown@example.com</Email>
-    </user>
-    <user>
-        <ID>4</ID>
-        <Name>Emily Davis</Name>
-        <Email>emilydavis@example.com</Email>
-    </user>
-    <user>
-        <ID>5</ID>
-        <Name>Chris Johnson</Name>
-        <Email>chrisjohnson@example.com</Email>
-    </user>
-    <user>
-        <ID>6</ID>
-        <Name>Sarah Lee</Name>
-        <Email>sarahlee@example.com</Email>
-    </user>
-    <user>
-        <ID>7</ID>
-        <Name>David Wilson</Name>
-        <Email>davidwilson@example.com</Email>
-    </user>
-    <user>
-        <ID>8</ID>
-        <Name>Anna Martinez</Name>
-        <Email>annamartinez@example.com</Email>
-    </user>
-    <user>
-        <ID>9</ID>
-        <Name>James Taylor</Name>
-        <Email>jamestaylor@example.com</Email>
-    </user>
-    <user>
-        <ID>10</ID>
-        <Name>Laura Harris</Name>
-        <Email>lauraharris@example.com</Email>
+    <user id="3" role="3">
+        <firstName>khalid</firstName>
+        <lastName>simo</lastName>
+        <email>johndoe@example.com</email>
+        <password>12345678</password>
     </user>
 </users>
 
 
+
+
+<!-- Roles and permissions Data -->
+
+
+
+<permissions>
+        <permission id="1">Manage Users</permission>
+        <permission id="2">Edit Content</permission>
+        <permission id="3">View Reports</permission>
+        <permission id="4">Delete Data</permission>
+    </permissions>
+    
+    <roles>
+        <role id="1">
+            <name>Admin</name>
+            <permission-id>1</permission-id>
+            <permission-id>2</permission-id>
+            <permission-id>3</permission-id>
+            <permission-id>4</permission-id>
+        </role>
+        <role id="2">
+            <name>Manager</name>
+            <permission-id>2</permission-id>
+            <permission-id>3</permission-id>
+        </role>
+        <role id="3">
+            <name>Client</name>
+            <permission-id>3</permission-id>
+        </role>
+    </roles>
+
+
+
+<!--  My Cart Data  -->
+
+<Carts>
+
+    <Cart user="1">
+        <item product="2">
+            <quantity>3</quantity>
+        </item>
+        <item product="2">
+            <quantity>3</quantity>
+        </item>
+        <item product="2">
+            <quantity>3</quantity>
+        </item>
+    </Cart>
+
+    <Cart user="2">
+        <item product="2">
+            <quantity>3</quantity>
+        </item>
+    </Cart>
+
+    <Cart user="3">
+        <item product="2">
+            <quantity>3</quantity>
+        </item>
+        <item product="2">
+            <quantity>3</quantity>
+        </item>
+        <item product="2">
+            <quantity>3</quantity>
+        </item>
+        <item product="2">
+            <quantity>3</quantity>
+        </item>
+    </Cart>
+
+</Carts>
 
 </Store>
