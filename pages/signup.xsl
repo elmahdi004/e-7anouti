@@ -54,12 +54,16 @@
     
     <div class="container"> 
         <div class="sign_up_section">
-            <h1>Login to your account </h1>
-            <p>You don’t have an account ? <a>register</a></p>
+            <h1>Create an account </h1>
+            <p>Already have an account ? <a href="/login">sign in</a></p>
             <form method="POST">
+            <div class="merge_input">
+                <input type="text" name="first_name" id="" placeholder="First name"/>
+                <input type="text" name="last_name" id="" placeholder="Last name"/>
+            </div>
                 <input type="text" name="email" id="" placeholder="Email address"/>
                 <input type="password" name="password" id="" placeholder="Password"/>
-                <button type="submit">Login</button>
+                <button type="submit">Sign up</button>
             </form>
         </div>
     </div>

@@ -45,3 +45,10 @@ width: 100%;
     border: none;
     cursor: pointer;
 }
+.merge_input{
+    display: flex;
+    column-gap: 20px;
+}
+.merge_input > input{
+    width: 50%;
+}
