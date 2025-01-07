@@ -303,14 +303,14 @@ Contenance : 100 ml.</lang>
     <user id="2" role="2">
         <firstName>Mohamed</firstName>
         <lastName>ben ali</lastName>
-        <email>johndoe@example.com</email>
-        <password>12345678</password>
+        <email>manager</email>
+        <password>manager</password>
     </user>
     <user id="3" role="3">
         <firstName>khalid</firstName>
         <lastName>simo</lastName>
-        <email>johndoe@example.com</email>
-        <password>12345678</password>
+        <email>client</email>
+        <password>client</password>
     </user>
 </users>
 
@@ -323,27 +323,35 @@ Contenance : 100 ml.</lang>
 
 <permissions>
         <permission id="1">Manage Users</permission>
-        <permission id="2">Edit Content</permission>
-        <permission id="3">View Reports</permission>
-        <permission id="4">Delete Data</permission>
+        <permission id="2">Manage products</permission>
+        <permission id="3">Manage orders</permission>
+        <permission id="4">view products</permission>
+        <permission id="5">place an order</permission>
+        <permission id="6">view orders</permission>
+        <permission id="7">Manage Roles</permission>
     </permissions>
     
     <roles>
         <role id="1">
             <name>Admin</name>
-            <permission-id>1</permission-id>
-            <permission-id>2</permission-id>
-            <permission-id>3</permission-id>
-            <permission-id>4</permission-id>
+            <permission-id id="1"/>
+            <permission-id id="2"/>
+            <permission-id id="3"/>
+            <permission-id id="4"/>
+            <permission-id id="5"/>
+            <permission-id id="7"/>
         </role>
         <role id="2">
             <name>Manager</name>
-            <permission-id>2</permission-id>
-            <permission-id>3</permission-id>
+            <permission-id id="2"/>
+            <permission-id id="3"/>
+            <permission-id id="4"/>
         </role>
         <role id="3">
             <name>Client</name>
-            <permission-id>3</permission-id>
+            <permission-id id="4"/>
+            <permission-id id="5"/>
+            <permission-id id="6"/>
         </role>
     </roles>
 

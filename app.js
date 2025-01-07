@@ -246,8 +246,8 @@ app.get("/admin", isAuthenticatedMiddleware ,async (req, res) => {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
     }
-    console.log(req.session.user['$'].id);
 const authUser = req.session.user['$'].id
+const authRole = req.session.user['$'].role
 // Read XML and XSLT files
 const xmlData = await fs.readFile("./data/data.xml", "utf8");
 const xslData = await fs.readFile("./pages/admin/index.xsl", "utf8");
@@ -256,7 +256,7 @@ const xslData = await fs.readFile("./pages/admin/index.xsl", "utf8");
 const options = {
     escape: false,
     selfClosingTags: true,
-    parameters: [{ name:"lang",value: req.cookies.lang },{name:"authUser",value:authUser}],
+    parameters: [{ name:"lang",value: req.cookies.lang },{name:"authUser",value:authUser},{name:"authRole",value:authRole}],
     outputMethod: 'xml'
   };
 
@@ -411,7 +411,8 @@ app.get("/orders", isAuthenticatedMiddleware ,async (req, res) => {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
     }
-
+    const authUser = req.session.user['$'].id
+    const authRole = req.session.user['$'].role
 // Read XML and XSLT files
 const xmlData = await fs.readFile("./data/data.xml", "utf8");
 const xslData = await fs.readFile("./pages/admin/orders/index.xsl", "utf8");
@@ -419,7 +420,7 @@ const xslData = await fs.readFile("./pages/admin/orders/index.xsl", "utf8");
 const options = {
     escape: false,
     selfClosingTags: true,
-    parameters: [{ name:"lang",value: req.cookies.lang }],
+    parameters: [{ name:"lang",value: req.cookies.lang },{name:"authUser",value:authUser},{name:"authRole",value:authRole}],
     outputMethod: 'xml'
   };
 

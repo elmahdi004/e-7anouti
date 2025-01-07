@@ -2,6 +2,8 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:param name="lang"/>
 <xsl:param name="authUser"/>
+<xsl:param name="authRole"/>
+
     <xsl:output method="html" indent="yes"/>
     <xsl:template match="/">
         <html>
@@ -13,7 +15,7 @@
             </xsl:attribute>
             <head>
                 <title>Product List</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <!-- Optional Bootstrap JavaScript Bundle (with Popper.js) -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>                <link rel="stylesheet" href="/style/style.css"/> -->
                 <link rel="stylesheet" href="/style/admin.css"/>
@@ -38,9 +40,9 @@
             </div>
             <div class="select">
                 <ul>
-                    <li class="">
+                    <li class="active">
                             <div>
-                                <a href="" style="display:flex;column-gap:10px;">
+                                <a href="/admin" style="display:flex;column-gap:10px;">
                                     <div class="icon">
                                         <img src="/icons/dashboard/dashboard.png" width="20px"/>
                                     </div>
@@ -48,9 +50,11 @@
                                 </a>
                             </div>
                     </li>
+                    <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
+                    <xsl:if test="@id = 2">
                     <li class="">
                         <div>
-                            <a href="/vehicles" style="display:flex;column-gap:10px;">
+                            <a href="/admin/products" style="display:flex;column-gap:10px;">
                                 <div class="icon">
                                         <img src="/icons/dashboard/Products.png" width="20px"/>
                                 </div>
@@ -58,9 +62,13 @@
                             </a>
                         </div>
                     </li>
+                    </xsl:if>
+                    </xsl:for-each>
+                    <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
+                    <xsl:if test="@id = 1">
                     <li class="">
                         <div>
-                            <a href="/vehicles" style="display:flex;column-gap:10px;">
+                            <a href="/admin/clients" style="display:flex;column-gap:10px;">
                                 <div class="icon">
                                         <img src="/icons/dashboard/Users.png" width="20px"/>
                                 </div>
@@ -68,7 +76,25 @@
                             </a>
                         </div>
                     </li>
-                    <li class="active">
+                    </xsl:if>
+                    </xsl:for-each>
+                    <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
+                    <xsl:if test="@id = 3">
+                    <li class="">
+                        <div>
+                            <a href="/admin/m-orders" style="display:flex;column-gap:10px;">
+                                <div class="icon">
+                                        <img src="/icons/dashboard/Orders.png" width="20px"/>
+                                </div>
+                                <h4>Orders for admin</h4>
+                            </a>
+                        </div>
+                    </li>
+                    </xsl:if>
+                    </xsl:for-each>
+                    <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
+                    <xsl:if test="@id = 6">
+                    <li class="/admin/orders">
                         <div>
                             <a href="/vehicles" style="display:flex;column-gap:10px;">
                                 <div class="icon">
@@ -78,9 +104,13 @@
                             </a>
                         </div>
                     </li>
+                    </xsl:if>
+                    </xsl:for-each>
+                    <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
+                    <xsl:if test="@id = 7">
                     <li class="">
                         <div>
-                            <a href="/vehicles" style="display:flex;column-gap:10px;">
+                            <a href="/admin/roles" style="display:flex;column-gap:10px;">
                                 <div class="icon">
                                         <img src="/icons/dashboard/Roles.png" width="20px"/>
                                 </div>
@@ -88,7 +118,8 @@
                             </a>
                         </div>
                     </li>
-                    
+                    </xsl:if>
+                    </xsl:for-each>
                 </ul>
             </div>
         </div>
@@ -122,7 +153,7 @@
                                 <span></span>
                             </div>
                             <div class="user">
-                                <p>Hello, <span>El Mahdi bellaziz</span></p>
+                                <p>Hello, <span><xsl:value-of select="/Store/users/user[@id=$authUser]/firstName"/> <span>&nbsp;</span> <xsl:value-of select="/Store/users/user[@id=$authUser]/lastName"/></span></p>
                                 <div class="user-image">
                                     <img src="/images/avatar.png" alt="user image" srcset=""/>
                                 </div>
@@ -130,37 +161,8 @@
                         </div>
                     </div>
                     <div class="body">
-                    <h1 style="font-size:20px;">Orders list</h1>
-                        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-          <td>1</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-          <td>1</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-  </tbody>
-</table>
+                        Put your content here
+                        <button class="btn btn-primary">Oky</button>
                     </div>
             </div>
         </div>

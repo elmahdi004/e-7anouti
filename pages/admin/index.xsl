@@ -2,6 +2,8 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:param name="lang"/>
 <xsl:param name="authUser"/>
+<xsl:param name="authRole"/>
+
     <xsl:output method="html" indent="yes"/>
     <xsl:template match="/">
         <html>
@@ -32,8 +34,7 @@
         <div class="dashboard" id="dashboard">
             <div class="logo">
                 <div>
-                                        <xsl:value-of select="$authUser"/>
-
+                    LOGO
                 </div>
 
             </div>
@@ -41,7 +42,7 @@
                 <ul>
                     <li class="active">
                             <div>
-                                <a href="" style="display:flex;column-gap:10px;">
+                                <a href="/admin" style="display:flex;column-gap:10px;">
                                     <div class="icon">
                                         <img src="/icons/dashboard/dashboard.png" width="20px"/>
                                     </div>
@@ -49,9 +50,11 @@
                                 </a>
                             </div>
                     </li>
+                    <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
+                    <xsl:if test="@id = 2">
                     <li class="">
                         <div>
-                            <a href="/vehicles" style="display:flex;column-gap:10px;">
+                            <a href="/admin/products" style="display:flex;column-gap:10px;">
                                 <div class="icon">
                                         <img src="/icons/dashboard/Products.png" width="20px"/>
                                 </div>
@@ -59,9 +62,13 @@
                             </a>
                         </div>
                     </li>
+                    </xsl:if>
+                    </xsl:for-each>
+                    <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
+                    <xsl:if test="@id = 1">
                     <li class="">
                         <div>
-                            <a href="/vehicles" style="display:flex;column-gap:10px;">
+                            <a href="/admin/clients" style="display:flex;column-gap:10px;">
                                 <div class="icon">
                                         <img src="/icons/dashboard/Users.png" width="20px"/>
                                 </div>
@@ -69,7 +76,25 @@
                             </a>
                         </div>
                     </li>
+                    </xsl:if>
+                    </xsl:for-each>
+                    <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
+                    <xsl:if test="@id = 3">
                     <li class="">
+                        <div>
+                            <a href="/admin/m-orders" style="display:flex;column-gap:10px;">
+                                <div class="icon">
+                                        <img src="/icons/dashboard/Orders.png" width="20px"/>
+                                </div>
+                                <h4>Orders for admin</h4>
+                            </a>
+                        </div>
+                    </li>
+                    </xsl:if>
+                    </xsl:for-each>
+                    <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
+                    <xsl:if test="@id = 6">
+                    <li class="/admin/orders">
                         <div>
                             <a href="/vehicles" style="display:flex;column-gap:10px;">
                                 <div class="icon">
@@ -79,9 +104,13 @@
                             </a>
                         </div>
                     </li>
+                    </xsl:if>
+                    </xsl:for-each>
+                    <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
+                    <xsl:if test="@id = 7">
                     <li class="">
                         <div>
-                            <a href="/vehicles" style="display:flex;column-gap:10px;">
+                            <a href="/admin/roles" style="display:flex;column-gap:10px;">
                                 <div class="icon">
                                         <img src="/icons/dashboard/Roles.png" width="20px"/>
                                 </div>
@@ -89,7 +118,8 @@
                             </a>
                         </div>
                     </li>
-                    
+                    </xsl:if>
+                    </xsl:for-each>
                 </ul>
             </div>
         </div>
@@ -123,7 +153,7 @@
                                 <span></span>
                             </div>
                             <div class="user">
-                                <p>Hello, <span>El Mahdi bellaziz</span></p>
+                                <p>Hello, <span><xsl:value-of select="/Store/users/user[@id=$authUser]/firstName"/> <span>&nbsp;</span> <xsl:value-of select="/Store/users/user[@id=$authUser]/lastName"/></span></p>
                                 <div class="user-image">
                                     <img src="/images/avatar.png" alt="user image" srcset=""/>
                                 </div>
