@@ -13,7 +13,6 @@
             <head>
                 <title>Product List</title>
                 <link rel="stylesheet" href="/style/style.css"/>
-
             </head>
             <body>
             <div class="section_one">
@@ -45,12 +44,12 @@
                 </div>
             </div>
             <div class="part_two">
-                <div class="profile one">
+                <a href="/myCart" class="profile one">
                     <img src="./icons/bag.svg" alt="bag"/>
-                </div>
-                <div class="profile two">
-                    <img src="./images/avatar.png" alt="bag"/>
-                </div>
+                </a>
+                <a class="profile two" href="/admin">
+                    <img src="/images/avatar.png" alt="bag"/>
+                </a>
             </div>
         </div>
     </div>
@@ -89,216 +88,36 @@
     <div class="products_section">
         <h1><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='ourProducts']"/></h1>
         <div class="container">
-            <div class="products">
-                <div class="product">
+                    <div class="products">
+        <xsl:for-each select="/Store/products/product">
+                <a class="product" href="/products/{@id}">
                     <div class="image_section">
-                        <img src="./images/jamila-cup 1.png" alt="product image" srcset=""/>
+                        <img src="/images/products/{image}" alt="product image" srcset=""/>
                     </div>
                     <div class="infos-sections">
                         <div class="rating">
                             <div class="stars">
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star-wc.svg" alt="star" srcset=""/>
+                                <img src="/icons/star.svg" alt="star" srcset=""/>
+                                <img src="/icons/star.svg" alt="star" srcset=""/>
+                                <img src="/icons/star.svg" alt="star" srcset=""/>
+                                <img src="/icons/star.svg" alt="star" srcset=""/>
+                                <img src="/icons/star-wc.svg" alt="star" srcset=""/>
                             </div>
                             <div class="add">
-                                <img src="./icons/material-symbols_add.svg" alt="add icon" srcset=""/>
+                                <img src="/icons/material-symbols_add.svg" alt="add icon" srcset=""/>
                             </div>
                         </div>
                         <div class="title">
-                            <h1>Danone dan’up </h1>
+                            <h1><xsl:value-of select="name/lang[@code=$lang]"/></h1>
                         </div>
                         <div class="pricing">
-                            <h1>$5.99</h1>
-                            <h2>$10.99</h2>
+                            <h1>MAD<xsl:value-of select="price"/></h1>
+                            <h2>MAD<xsl:value-of select="pre_price"/></h2>
                         </div>
                     </div>
-                </div>
-                <div class="product">
-                    <div class="image_section">
-                        <img src="./images/jamila-cup 1.png" alt="product image" srcset=""/>
-                    </div>
-                    <div class="infos-sections">
-                        <div class="rating">
-                            <div class="stars">
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star-wc.svg" alt="star" srcset=""/>
-                            </div>
-                            <div class="add">
-                                <img src="./icons/material-symbols_add.svg" alt="add icon" srcset=""/>
-                            </div>
-                        </div>
-                        <div class="title">
-                            <h1>Danone dan’up </h1>
-                        </div>
-                        <div class="pricing">
-                            <h1>$5.99</h1>
-                            <h2>$10.99</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="image_section">
-                        <img src="./images/jamila-cup 1.png" alt="product image" srcset=""/>
-                    </div>
-                    <div class="infos-sections">
-                        <div class="rating">
-                            <div class="stars">
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star-wc.svg" alt="star" srcset=""/>
-                            </div>
-                            <div class="add">
-                                <img src="./icons/material-symbols_add.svg" alt="add icon" srcset=""/>
-                            </div>
-                        </div>
-                        <div class="title">
-                            <h1>Danone dan’up </h1>
-                        </div>
-                        <div class="pricing">
-                            <h1>$5.99</h1>
-                            <h2>$10.99</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="image_section">
-                        <img src="./images/jamila-cup 1.png" alt="product image" srcset=""/>
-                    </div>
-                    <div class="infos-sections">
-                        <div class="rating">
-                            <div class="stars">
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star-wc.svg" alt="star" srcset=""/>
-                            </div>
-                            <div class="add">
-                                <img src="./icons/material-symbols_add.svg" alt="add icon" srcset=""/>
-                            </div>
-                        </div>
-                        <div class="title">
-                            <h1>Danone dan’up </h1>
-                        </div>
-                        <div class="pricing">
-                            <h1>$5.99</h1>
-                            <h2>$10.99</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="image_section">
-                        <img src="./images/jamila-cup 1.png" alt="product image" srcset=""/>
-                    </div>
-                    <div class="infos-sections">
-                        <div class="rating">
-                            <div class="stars">
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star-wc.svg" alt="star" srcset=""/>
-                            </div>
-                            <div class="add">
-                                <img src="./icons/material-symbols_add.svg" alt="add icon" srcset=""/>
-                            </div>
-                        </div>
-                        <div class="title">
-                            <h1>Danone dan’up </h1>
-                        </div>
-                        <div class="pricing">
-                            <h1>$5.99</h1>
-                            <h2>$10.99</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="image_section">
-                        <img src="./images/jamila-cup 1.png" alt="product image" srcset=""/>
-                    </div>
-                    <div class="infos-sections">
-                        <div class="rating">
-                            <div class="stars">
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star-wc.svg" alt="star" srcset=""/>
-                            </div>
-                            <div class="add">
-                                <img src="./icons/material-symbols_add.svg" alt="add icon" srcset=""/>
-                            </div>
-                        </div>
-                        <div class="title">
-                            <h1>Danone dan’up </h1>
-                        </div>
-                        <div class="pricing">
-                            <h1>$5.99</h1>
-                            <h2>$10.99</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="image_section">
-                        <img src="./images/jamila-cup 1.png" alt="product image" srcset=""/>
-                    </div>
-                    <div class="infos-sections">
-                        <div class="rating">
-                            <div class="stars">
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star-wc.svg" alt="star" srcset=""/>
-                            </div>
-                            <div class="add">
-                                <img src="./icons/material-symbols_add.svg" alt="add icon" srcset=""/>
-                            </div>
-                        </div>
-                        <div class="title">
-                            <h1>Danone dan’up </h1>
-                        </div>
-                        <div class="pricing">
-                            <h1>$5.99</h1>
-                            <h2>$10.99</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="image_section">
-                        <img src="./images/jamila-cup 1.png" alt="product image" srcset=""/>
-                    </div>
-                    <div class="infos-sections">
-                        <div class="rating">
-                            <div class="stars">
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star.svg" alt="star" srcset=""/>
-                                <img src="./icons/star-wc.svg" alt="star" srcset=""/>
-                            </div>
-                            <div class="add">
-                                <img src="./icons/material-symbols_add.svg" alt="add icon" srcset=""/>
-                            </div>
-                        </div>
-                        <div class="title">
-                            <h1>Danone dan’up </h1>
-                        </div>
-                        <div class="pricing">
-                            <h1>$5.99</h1>
-                            <h2>$10.99</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </div>  
+            </a>
+            </xsl:for-each>
         </div>
         <div class="discover">
             <button id="discover"><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='discoverMore']"/></button>
