@@ -362,14 +362,14 @@ Contenance : 100 ml.</lang>
 <Carts>
 
     <Cart user="1">
-        <item product="2">
-            <quantity>3</quantity>
+        <item product="1">
+            <quantity>5</quantity>
         </item>
         <item product="2">
             <quantity>3</quantity>
         </item>
-        <item product="2">
-            <quantity>3</quantity>
+        <item product="5">
+            <quantity>2</quantity>
         </item>
     </Cart>
 

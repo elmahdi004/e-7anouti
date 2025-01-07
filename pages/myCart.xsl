@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:param name="lang"/>
+<xsl:param name="authUser"/>
     <xsl:output method="html" indent="yes"/>
     <xsl:template match="/">
         <html>
@@ -71,60 +72,39 @@
                             <p>Total Price</p>
                         </div>
                     </div>
+                    <xsl:if test="$authUser != 0">
+                    <xsl:for-each select="/Store/Carts/Cart[@user=$authUser]/item">
                     <div class="cart_item" style="margin-top: 20px;">
                         <div class="item_1">
                             <div class="details">
+                                                                <xsl:variable name="product" select="@product"/>
                                 <div class="img">
-                                    <img src="./images/jamila-cup 1.png" alt="image" srcset=""/>
+                                    <img src="./images/products/{/Store/products/product[@id = $product]/image}" alt="image" srcset=""/>
                                 </div>
                                 <div class="content">
-                                    <span class="cat">Category name</span>
-                                    <span class="title">RaiBi jamila by danone</span>
+                                    <span class="cat"><xsl:value-of select="/Store/categories/category[@id = /Store/products/product[@id = $product]/@category-id]/name/lang[@code=$lang]"/></span>
+                                    <span class="title"><xsl:value-of select="/Store/products/product[@id = $product]/name/lang[@code=$lang]"/></span>
                                 </div>
                             </div>
                         </div>
                         <div class="item_2">
-                            <p>10.99 MAD</p>
+                            <p><xsl:value-of select="/Store/products/product[@id = $product]/price"/><span> MAD</span></p>
                         </div>
                         <div class="item_3">
                             <div class="qte">
                                 <button class="add"><img src="./icons/add.svg" alt=""/></button>
-                                <span>3</span>
+                                <span><xsl:value-of select="quantity"/></span>
                                 <button class="moins"><img src="./icons/moins.svg" alt=""/></button>
                             </div>
                         </div>
                         <div class="item_4">
-                            <p>30.99 MAD</p>
+                            <xsl:variable name="quantity" select="quantity"/>
+                            <p><xsl:value-of select="/Store/products/product[@id = $product]/price"/><span> MAD</span></p>
                         </div>
                     </div>
                     <div class="line"><span></span></div>
-                    <div class="cart_item">
-                        <div class="item_1">
-                            <div class="details">
-                                <div class="img">
-                                    <img src="./images/jamila-cup 1.png" alt="image" srcset=""/>
-                                </div>
-                                <div class="content">
-                                    <span class="cat">Category name</span>
-                                    <span class="title">RaiBi jamila by danone</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item_2">
-                            <p>10.99 MAD</p>
-                        </div>
-                        <div class="item_3">
-                            <div class="qte">
-                                <button class="add"><img src="./icons/add.svg" alt=""/></button>
-                                <span>3</span>
-                                <button class="moins"><img src="./icons/moins.svg" alt=""/></button>
-                            </div>
-                        </div>
-                        <div class="item_4">
-                            <p>30.99 MAD</p>
-                        </div>
-                    </div>
-                    <div class="line"><span></span></div>
+                    </xsl:for-each>
+                    </xsl:if>
                 </div>
             <div class="shopping_address">
                 <h2>Shipping Address</h2>

@@ -211,6 +211,7 @@ app.get("/myCart", async (req, res) => {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
     }
+    const authUser = req.session.user['$'].id ? req.session.user['$'].id : 0 ;
 
 // Read XML and XSLT files
 const xmlData = await fs.readFile("./data/data.xml", "utf8");
@@ -220,7 +221,7 @@ const xslData = await fs.readFile("./pages/myCart.xsl", "utf8");
 const options = {
     escape: false,
     selfClosingTags: true,
-    parameters: [{ name:"lang",value: req.cookies.lang }],
+    parameters: [{ name:"lang",value: req.cookies.lang },{name:"authUser",value:authUser}],
     outputMethod: 'xml'
   };
 
