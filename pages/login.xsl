@@ -45,7 +45,7 @@
                 <a href="/myCart" class="profile one">
                     <img src="/icons/bag.svg" alt="bag"/>
                 </a>
-                <a class="profile two" href="/login">
+                <a class="profile two" href="/admin">
                     <img src="/images/avatar.png" alt="bag"/>
                 </a>
             </div>
@@ -56,7 +56,7 @@
         <div class="sign_up_section">
             <h1>Login to your account </h1>
             <p>You don’t have an account ? <a href="/signup">register</a></p>
-            <form method="POST">
+            <form method="POST" action="/login">
                 <input type="text" name="email" id="" placeholder="Email address"/>
                 <input type="password" name="password" id="" placeholder="Password"/>
                 <button type="submit">Login</button>

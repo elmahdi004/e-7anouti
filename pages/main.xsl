@@ -42,7 +42,7 @@
                 <a href="/myCart" class="profile one">
                     <img src="./icons/bag.svg" alt="bag"/>
                 </a>
-                <a class="profile two" href="/login">
+                <a class="profile two" href="/admin">
                     <img src="/images/avatar.png" alt="bag"/>
                 </a>
             </div>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:param name="lang"/>
+<xsl:param name="authUser"/>
     <xsl:output method="html" indent="yes"/>
     <xsl:template match="/">
         <html>
@@ -31,7 +32,8 @@
         <div class="dashboard" id="dashboard">
             <div class="logo">
                 <div>
-                    LOGO
+                                        <xsl:value-of select="$authUser"/>
+
                 </div>
 
             </div>

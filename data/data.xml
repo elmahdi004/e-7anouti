@@ -5,7 +5,7 @@
 
 <!-- languages Data -->
     <languages>
-            <lang code="en">
+        <lang code="en">
         <content key="main-title">We bring store to your dore</content>
         <content key="sub_title">We help you to give fresh food items in your door very fast just order your disire products.</content>
         <content key="shopButton">Shop Now</content>
@@ -297,8 +297,8 @@ Contenance : 100 ml.</lang>
     <user id="1" role="1">
         <firstName>El Mahdi</firstName>
         <lastName>Bellaziz</lastName>
-        <email>johndoe@example.com</email>
-        <password>12345678</password>
+        <email>admin</email>
+        <password>admin</password>
     </user>
     <user id="2" role="2">
         <firstName>Mohamed</firstName>

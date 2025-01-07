@@ -1,14 +1,29 @@
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
+const bodyParser = require('body-parser');
+
 
 const fs = require("fs").promises;
 const { Xslt, XmlParser } = require("xslt-processor");
 
 const cookieParser = require('cookie-parser');
 
+const session = require('express-session');
+const xml2js = require('xml2js');
+
+
 const app = express();
 const port = 3000;
+
+app.use(session({
+    secret: 'secret-key',
+    resave: false,
+    saveUninitialized: true,
+  }));
+
+  const parser = new xml2js.Parser();
+  const builder = new xml2js.Builder();
 
 // Set up multer to store uploaded files temporarily
 const upload = multer({ dest: "./temp" });
@@ -16,6 +31,9 @@ const upload = multer({ dest: "./temp" });
 // Middleware to serve static files
 app.use(express.static("public"));
 app.use(cookieParser());
+
+app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
+app.use(bodyParser.json()); // For parsing application/json
 
 
 // the main page route
@@ -223,12 +241,13 @@ res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
 
-app.get("/admin", async (req, res) => {
+app.get("/admin", isAuthenticatedMiddleware ,async (req, res) => {
     try {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
     }
-
+    console.log(req.session.user['$'].id);
+const authUser = req.session.user['$'].id
 // Read XML and XSLT files
 const xmlData = await fs.readFile("./data/data.xml", "utf8");
 const xslData = await fs.readFile("./pages/admin/index.xsl", "utf8");
@@ -237,7 +256,7 @@ const xslData = await fs.readFile("./pages/admin/index.xsl", "utf8");
 const options = {
     escape: false,
     selfClosingTags: true,
-    parameters: [{ name:"lang",value: req.cookies.lang }],
+    parameters: [{ name:"lang",value: req.cookies.lang },{name:"authUser",value:authUser}],
     outputMethod: 'xml'
   };
 
@@ -294,6 +313,8 @@ res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
 
+// Login route
+
 app.get("/login", async (req, res) => {
     try {
     if(!req.cookies.lang){
@@ -330,7 +351,62 @@ res.status(500).send("An error occurred during XSLT transformation.");
 });
 
 
-app.get("/orders", async (req, res) => {
+// login handle route "POST"
+
+app.post("/login", async (req, res) => {
+
+    if(!req.cookies.lang){
+        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+    }
+
+
+
+const xmlData = await fs.readFile("./data/data.xml", "utf8");
+const xslData = await fs.readFile("./pages/login.xsl", "utf8");
+const xslData_2 = await fs.readFile("./pages/main.xsl", "utf8");
+
+const options = {
+    escape: false,
+    selfClosingTags: true,
+    parameters: [{ name:"lang",value: req.cookies.lang }],
+    outputMethod: 'xml'
+  };
+  const xslt = new Xslt(options);
+  const xmlParser = new XmlParser();
+
+const {email,password} = req.body;
+authenticate(email, password, async (err, authenticated) => {
+    if (authenticated) {
+      req.session.user = authenticated;
+      const outXmlString = await xslt.xsltProcess(
+        xmlParser.xmlParse(xmlData),
+        xmlParser.xmlParse(xslData_2)
+    );
+    res.set("Content-Type", "text/html");
+    res.send(outXmlString); 
+    
+    } else {
+        const outXmlString = await xslt.xsltProcess(
+            xmlParser.xmlParse(xmlData),
+            xmlParser.xmlParse(xslData)
+        );
+        res.set("Content-Type", "text/html");
+        res.send(outXmlString);  
+    }
+  });
+
+
+// Initialize the Xslt and XmlParser classes
+
+
+
+
+
+
+});
+
+
+app.get("/orders", isAuthenticatedMiddleware ,async (req, res) => {
     try {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
@@ -421,3 +497,35 @@ app.post("/langs", upload.single("langFile"), async (req, res) => {
 // Get all users (Read)
 
 // Get all users (Read)
+
+
+
+// Middelware section 
+
+function isAuthenticatedMiddleware(req, res, next) {
+    if (req.session.user) {
+      next();
+    } else {
+      res.redirect('/login');
+    }
+  }
+
+
+
+async function authenticate(username, password, callback) {
+    const dataXml = await fs.readFile("./data/data.xml", "utf8");
+    parser.parseString(dataXml, (err, result) => {
+        if (err) return callback(err);
+        
+        const users = result.Store.users[0].user;
+        const user = users.find(u => u.email[0] === username && u.password[0] === password);
+  
+        if (user) {
+            console.log("Has Been login");
+          callback(null, user);
+        } else {
+            console.log("You have an error please try again");
+          callback(null, false);
+        }
+      });
+  }
