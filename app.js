@@ -2,6 +2,10 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 
+const libxmljs = require('libxmljs2');
+
+
+
 const fs = require("fs").promises;
 const { Xslt, XmlParser } = require("xslt-processor");
 
@@ -213,6 +217,7 @@ app.get("/langs", (req, res) => {
     `);
 });
 // Route to handle uploaded XML file and append content to data.xml under <languages>
+
 app.post("/langs", upload.single("langFile"), async (req, res) => {
     if (!req.file || !req.body.language) {
         return res.status(400).send("Language and file are required.");
@@ -227,9 +232,12 @@ app.post("/langs", upload.single("langFile"), async (req, res) => {
         const uploadedContent = await fs.readFile(filePath, "utf8");
         const dataContent = await fs.readFile(dataPath, "utf8");
 
+        // Remove XML header from uploaded content
+        const cleanedUploadedContent = uploadedContent.replace(/<\?xml[^>]*\?>/, "").trim();
+
         // Check <lang> element with required attributes
         const langRegex = /<lang\s+code="([^"]+)"\s+title="([^"]+)"[^>]*>[\s\S]*?<\/lang>/;
-        const langMatch = uploadedContent.match(langRegex);
+        const langMatch = cleanedUploadedContent.match(langRegex);
 
         if (!langMatch) throw new Error("lang element n'a pas des attributes code ou title.");
 

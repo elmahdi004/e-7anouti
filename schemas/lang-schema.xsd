@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- Define the root element <lang> -->
+    <xs:element name="lang">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Define multiple <content> elements with a required key attribute -->
+                <xs:element name="content" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="key" type="xs:string" use="required"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <!-- Require both code and title attributes in <lang> -->
+            <xs:attribute name="code" type="xs:string" use="required"/>
+            <xs:attribute name="title" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
