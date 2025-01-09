@@ -201,12 +201,20 @@
         </div>
     </div>
     <script>
-        document.getElementById('dropdown').addEventListener('change', function () {
+        <!-- document.getElementById('dropdown').addEventListener('change', function () {
     const url = this.value;
     if (url !== 'default') {
       window.location.href = url; // Redirect to the selected URL
     }
-  });
+  }); -->
+  document.querySelectorAll('#dropdown').forEach(ele => {
+    ele.addEventListener('change', function() {
+    const url = this.value;
+    if (url !== 'default') {
+      window.location.href = url; // Redirect to the selected URL
+    }
+    });
+});
     </script>
             </body>
         </html>

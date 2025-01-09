@@ -396,9 +396,10 @@ Contenance : 100 ml.</lang>
 </Carts>
 
 
-<!-- Pending Processing Shipped Delivered-->
+<!-- Pending Processing Shipped Delivred-->
 <Orders>
     <Order id="1" user="1">
+    <orderItems>
         <item product="1">
             <quantity>5</quantity>
         </item>
@@ -408,6 +409,7 @@ Contenance : 100 ml.</lang>
         <item product="5">
             <quantity>2</quantity>
         </item>
+    </orderItems>
         <Date>2021-06-01</Date>
         <Staus>Pending</Staus>
         <Address>
@@ -418,6 +420,7 @@ Contenance : 100 ml.</lang>
         <OrderTotal>100</OrderTotal>
     </Order>
     <Order id="2" user="3">
+    <orderItems>
         <item product="1">
             <quantity>5</quantity>
         </item>
@@ -427,16 +430,18 @@ Contenance : 100 ml.</lang>
         <item product="5">
             <quantity>2</quantity>
         </item>
+    </orderItems>
         <Date>2021-06-01</Date>
-        <Staus>Pending</Staus>
+        <Staus>Processing</Staus>
         <Address>
             <city>Agadir</city>
             <street>Hay salam</street>
             <zip>80000</zip>
         </Address>
-                <OrderTotal>100</OrderTotal>
+                <OrderTotal>2000</OrderTotal>
     </Order>
     <Order id="3" user="3">
+    <orderItems>
         <item product="1">
             <quantity>5</quantity>
         </item>
@@ -446,8 +451,9 @@ Contenance : 100 ml.</lang>
         <item product="5">
             <quantity>2</quantity>
         </item>
+    </orderItems>
         <Date>2021-06-01</Date>
-        <Staus>Pending</Staus>
+        <Staus>Shipped</Staus>
         <Address>
             <city>Agadir</city>
             <street>Hay salam</street>
@@ -456,23 +462,25 @@ Contenance : 100 ml.</lang>
                 <OrderTotal>100</OrderTotal>
     </Order>
     <Order id="4" user="3">
-        <item product="1">
+    <orderItems>
+        <item product="10">
             <quantity>5</quantity>
         </item>
-        <item product="2">
+        <item product="7">
             <quantity>3</quantity>
         </item>
-        <item product="5">
+        <item product="1">
             <quantity>2</quantity>
         </item>
+    </orderItems>
         <Date>2021-06-01</Date>
-        <Staus>Pending</Staus>
+        <Staus>Delivred</Staus>
         <Address>
             <city>Agadir</city>
             <street>Hay salam</street>
             <zip>80000</zip>
         </Address>
-                <OrderTotal>100</OrderTotal>
+            <OrderTotal>500</OrderTotal>
     </Order>
 </Orders>
 

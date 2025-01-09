@@ -15,7 +15,7 @@
             </xsl:attribute>
             <head>
                 <title>Product List</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
         <!-- Optional Bootstrap JavaScript Bundle (with Popper.js) -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>                <link rel="stylesheet" href="/style/style.css"/> -->
                 <link rel="stylesheet" href="/style/admin.css"/>
@@ -171,17 +171,20 @@
       <th >Date</th>
       <th >Status</th>
       <th >Address</th>
+      <th >Client name</th>
       <th >Total</th>
       <th >Actions</th>
     </tr>
   </thead>
   <tbody>
   <xsl:for-each select="/Store/Orders/Order">
+  <xsl:variable name="userOrder" select="@user"/>
     <tr>
       <td><xsl:value-of select="@id"/></td>
       <td><xsl:value-of select="Date"/></td>
       <td><xsl:value-of select="Staus"/></td>
       <td><xsl:value-of select="Address/street"/><span>, </span><xsl:value-of select="Address/city"/><span>&nbsp;</span><xsl:value-of select="Address/zip"/><span></span></td>
+      <td><xsl:value-of select="/Store/users/user[@id=$userOrder]/firstName"/><span>&nbsp;</span><xsl:value-of select="/Store/users/user[@id=$userOrder]/lastName"/></td>
       <td><xsl:value-of select="OrderTotal"/><span> MAD</span></td>
       <td>
         <select style="width:40px;" id="dropdown" class="form-select form-select-sm" aria-label="Default select example">
@@ -201,12 +204,21 @@
         </div>
     </div>
     <script>
-        document.getElementById('dropdown').addEventListener('change', function () {
+        <!-- document.getElementById('dropdown').addEventListener('change', function () {
     const url = this.value;
     if (url !== 'default') {
       window.location.href = url; // Redirect to the selected URL
     }
-  });
+  }); -->
+
+document.querySelectorAll('#dropdown').forEach(ele => {
+    ele.addEventListener('change', function() {
+    const url = this.value;
+    if (url !== 'default') {
+      window.location.href = url; // Redirect to the selected URL
+    }
+    });
+});
     </script>
             </body>
         </html>
