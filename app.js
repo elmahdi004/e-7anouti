@@ -1,3 +1,4 @@
+const libxmljs = require("libxmljs2");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
@@ -486,7 +487,6 @@ app.get("/admin/langs", isAuthenticatedMiddleware, async (req, res) => {
 });
 
 // Route to handle the uploaded XML file and rename it according to the selected language
-
 app.post("/admin/langs", isAuthenticatedMiddleware, upload.single("langFile"), async (req, res) => {
     if (!req.file || !req.body.language) {
         return res.status(400).send("Language and file are required.");
@@ -495,51 +495,52 @@ app.post("/admin/langs", isAuthenticatedMiddleware, upload.single("langFile"), a
     const langCode = req.body.language;
     const filePath = req.file.path;
     const dataPath = path.join(__dirname, "./data/data.xml");
+    const schemaPath = path.join(__dirname, "./schemas/lang-schema.xsd");
 
     try {
-        // Read uploaded and existing XML files
+        // Read uploaded XML and schema files
         const uploadedContent = await fs.readFile(filePath, "utf8");
+        const schemaContent = await fs.readFile(schemaPath, "utf8");
+
+        // Parse XML and XSD
+        const xmlDoc = libxmljs.parseXml(uploadedContent);
+        const xsdDoc = libxmljs.parseXml(schemaContent);
+
+        // Validate XML against the schema
+        if (!xmlDoc.validate(xsdDoc)) {
+            const validationErrors = xmlDoc.validationErrors.map(err => err.message).join(", ");
+            throw new Error(`XML validation failed: ${validationErrors}`);
+        }
+
+        // Extract <lang> element attributes after validation
+        const langElement = xmlDoc.get("//lang");
+        const extractedCode = langElement.attr("code").value();
+        const extractedTitle = langElement.attr("title").value();
+
+        if (extractedCode !== langCode) {
+            throw new Error(`Code pas valid: ${extractedCode} !== ${langCode}`);
+        }
+
+        // Read existing data.xml and append new <lang> element
         const dataContent = await fs.readFile(dataPath, "utf8");
-
-        // Remove XML header from uploaded content
-        const cleanedUploadedContent = uploadedContent.replace(/<\?xml[^>]*\?>/, "").trim();
-
-        // Check <lang> element with required attributes
-        const langRegex = /<lang\s+code="([^"]+)"\s+title="([^"]+)"[^>]*>[\s\S]*?<\/lang>/;
-        const langMatch = cleanedUploadedContent.match(langRegex);
-
-        if (!langMatch) throw new Error("lang element n'a pas des attributes code ou title.");
-
-        const extractedCode = langMatch[1];
-        const extractedTitle = langMatch[2];
-
-        if (extractedCode !== langCode) throw new Error(`Code pas valid: ${extractedCode} !== ${langCode}`);
-
-        // Append <lang> to <languages> in data.xml
         const languagesRegex = /<languages>([\s\S]*?)<\/languages>/;
-        const updatedData = dataContent.replace(languagesRegex, `<languages>$1\n${langMatch[0]}</languages>`);
+        const updatedData = dataContent.replace(languagesRegex, `<languages>$1\n${xmlDoc.toString()}</languages>`);
 
-        // Write updated data and delete temp file
+        // Write updated data.xml and delete temporary file
         await fs.writeFile(dataPath, updatedData, "utf8");
         await fs.unlink(filePath);
 
         res.send(`<html> <head>
                 <title>Product List</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <!-- Optional Bootstrap JavaScript Bundle (with Popper.js) -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>                <link rel="stylesheet" href="/style/style.css"/> -->
                 <link rel="stylesheet" href="/style/admin.css"/>
-
             </head><body><div class="alert alert-success m-5">Lang ${langCode} avec title "${extractedTitle}" ajoutee.</div></body></html>`);
     } catch (err) {
         console.error("Error:", err);
         res.status(500).send(`<html> <head>
                 <title>Product List</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <!-- Optional Bootstrap JavaScript Bundle (with Popper.js) -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>                <link rel="stylesheet" href="/style/style.css"/> -->
                 <link rel="stylesheet" href="/style/admin.css"/>
-
             </head><body><div class="alert alert-danger m-5"> Error: ${err.message} </div></body></html>`);
     }
 });
