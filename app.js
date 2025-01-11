@@ -458,7 +458,7 @@ app.listen(port, () => {
 
 //lang routes - html
 
-app.get("/admin/langs", async (req, res) => {
+app.get("/admin/langs", isAuthenticatedMiddleware, async (req, res) => {
     try {
         // Read the XSLT file
         const xslData = await fs.readFile("./pages/admin/langs.xsl", "utf8");
@@ -486,24 +486,50 @@ app.get("/admin/langs", async (req, res) => {
 });
 
 // Route to handle the uploaded XML file and rename it according to the selected language
-app.post("/admin/langs", upload.single("langFile"), async (req, res) => {
+
+app.post("/admin/langs", isAuthenticatedMiddleware, upload.single("langFile"), async (req, res) => {
     if (!req.file || !req.body.language) {
         return res.status(400).send("Language and file are required.");
     }
 
     const langCode = req.body.language;
-    const newFileName = `${langCode}.xml`;
-    const newFilePath = path.join("./data/langs", newFileName);
+    const filePath = req.file.path;
+    const dataPath = path.join(__dirname, "./data/data.xml");
 
     try {
-        // Rename and move the file to the "./data/langs" folder
-        await fs.rename(req.file.path, newFilePath);
-        res.send(`File uploaded and saved as ${newFileName}.`);
-    } catch (error) {
-        console.error("Error saving the uploaded file:", error);
-        res.status(500).send("Error saving the uploaded file.");
+        // Read uploaded and existing XML files
+        const uploadedContent = await fs.readFile(filePath, "utf8");
+        const dataContent = await fs.readFile(dataPath, "utf8");
+
+        // Remove XML header from uploaded content
+        const cleanedUploadedContent = uploadedContent.replace(/<\?xml[^>]*\?>/, "").trim();
+
+        // Check <lang> element with required attributes
+        const langRegex = /<lang\s+code="([^"]+)"\s+title="([^"]+)"[^>]*>[\s\S]*?<\/lang>/;
+        const langMatch = cleanedUploadedContent.match(langRegex);
+
+        if (!langMatch) throw new Error("lang element n'a pas des attributes code ou title.");
+
+        const extractedCode = langMatch[1];
+        const extractedTitle = langMatch[2];
+
+        if (extractedCode !== langCode) throw new Error(`Code pas valid: ${extractedCode} !== ${langCode}`);
+
+        // Append <lang> to <languages> in data.xml
+        const languagesRegex = /<languages>([\s\S]*?)<\/languages>/;
+        const updatedData = dataContent.replace(languagesRegex, `<languages>$1\n${langMatch[0]}</languages>`);
+
+        // Write updated data and delete temp file
+        await fs.writeFile(dataPath, updatedData, "utf8");
+        await fs.unlink(filePath);
+
+        res.send(`Lang ${langCode} avec title "${extractedTitle}" ajoutee.`);
+    } catch (err) {
+        console.error("Error:", err);
+        res.status(500).send(`Error: ${err.message}`);
     }
 });
+
 
 //route for CRUD users
 
