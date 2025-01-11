@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <lang code="cn" title="anglais">
+        <content key="main-title">We bring store to your dore</content>
+        <content key="sub_title">We help you to give fresh food items in your door very fast just order your disire products.</content>
+        <content key="shopButton">Shop Now</content>
+        <content key="shopByCategory">Shop By Category</content>
+        <content key="ourProducts">Our Products</content>
+        <content key="discoverMore">Discover more</content>
+        <content key="brand">Brand</content>
+        <content key="about-us">About us</content>
+        <content key="dummy-text">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</content>
+        <content key="contact-info">Contact info</content>
+        <content key="links">Links</content>
+        <content key="products-link">Products link</content>
+        <content key="my-cart-link">My cart link</content>
+        <content key="contact-page-link">Contact page link</content>
+        <content key="address">Hassan Street 2, Safi 46000 Maroc</content>
+        <content key="copyright">Copyright 2025 all rights reserved</content>
+        <content key="search-hover">Search your product</content>
+        <content key="category">Category</content>
+    </lang>

@@ -4,10 +4,6 @@ const path = require("path");
 const bodyParser = require('body-parser');
 
 
-const libxmljs = require('libxmljs2');
-
-
-
 const fs = require("fs").promises;
 const { Xslt, XmlParser } = require("xslt-processor");
 
@@ -24,10 +20,10 @@ app.use(session({
     secret: 'secret-key',
     resave: false,
     saveUninitialized: true,
-  }));
+}));
 
-  const parser = new xml2js.Parser();
-  const builder = new xml2js.Builder();
+const parser = new xml2js.Parser();
+const builder = new xml2js.Builder();
 
 // Set up multer to store uploaded files temporarily
 const upload = multer({ dest: "./temp" });
@@ -188,7 +184,7 @@ app.get('/products/:id', async (req, res) => {
         const options = {
             escape: false,
             selfClosingTags: true,
-            parameters: [{ name: "productId", value: req.params.id },{ name: "lang", value: req.cookies.lang }],
+            parameters: [{ name: "productId", value: req.params.id }, { name: "lang", value: req.cookies.lang }],
             outputMethod: 'xml'
         };
 
@@ -212,146 +208,146 @@ app.get('/products/:id', async (req, res) => {
 // My cart route
 app.get("/myCart", async (req, res) => {
     try {
-    if(!req.cookies.lang){
-        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+        if (!req.cookies.lang) {
+            res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+        }
+
+        // Read XML and XSLT files
+        const xmlData = await fs.readFile("./data/data.xml", "utf8");
+        const xslData = await fs.readFile("./pages/myCart.xsl", "utf8");
+
+        // Initialize the Xslt and XmlParser classes
+        const options = {
+            escape: false,
+            selfClosingTags: true,
+            parameters: [{ name: "lang", value: req.cookies.lang }],
+            outputMethod: 'xml'
+        };
+
+        const xslt = new Xslt(options);
+        const xmlParser = new XmlParser();
+
+
+        const outXmlString = await xslt.xsltProcess(
+            xmlParser.xmlParse(xmlData),
+            xmlParser.xmlParse(xslData)
+        );
+        // Send the transformed HTML to the client
+        res.set("Content-Type", "text/html");
+        res.send(outXmlString); // Transformed XML or HTML as string
+    } catch (error) {
+        console.error("Error during XSLT transformation:", error);
+        res.status(500).send("An error occurred during XSLT transformation.");
     }
-
-// Read XML and XSLT files
-const xmlData = await fs.readFile("./data/data.xml", "utf8");
-const xslData = await fs.readFile("./pages/myCart.xsl", "utf8");
-
-// Initialize the Xslt and XmlParser classes
-const options = {
-    escape: false,
-    selfClosingTags: true,
-    parameters: [{ name:"lang",value: req.cookies.lang }],
-    outputMethod: 'xml'
-  };
-
-const xslt = new Xslt(options);
-const xmlParser = new XmlParser();
-
-
-const outXmlString = await xslt.xsltProcess(
-    xmlParser.xmlParse(xmlData),
-    xmlParser.xmlParse(xslData)
-);
-// Send the transformed HTML to the client
-res.set("Content-Type", "text/html");
-res.send(outXmlString); // Transformed XML or HTML as string
-} catch (error) {
-console.error("Error during XSLT transformation:", error);
-res.status(500).send("An error occurred during XSLT transformation.");
-}
 });
 
-app.get("/admin", isAuthenticatedMiddleware ,async (req, res) => {
+app.get("/admin", isAuthenticatedMiddleware, async (req, res) => {
     try {
-    if(!req.cookies.lang){
-        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+        if (!req.cookies.lang) {
+            res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+        }
+        const authUser = req.session.user['$'].id
+        const authRole = req.session.user['$'].role
+        // Read XML and XSLT files
+        const xmlData = await fs.readFile("./data/data.xml", "utf8");
+        const xslData = await fs.readFile("./pages/admin/index.xsl", "utf8");
+
+        // Initialize the Xslt and XmlParser classes
+        const options = {
+            escape: false,
+            selfClosingTags: true,
+            parameters: [{ name: "lang", value: req.cookies.lang }, { name: "authUser", value: authUser }, { name: "authRole", value: authRole }],
+            outputMethod: 'xml'
+        };
+
+        const xslt = new Xslt(options);
+        const xmlParser = new XmlParser();
+
+
+        const outXmlString = await xslt.xsltProcess(
+            xmlParser.xmlParse(xmlData),
+            xmlParser.xmlParse(xslData)
+        );
+        // Send the transformed HTML to the client
+        res.set("Content-Type", "text/html");
+        res.send(outXmlString); // Transformed XML or HTML as string
+    } catch (error) {
+        console.error("Error during XSLT transformation:", error);
+        res.status(500).send("An error occurred during XSLT transformation.");
     }
-const authUser = req.session.user['$'].id
-const authRole = req.session.user['$'].role
-// Read XML and XSLT files
-const xmlData = await fs.readFile("./data/data.xml", "utf8");
-const xslData = await fs.readFile("./pages/admin/index.xsl", "utf8");
-
-// Initialize the Xslt and XmlParser classes
-const options = {
-    escape: false,
-    selfClosingTags: true,
-    parameters: [{ name:"lang",value: req.cookies.lang },{name:"authUser",value:authUser},{name:"authRole",value:authRole}],
-    outputMethod: 'xml'
-  };
-
-const xslt = new Xslt(options);
-const xmlParser = new XmlParser();
-
-
-const outXmlString = await xslt.xsltProcess(
-    xmlParser.xmlParse(xmlData),
-    xmlParser.xmlParse(xslData)
-);
-// Send the transformed HTML to the client
-res.set("Content-Type", "text/html");
-res.send(outXmlString); // Transformed XML or HTML as string
-} catch (error) {
-console.error("Error during XSLT transformation:", error);
-res.status(500).send("An error occurred during XSLT transformation.");
-}
 });
 
 
 app.get("/signup", async (req, res) => {
     try {
-    if(!req.cookies.lang){
-        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+        if (!req.cookies.lang) {
+            res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+        }
+
+        // Read XML and XSLT files
+        const xmlData = await fs.readFile("./data/data.xml", "utf8");
+        const xslData = await fs.readFile("./pages/signup.xsl", "utf8");
+
+        // Initialize the Xslt and XmlParser classes
+        const options = {
+            escape: false,
+            selfClosingTags: true,
+            parameters: [{ name: "lang", value: req.cookies.lang }],
+            outputMethod: 'xml'
+        };
+
+        const xslt = new Xslt(options);
+        const xmlParser = new XmlParser();
+
+
+        const outXmlString = await xslt.xsltProcess(
+            xmlParser.xmlParse(xmlData),
+            xmlParser.xmlParse(xslData)
+        );
+        // Send the transformed HTML to the client
+        res.set("Content-Type", "text/html");
+        res.send(outXmlString); // Transformed XML or HTML as string
+    } catch (error) {
+        console.error("Error during XSLT transformation:", error);
+        res.status(500).send("An error occurred during XSLT transformation.");
     }
-
-// Read XML and XSLT files
-const xmlData = await fs.readFile("./data/data.xml", "utf8");
-const xslData = await fs.readFile("./pages/signup.xsl", "utf8");
-
-// Initialize the Xslt and XmlParser classes
-const options = {
-    escape: false,
-    selfClosingTags: true,
-    parameters: [{ name:"lang",value: req.cookies.lang }],
-    outputMethod: 'xml'
-  };
-
-const xslt = new Xslt(options);
-const xmlParser = new XmlParser();
-
-
-const outXmlString = await xslt.xsltProcess(
-    xmlParser.xmlParse(xmlData),
-    xmlParser.xmlParse(xslData)
-);
-// Send the transformed HTML to the client
-res.set("Content-Type", "text/html");
-res.send(outXmlString); // Transformed XML or HTML as string
-} catch (error) {
-console.error("Error during XSLT transformation:", error);
-res.status(500).send("An error occurred during XSLT transformation.");
-}
 });
 
 // Login route
 
 app.get("/login", async (req, res) => {
     try {
-    if(!req.cookies.lang){
-        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+        if (!req.cookies.lang) {
+            res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+        }
+
+        // Read XML and XSLT files
+        const xmlData = await fs.readFile("./data/data.xml", "utf8");
+        const xslData = await fs.readFile("./pages/login.xsl", "utf8");
+
+        // Initialize the Xslt and XmlParser classes
+        const options = {
+            escape: false,
+            selfClosingTags: true,
+            parameters: [{ name: "lang", value: req.cookies.lang }],
+            outputMethod: 'xml'
+        };
+
+        const xslt = new Xslt(options);
+        const xmlParser = new XmlParser();
+
+
+        const outXmlString = await xslt.xsltProcess(
+            xmlParser.xmlParse(xmlData),
+            xmlParser.xmlParse(xslData)
+        );
+        // Send the transformed HTML to the client
+        res.set("Content-Type", "text/html");
+        res.send(outXmlString); // Transformed XML or HTML as string
+    } catch (error) {
+        console.error("Error during XSLT transformation:", error);
+        res.status(500).send("An error occurred during XSLT transformation.");
     }
-
-// Read XML and XSLT files
-const xmlData = await fs.readFile("./data/data.xml", "utf8");
-const xslData = await fs.readFile("./pages/login.xsl", "utf8");
-
-// Initialize the Xslt and XmlParser classes
-const options = {
-    escape: false,
-    selfClosingTags: true,
-    parameters: [{ name:"lang",value: req.cookies.lang }],
-    outputMethod: 'xml'
-  };
-
-const xslt = new Xslt(options);
-const xmlParser = new XmlParser();
-
-
-const outXmlString = await xslt.xsltProcess(
-    xmlParser.xmlParse(xmlData),
-    xmlParser.xmlParse(xslData)
-);
-// Send the transformed HTML to the client
-res.set("Content-Type", "text/html");
-res.send(outXmlString); // Transformed XML or HTML as string
-} catch (error) {
-console.error("Error during XSLT transformation:", error);
-res.status(500).send("An error occurred during XSLT transformation.");
-}
 });
 
 
@@ -359,48 +355,48 @@ res.status(500).send("An error occurred during XSLT transformation.");
 
 app.post("/login", async (req, res) => {
 
-    if(!req.cookies.lang){
+    if (!req.cookies.lang) {
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
     }
 
 
 
-const xmlData = await fs.readFile("./data/data.xml", "utf8");
-const xslData = await fs.readFile("./pages/login.xsl", "utf8");
-const xslData_2 = await fs.readFile("./pages/main.xsl", "utf8");
+    const xmlData = await fs.readFile("./data/data.xml", "utf8");
+    const xslData = await fs.readFile("./pages/login.xsl", "utf8");
+    const xslData_2 = await fs.readFile("./pages/main.xsl", "utf8");
 
-const options = {
-    escape: false,
-    selfClosingTags: true,
-    parameters: [{ name:"lang",value: req.cookies.lang }],
-    outputMethod: 'xml'
-  };
-  const xslt = new Xslt(options);
-  const xmlParser = new XmlParser();
+    const options = {
+        escape: false,
+        selfClosingTags: true,
+        parameters: [{ name: "lang", value: req.cookies.lang }],
+        outputMethod: 'xml'
+    };
+    const xslt = new Xslt(options);
+    const xmlParser = new XmlParser();
 
-const {email,password} = req.body;
-authenticate(email, password, async (err, authenticated) => {
-    if (authenticated) {
-      req.session.user = authenticated;
-      const outXmlString = await xslt.xsltProcess(
-        xmlParser.xmlParse(xmlData),
-        xmlParser.xmlParse(xslData_2)
-    );
-    res.set("Content-Type", "text/html");
-    res.send(outXmlString); 
-    
-    } else {
-        const outXmlString = await xslt.xsltProcess(
-            xmlParser.xmlParse(xmlData),
-            xmlParser.xmlParse(xslData)
-        );
-        res.set("Content-Type", "text/html");
-        res.send(outXmlString);  
-    }
-  });
+    const { email, password } = req.body;
+    authenticate(email, password, async (err, authenticated) => {
+        if (authenticated) {
+            req.session.user = authenticated;
+            const outXmlString = await xslt.xsltProcess(
+                xmlParser.xmlParse(xmlData),
+                xmlParser.xmlParse(xslData_2)
+            );
+            res.set("Content-Type", "text/html");
+            res.send(outXmlString);
+
+        } else {
+            const outXmlString = await xslt.xsltProcess(
+                xmlParser.xmlParse(xmlData),
+                xmlParser.xmlParse(xslData)
+            );
+            res.set("Content-Type", "text/html");
+            res.send(outXmlString);
+        }
+    });
 
 
-// Initialize the Xslt and XmlParser classes
+    // Initialize the Xslt and XmlParser classes
 
 
 
@@ -410,39 +406,39 @@ authenticate(email, password, async (err, authenticated) => {
 });
 
 
-app.get("/orders", isAuthenticatedMiddleware ,async (req, res) => {
+app.get("/orders", isAuthenticatedMiddleware, async (req, res) => {
     try {
-    if(!req.cookies.lang){
-        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+        if (!req.cookies.lang) {
+            res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+        }
+        const authUser = req.session.user['$'].id
+        const authRole = req.session.user['$'].role
+        // Read XML and XSLT files
+        const xmlData = await fs.readFile("./data/data.xml", "utf8");
+        const xslData = await fs.readFile("./pages/admin/orders/index.xsl", "utf8");
+        // Initialize the Xslt and XmlParser classes
+        const options = {
+            escape: false,
+            selfClosingTags: true,
+            parameters: [{ name: "lang", value: req.cookies.lang }, { name: "authUser", value: authUser }, { name: "authRole", value: authRole }],
+            outputMethod: 'xml'
+        };
+
+        const xslt = new Xslt(options);
+        const xmlParser = new XmlParser();
+
+
+        const outXmlString = await xslt.xsltProcess(
+            xmlParser.xmlParse(xmlData),
+            xmlParser.xmlParse(xslData)
+        );
+        // Send the transformed HTML to the client
+        res.set("Content-Type", "text/html");
+        res.send(outXmlString); // Transformed XML or HTML as string
+    } catch (error) {
+        console.error("Error during XSLT transformation:", error);
+        res.status(500).send("An error occurred during XSLT transformation.");
     }
-    const authUser = req.session.user['$'].id
-    const authRole = req.session.user['$'].role
-// Read XML and XSLT files
-const xmlData = await fs.readFile("./data/data.xml", "utf8");
-const xslData = await fs.readFile("./pages/admin/orders/index.xsl", "utf8");
-// Initialize the Xslt and XmlParser classes
-const options = {
-    escape: false,
-    selfClosingTags: true,
-    parameters: [{ name:"lang",value: req.cookies.lang },{name:"authUser",value:authUser},{name:"authRole",value:authRole}],
-    outputMethod: 'xml'
-  };
-
-const xslt = new Xslt(options);
-const xmlParser = new XmlParser();
-
-
-const outXmlString = await xslt.xsltProcess(
-    xmlParser.xmlParse(xmlData),
-    xmlParser.xmlParse(xslData)
-);
-// Send the transformed HTML to the client
-res.set("Content-Type", "text/html");
-res.send(outXmlString); // Transformed XML or HTML as string
-} catch (error) {
-console.error("Error during XSLT transformation:", error);
-res.status(500).send("An error occurred during XSLT transformation.");
-}
 });
 
 // // Start the server 
@@ -462,67 +458,57 @@ app.listen(port, () => {
 
 //lang routes - html
 
-// Route to display a form to upload an XML file
-app.get("/langs", (req, res) => {
-    res.send(`
-        <form action="/langs" method="post" enctype="multipart/form-data">
-            <label for="language">Select language:</label>
-            <select name="language" required>
-                <option value="cn">Chinese</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-                <option value="de">German</option>
-            </select><br/><br/>
-            <input type="file" name="langFile" accept=".xml" required /><br/><br/>
-            <button type="submit">Upload</button>
-        </form>
-    `);
-});
-// Route to handle uploaded XML file and append content to data.xml under <languages>
+app.get("/admin/langs", async (req, res) => {
+    try {
+        // Read the XSLT file
+        const xslData = await fs.readFile("./pages/admin/langs.xsl", "utf8");
 
-app.post("/langs", upload.single("langFile"), async (req, res) => {
+        // Prepare XSLT processor
+        const xslt = new Xslt();
+        const xmlParser = new XmlParser();
+
+        // Empty XML document (as no data is needed for this page)
+        const xmlData = `<root></root>`;
+
+        // Perform XSLT transformation
+        const transformedHtml = await xslt.xsltProcess(
+            xmlParser.xmlParse(xmlData),
+            xmlParser.xmlParse(xslData)
+        );
+
+        // Send the transformed HTML to the client
+        res.set("Content-Type", "text/html");
+        res.send(transformedHtml);
+    } catch (error) {
+        console.error("Error during XSLT transformation:", error);
+        res.status(500).send("An error occurred during XSLT transformation.");
+    }
+});
+
+// Route to handle the uploaded XML file and rename it according to the selected language
+app.post("/admin/langs", upload.single("langFile"), async (req, res) => {
     if (!req.file || !req.body.language) {
         return res.status(400).send("Language and file are required.");
     }
 
     const langCode = req.body.language;
-    const filePath = req.file.path;
-    const dataPath = path.join(__dirname, "./data/data.xml");
+    const newFileName = `${langCode}.xml`;
+    const newFilePath = path.join("./data/langs", newFileName);
 
     try {
-        // Read uploaded and existing XML files
-        const uploadedContent = await fs.readFile(filePath, "utf8");
-        const dataContent = await fs.readFile(dataPath, "utf8");
-
-        // Remove XML header from uploaded content
-        const cleanedUploadedContent = uploadedContent.replace(/<\?xml[^>]*\?>/, "").trim();
-
-        // Check <lang> element with required attributes
-        const langRegex = /<lang\s+code="([^"]+)"\s+title="([^"]+)"[^>]*>[\s\S]*?<\/lang>/;
-        const langMatch = cleanedUploadedContent.match(langRegex);
-
-        if (!langMatch) throw new Error("lang element n'a pas des attributes code ou title.");
-
-
-        const extractedCode = langMatch[1];
-        const extractedTitle = langMatch[2];
-
-        if (extractedCode !== langCode) throw new Error(`Code pas valid: ${extractedCode} !== ${langCode}`);
-
-        // Append <lang> to <languages> in data.xml
-        const languagesRegex = /<languages>([\s\S]*?)<\/languages>/;
-        const updatedData = dataContent.replace(languagesRegex, `<languages>$1\n${langMatch[0]}</languages>`);
-
-        // Write updated data and delete temp file
-        await fs.writeFile(dataPath, updatedData, "utf8");
-        await fs.unlink(filePath);
-
-        res.send(`Lang ${langCode} avec title "${extractedTitle}" ajoutee.`);
-    } catch (err) {
-        console.error("Error:", err);
-        res.status(500).send(`Error: ${err.message}`);
+        // Rename and move the file to the "./data/langs" folder
+        await fs.rename(req.file.path, newFilePath);
+        res.send(`File uploaded and saved as ${newFileName}.`);
+    } catch (error) {
+        console.error("Error saving the uploaded file:", error);
+        res.status(500).send("Error saving the uploaded file.");
     }
 });
+
+//route for CRUD users
+
+// Get all users (Read)
+
 // Get all users (Read)
 
 
@@ -531,11 +517,11 @@ app.post("/langs", upload.single("langFile"), async (req, res) => {
 
 function isAuthenticatedMiddleware(req, res, next) {
     if (req.session.user) {
-      next();
+        next();
     } else {
-      res.redirect('/login');
+        res.redirect('/login');
     }
-  }
+}
 
 
 
@@ -543,16 +529,20 @@ async function authenticate(username, password, callback) {
     const dataXml = await fs.readFile("./data/data.xml", "utf8");
     parser.parseString(dataXml, (err, result) => {
         if (err) return callback(err);
-        
+
         const users = result.Store.users[0].user;
         const user = users.find(u => u.email[0] === username && u.password[0] === password);
-  
+
         if (user) {
             console.log("Has Been login");
-          callback(null, user);
+            callback(null, user);
         } else {
             console.log("You have an error please try again");
-          callback(null, false);
+            callback(null, false);
         }
-      });
-  }
+    });
+}
+
+
+
+

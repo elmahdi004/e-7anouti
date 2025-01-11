@@ -50,6 +50,16 @@
                                 </a>
                             </div>
                     </li>
+                    <li class="">
+                            <div>
+                                <a href="/admin/langs" style="display:flex;column-gap:10px;">
+                                    <div class="icon">
+                                        <img src="/icons/dashboard/langs.png" width="20px"/>
+                                    </div>
+                                    <h4>Multilangs</h4>
+                                </a>
+                            </div>
+                    </li>
                     <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
                     <xsl:if test="@id = 2">
                     <li class="">
