@@ -523,10 +523,24 @@ app.post("/admin/langs", isAuthenticatedMiddleware, upload.single("langFile"), a
         await fs.writeFile(dataPath, updatedData, "utf8");
         await fs.unlink(filePath);
 
-        res.send(`Lang ${langCode} avec title "${extractedTitle}" ajoutee.`);
+        res.send(`<html> <head>
+                <title>Product List</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <!-- Optional Bootstrap JavaScript Bundle (with Popper.js) -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>                <link rel="stylesheet" href="/style/style.css"/> -->
+                <link rel="stylesheet" href="/style/admin.css"/>
+
+            </head><body><div class="alert alert-success m-5">Lang ${langCode} avec title "${extractedTitle}" ajoutee.</div></body></html>`);
     } catch (err) {
         console.error("Error:", err);
-        res.status(500).send(`Error: ${err.message}`);
+        res.status(500).send(`<html> <head>
+                <title>Product List</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <!-- Optional Bootstrap JavaScript Bundle (with Popper.js) -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>                <link rel="stylesheet" href="/style/style.css"/> -->
+                <link rel="stylesheet" href="/style/admin.css"/>
+
+            </head><body><div class="alert alert-danger m-5"> Error: ${err.message} </div></body></html>`);
     }
 });
 
