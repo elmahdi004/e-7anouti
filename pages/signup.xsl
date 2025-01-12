@@ -56,7 +56,7 @@
         <div class="sign_up_section">
             <h1>Create an account </h1>
             <p>Already have an account ? <a href="/login">sign in</a></p>
-            <form method="POST">
+            <form method="POST" action="/signup">
             <div class="merge_input">
                 <input type="text" name="first_name" id="" placeholder="First name"/>
                 <input type="text" name="last_name" id="" placeholder="Last name"/>

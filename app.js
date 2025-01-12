@@ -15,6 +15,7 @@ const cookieParser = require('cookie-parser');
 
 const session = require('express-session');
 const xml2js = require('xml2js');
+const { console } = require("inspector");
 
 
 const app = express();
@@ -46,7 +47,7 @@ app.get("/", async (req, res) => {
         if (!req.cookies.lang) {
             res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
         }
-
+console.log("Hello World");
         // Read XML and XSLT files
         const xmlData = await fs.readFile("./data/data.xml", "utf8");
         const xslData = await fs.readFile("./pages/main.xsl", "utf8");
@@ -354,12 +355,14 @@ res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
 
+
+
+
 app.get("/signup", async (req, res) => {
     try {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
     }
-
 // Read XML and XSLT files
 const xmlData = await fs.readFile("./data/data.xml", "utf8");
 const xslData = await fs.readFile("./pages/signup.xsl", "utf8");
@@ -389,11 +392,66 @@ res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
 
+
+
+app.post('/signup', async (req, res) => {
+    const { first_name, last_name, email, password } = req.body;
+
+    if (!req.cookies.lang) {
+        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 });
+    }
+
+    if (first_name && last_name && email && password) {
+        try {
+            const dataXml = await fs.readFile("./data/data.xml", "utf8");
+
+            const parsedData = await new Promise((resolve, reject) => {
+                parser.parseString(dataXml, (err, result) => {
+                    if (err) reject(err);
+                    else resolve(result);
+                });
+            });
+
+            const users = parsedData.Store.users[0].user;
+
+            if (users.find(u => u.email[0] == email)) {
+                // Email already exists
+                return res.redirect("/signup");
+            } else {
+                // Add new user
+                const user = {
+                    '$': { id: users.length + 1, role: 3 },
+                    first_name: [first_name],
+                    last_name: [last_name],
+                    email: [email],
+                    password: [password]
+                };
+
+                users.push(user);
+
+                const updatedXml = builder.buildObject(parsedData);
+                await fs.writeFile("./data/data.xml", updatedXml, "utf8");
+
+                return res.redirect("/login");
+            }
+        } catch (error) {
+            console.error("Error processing XML:", error);
+            return res.status(500).send("Internal Server Error");
+        }
+    } else {
+        // Missing required fields
+        return res.redirect("/signup");
+    }
+});
+
+
 // Login route
+
+
 
 app.get("/login", async (req, res) => {
     try {
-    if(!req.cookies.lang){
+        if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
     }
 
