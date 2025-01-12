@@ -246,6 +246,41 @@ res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
 
+
+
+app.get("/add-to-cart/:productId", isAuthenticatedMiddleware ,async (req, res) => {
+    if(!req.cookies.lang){
+        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+    }
+    const authUser = req.session.user['$'].id ? req.session.user['$'].id : 0 ;
+
+    const dataXml = await fs.readFile("./data/data.xml", "utf8");
+    parser.parseString(dataXml, (err, result) => {
+        if (err) return console.log("first error");
+        
+        const carts = result.Store.Carts[0].Cart;
+        const cart = carts.find(c => c['$'].user == authUser);
+        const product = req.params.productId;
+
+
+        if(cart){
+            const item = { '$': {product:product}, quantity: [1] };
+            cart.item.push(item);
+        }else{
+            carts.push({ '$': {user:authUser}, item: [{ '$': {product:product}, quantity: [1] }] });
+        }
+            // Convert the updated object back to XML
+            const updatedXml = builder.buildObject(result);
+            fs.writeFile("./data/data.xml", updatedXml, "utf8");
+      });
+
+
+    res.redirect("/myCart");
+
+});
+
+
+
 app.get("/admin", isAuthenticatedMiddleware ,async (req, res) => {
     try {
     if(!req.cookies.lang){
@@ -697,3 +732,5 @@ async function authenticate(username, password, callback) {
         }
       });
   }
+
+

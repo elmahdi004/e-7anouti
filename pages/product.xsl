@@ -16,7 +16,6 @@
                 <title>Product List</title>
                 <link rel="stylesheet" href="/style/style.css"/>
                 <link rel="stylesheet" href="/style/product.css"/>
-
             </head>
             <body>
             <div class="section_one">
@@ -89,8 +88,8 @@
                             <h2>MAD<xsl:value-of select="/Store/products/product[@id=$productId]/pre_price" /></h2>
                         </div>
                             <div class="buttons">
-                                <button><img src="/icons/r.svg" /> Add to bucket</button>
-                                <button>Buy now</button>
+                                <a href="/add-to-cart/{/Store/products/product[@id=$productId]/@id}"><img src="/icons/r.svg" />Add to bucket</a>
+                                <a>Buy now</a>
                             </div>
         </div>
     </div>

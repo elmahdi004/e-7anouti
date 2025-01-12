@@ -62,7 +62,7 @@
     margin-top: 20px;
     color: rgba(0, 0, 0, 30%);
 }
-.buttons button{
+.buttons a{
     margin: 20px 10px;
     padding: 15px 30px;
     background-color: var(--secon-color);
@@ -72,13 +72,14 @@
     font-weight: 700;
     font-size: 16px;
     cursor: pointer;
+    display: inline-block;
 }
-.buttons button:hover{
+.buttons a:hover{
     border: 1px solid var(--main-color);
     transition: 0.5s all;
 
 }
-.buttons button:first-child{
+.buttons a:first-child{
     background-color: rgba(186, 234, 113, 26%);
 }
 

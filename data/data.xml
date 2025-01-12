@@ -1,487 +1,468 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Products Data -->
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Store>
-
-
-<!-- languages Data -->
-    <languages>
-        <lang code="ar" title="Arabic">
-        <content key="main-title">نحن نجلب المتجر إلى باب منزلك</content>
-        <content key="sub_title">نحن نساعدك في توصيل المواد الغذائية الطازجة إلى باب منزلك بسرعة كبيرة، فقط اطلب المنتجات التي ترغب فيها</content>
-        <content key="shopButton">تسوق الآن</content>
-        <content key="shopByCategory">تسوق حسب الفئة</content>
-        <content key="ourProducts">منتجاتنا</content>
-        <content key="discoverMore">اكتشف المزيد</content>
-        <content key="brand">العلامة التجارية</content>
-        <content key="about-us">من نحن</content>
-        <content key="dummy-text">هو مجرد نص شكلي في صناعة الطباعة والتنضيد. كان لوريم إيبسوم هو المعيار في هذه الصناعة</content>
-        <content key="contact-info">معلومات الاتصال</content>
-        <content key="links">الروابط</content>
-        <content key="products-link">رابط المنتجات</content>
-        <content key="my-cart-link">رابط سلة المشتريات</content>
-        <content key="contact-page-link">رابط صفحة الاتصال</content>
-        <content key="address">شارع الحسن الثاني، آسفي 46000 المغرب</content>
-        <content key="copyright">حقوق الطبع والنشر 2025 جميع الحقوق محفوظة</content>
-        <content key="search-hover">ابحث عن منتجك</content>
-        <content key="category">فئة</content>
+  <languages>
+    <lang code="ar" title="Arabic">
+      <content key="main-title">نحن نجلب المتجر إلى باب منزلك</content>
+      <content key="sub_title">نحن نساعدك في توصيل المواد الغذائية الطازجة إلى باب منزلك بسرعة كبيرة، فقط اطلب المنتجات التي ترغب فيها</content>
+      <content key="shopButton">تسوق الآن</content>
+      <content key="shopByCategory">تسوق حسب الفئة</content>
+      <content key="ourProducts">منتجاتنا</content>
+      <content key="discoverMore">اكتشف المزيد</content>
+      <content key="brand">العلامة التجارية</content>
+      <content key="about-us">من نحن</content>
+      <content key="dummy-text">هو مجرد نص شكلي في صناعة الطباعة والتنضيد. كان لوريم إيبسوم هو المعيار في هذه الصناعة</content>
+      <content key="contact-info">معلومات الاتصال</content>
+      <content key="links">الروابط</content>
+      <content key="products-link">رابط المنتجات</content>
+      <content key="my-cart-link">رابط سلة المشتريات</content>
+      <content key="contact-page-link">رابط صفحة الاتصال</content>
+      <content key="address">شارع الحسن الثاني، آسفي 46000 المغرب</content>
+      <content key="copyright">حقوق الطبع والنشر 2025 جميع الحقوق محفوظة</content>
+      <content key="search-hover">ابحث عن منتجك</content>
+      <content key="category">فئة</content>
     </lang>
     <lang code="en" title="English">
-
-        <content key="main-title">We bring store to your dore</content>
-        <content key="sub_title">We help you to give fresh food items in your door very fast just order your disire products.</content>
-        <content key="shopButton">Shop Now</content>
-        <content key="shopByCategory">Shop By Category</content>
-        <content key="ourProducts">Our Products</content>
-        <content key="discoverMore">Discover more</content>
-        <content key="brand">Brand</content>
-        <content key="about-us">About us</content>
-        <content key="dummy-text">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</content>
-        <content key="contact-info">Contact info</content>
-        <content key="links">Links</content>
-        <content key="products-link">Products link</content>
-        <content key="my-cart-link">My cart link</content>
-        <content key="contact-page-link">Contact page link</content>
-        <content key="address">Hassan Street 2, Safi 46000 Maroc</content>
-        <content key="copyright">Copyright 2025 all rights reserved</content>
-        <content key="search-hover">Search your product</content>
-        <content key="category">Category</content>
+      <content key="main-title">We bring store to your dore</content>
+      <content key="sub_title">We help you to give fresh food items in your door very fast just order your disire products.</content>
+      <content key="shopButton">Shop Now</content>
+      <content key="shopByCategory">Shop By Category</content>
+      <content key="ourProducts">Our Products</content>
+      <content key="discoverMore">Discover more</content>
+      <content key="brand">Brand</content>
+      <content key="about-us">About us</content>
+      <content key="dummy-text">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</content>
+      <content key="contact-info">Contact info</content>
+      <content key="links">Links</content>
+      <content key="products-link">Products link</content>
+      <content key="my-cart-link">My cart link</content>
+      <content key="contact-page-link">Contact page link</content>
+      <content key="address">Hassan Street 2, Safi 46000 Maroc</content>
+      <content key="copyright">Copyright 2025 all rights reserved</content>
+      <content key="search-hover">Search your product</content>
+      <content key="category">Category</content>
     </lang>
     <lang code="fr" title="Français">
-        <content key="main-title">Nous apportons le magasin à votre porte.</content>
-        <content key="sub_title">Nous vous aidons à livrer des produits alimentaires frais à votre porte très rapidement, il vous suffit de commander vos produits désirés.</content>
-        <content key="shopButton">Achetez maintenant</content>
-        <content key="shopByCategory">Achetez par catégorie</content>
-        <content key="ourProducts">Nos Produits</content>
-        <content key="discoverMore">Découvrir plus</content>
-        <content key="brand">Marque</content>
-        <content key="about-us">À propos de nous</content>
-        <content key="dummy-text">est simplement un texte factice de l'industrie de l'impression et de la composition. Le Lorem Ipsum est le standard de l'industrie</content>
-        <content key="contact-info">Informations de contact</content>
-        <content key="links">Liens</content>
-        <content key="products-link">Lien vers les produits</content>
-        <content key="my-cart-link">Lien vers mon panier</content>
-        <content key="contact-page-link">Lien vers la page de contact</content>
-        <content key="address">Rue Hassan 2, Safi 46000 Maroc</content>
-        <content key="copyright">Droits d'auteur 2025, tous droits réservés</content>
-        <content key="search-hover">Recherchez votre produit</content>
-        <content key="category">Catégorie</content>
+      <content key="main-title">Nous apportons le magasin à votre porte.</content>
+      <content key="sub_title">Nous vous aidons à livrer des produits alimentaires frais à votre porte très rapidement, il vous suffit de commander vos produits désirés.</content>
+      <content key="shopButton">Achetez maintenant</content>
+      <content key="shopByCategory">Achetez par catégorie</content>
+      <content key="ourProducts">Nos Produits</content>
+      <content key="discoverMore">Découvrir plus</content>
+      <content key="brand">Marque</content>
+      <content key="about-us">À propos de nous</content>
+      <content key="dummy-text">est simplement un texte factice de l'industrie de l'impression et de la composition. Le Lorem Ipsum est le standard de l'industrie</content>
+      <content key="contact-info">Informations de contact</content>
+      <content key="links">Liens</content>
+      <content key="products-link">Lien vers les produits</content>
+      <content key="my-cart-link">Lien vers mon panier</content>
+      <content key="contact-page-link">Lien vers la page de contact</content>
+      <content key="address">Rue Hassan 2, Safi 46000 Maroc</content>
+      <content key="copyright">Droits d'auteur 2025, tous droits réservés</content>
+      <content key="search-hover">Recherchez votre produit</content>
+      <content key="category">Catégorie</content>
     </lang>
-</languages>
-       
-
-<!-- Categories Data-->
- <categories>
-        <category id="1">
-        <name>
-            <lang code="en">Dairy</lang>
-            <lang code="fr">Produits laitiers</lang>
-            <lang code="ar">منتجات الألبان</lang>
-        </name>
-        <image>dairy.png</image>
-        </category>
-        <category id="2">
-        <name>
-            <lang code="en">Bakery</lang>
-            <lang code="fr">Boulangerie</lang>
-            <lang code="ar">المخبوزات</lang>
-        </name>
-        <image>bakery.png</image>
-        </category>
-        <category id="3">
-        <name>
-            <lang code="en">Seafood</lang>
-            <lang code="fr">Fruits de mer</lang>
-            <lang code="ar">المأكولات البحرية</lang>
-        </name>
-        <image>Seafood.png</image>
-        </category>
-        <category id="4">
-        <name>
-            <lang code="en">Beverages</lang>
-            <lang code="fr">Boissons</lang>
-            <lang code="ar">المشروبات</lang>
-        </name>
-        <image>Beverages.png</image>
-        </category>
-        <category id="5">
-        <name>
-            <lang code="en">Snacks</lang>
-            <lang code="fr">Collations</lang>
-            <lang code="ar">الوجبات الخفيفة</lang>
-        </name>
-        <image>Snacks.png</image>
-        </category>
-    </categories>
-
-<!-- Products Data-->
-
-    <products>
-        <product id="1" category-id="1">
-            <name>
-                <lang code="en">Lait UHT écrémé Linéa 1L - JAOUDA</lang>
-                <lang code="fr">Lait UHT écrémé Linéa 1L - JAOUDA</lang>
-                <lang code="ar">تفاحة</lang>
-            </name>
-            <description>
-                <lang code="en">Lait écrémé stérilisé UHT. 0% de matière grasse. Lait naturel est garanti sans acides gras, ni cholestérol. Riche en protéines, calcium et phosphore du lait. Valeur énergétique : 32 Kcal pour 100 ml. Volume : 1 L.</lang>
-                <lang code="fr">Lait écrémé stérilisé UHT. 0% de matière grasse. Lait naturel est garanti sans acides gras, ni cholestérol. Riche en protéines, calcium et phosphore du lait. Valeur énergétique : 32 Kcal pour 100 ml. Volume : 1 L.</lang>
-                <lang code="ar">تفاح أحمر وعصير</lang>
-            </description>
-            <price currency="DH">11.20</price>
-            <pre_price currency="DH">12.20</pre_price>
-            <stock>50</stock>
-            <image>lait1.webp</image>
-        </product>
-        <product id="2" category-id="1">
-            <name>
-                <lang code="en">Lait UHT entier sans lactose 1L - JAOUDA</lang>
-                <lang code="fr">Lait UHT entier sans lactose 1L - JAOUDA</lang>
-                <lang code="ar">تفاحة</lang>
-            </name>
-            <description>
-                <lang code="en">Lait UHT entier sans lactose 1L - JAOUDA</lang>
-                <lang code="fr">Lait UHT entier sans lactose 1L - JAOUDA</lang>
-                <lang code="ar">تفاح أحمر وعصير</lang>
-            </description>
-            <price currency="DH">11.20</price>
-            <pre_price currency="DH">12.20</pre_price>
-            <stock>50</stock>
-            <image>lait2.webp</image>
-        </product>
-        <product id="3" category-id="1">
-            <name>
-                <lang code="en">Boisson lait d'amande intense bio 1L - BJORG</lang>
-                <lang code="fr">Boisson lait d'amande intense bio 1L - BJORG</lang>
-                <lang code="ar">تفاحة</lang>
-            </name>
-            <description>
-                <lang code="en">Boisson biologique à base d'amandes, avec arôme naturel, stérilisée UHT. Contenance : 1 L.</lang>
-                <lang code="fr">Boisson biologique à base d'amandes, avec arôme naturel, stérilisée UHT. Contenance : 1 L.</lang>
-                <lang code="ar">تفاح أحمر وعصير</lang>
-            </description>
-            <price currency="DH">74.20</price>
-            <pre_price currency="DH">12.20</pre_price>
-            <stock>50</stock>
-            <image>lait3.webp</image>
-        </product>
-        <product id="4" category-id="2">
-            <name>
-                <lang code="en">Farine de luxe boulangère 5Kg - AMGALITA</lang>
-                <lang code="fr">Farine de luxe boulangère 5Kg - AMGALITA</lang>
-                <lang code="ar">تفاحة</lang>
-            </name>
-            <description>
-                <lang code="en">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
-                <lang code="fr">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
-                <lang code="ar">تفاح أحمر وعصير</lang>
-            </description>
-            <price currency="DH">25.20</price>
-            <pre_price currency="DH">12.20</pre_price>
-            <stock>50</stock>
-            <image>Boulangerie1.webp</image>
-        </product>
-        <product id="5" category-id="2">
-            <name>
-                <lang code="en">Farine de luxe boulangère 5Kg - AMGALITA</lang>
-                <lang code="fr">Farine de luxe boulangère 5Kg - AMGALITA</lang>
-                <lang code="ar">تفاحة</lang>
-            </name>
-            <description>
-                <lang code="en">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
-                <lang code="fr">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
-                <lang code="ar">تفاح أحمر وعصير</lang>
-            </description>
-            <price currency="DH">25.20</price>
-            <pre_price currency="DH">12.20</pre_price>
-            <stock>50</stock>
-            <image>Boulangerie.webp</image>
-        </product>
-        <product id="6" category-id="3">
-            <name>
-                <lang code="en">Cocktail de fruit de mer 350g - FAYZ</lang>
-                <lang code="fr">Cocktail de fruit de mer 350g - FAYZ</lang>
-                <lang code="ar">تفاحة</lang>
-            </name>
-            <description>
-                <lang code="en">Cocktail de fruit de mer.Contenance : 350 g.</lang>
-                <lang code="fr">Cocktail de fruit de mer.Contenance : 350 g.</lang>
-                <lang code="ar">تفاح أحمر وعصير</lang>
-            </description>
-            <price currency="DH">25.20</price>
-            <pre_price currency="DH">12.20</pre_price>
-            <stock>50</stock>
-            <image>Sea.webp</image>
-        </product>
-        <product id="7" category-id="4">
-            <name>
-                <lang code="en">Red Bull pack canettes 4x25cl</lang>
-                <lang code="fr">Red Bull pack canettes 4x25cl</lang>
-                <lang code="ar">تفاحة</lang>
-            </name>
-            <description>
-                <lang code="en">Boisson énergisante à base de taurine pour les périodes d'activité.
-À conserver dans un endroit frais et sec.
+  </languages>
+  <categories>
+    <category id="1">
+      <name>
+        <lang code="en">Dairy</lang>
+        <lang code="fr">Produits laitiers</lang>
+        <lang code="ar">منتجات الألبان</lang>
+      </name>
+      <image>dairy.png</image>
+    </category>
+    <category id="2">
+      <name>
+        <lang code="en">Bakery</lang>
+        <lang code="fr">Boulangerie</lang>
+        <lang code="ar">المخبوزات</lang>
+      </name>
+      <image>bakery.png</image>
+    </category>
+    <category id="3">
+      <name>
+        <lang code="en">Seafood</lang>
+        <lang code="fr">Fruits de mer</lang>
+        <lang code="ar">المأكولات البحرية</lang>
+      </name>
+      <image>Seafood.png</image>
+    </category>
+    <category id="4">
+      <name>
+        <lang code="en">Beverages</lang>
+        <lang code="fr">Boissons</lang>
+        <lang code="ar">المشروبات</lang>
+      </name>
+      <image>Beverages.png</image>
+    </category>
+    <category id="5">
+      <name>
+        <lang code="en">Snacks</lang>
+        <lang code="fr">Collations</lang>
+        <lang code="ar">الوجبات الخفيفة</lang>
+      </name>
+      <image>Snacks.png</image>
+    </category>
+  </categories>
+  <products>
+    <product id="1" category-id="1">
+      <name>
+        <lang code="en">Lait UHT écrémé Linéa 1L - JAOUDA</lang>
+        <lang code="fr">Lait UHT écrémé Linéa 1L - JAOUDA</lang>
+        <lang code="ar">تفاحة</lang>
+      </name>
+      <description>
+        <lang code="en">Lait écrémé stérilisé UHT. 0% de matière grasse. Lait naturel est garanti sans acides gras, ni cholestérol. Riche en protéines, calcium et phosphore du lait. Valeur énergétique : 32 Kcal pour 100 ml. Volume : 1 L.</lang>
+        <lang code="fr">Lait écrémé stérilisé UHT. 0% de matière grasse. Lait naturel est garanti sans acides gras, ni cholestérol. Riche en protéines, calcium et phosphore du lait. Valeur énergétique : 32 Kcal pour 100 ml. Volume : 1 L.</lang>
+        <lang code="ar">تفاح أحمر وعصير</lang>
+      </description>
+      <price currency="DH">11.20</price>
+      <pre_price currency="DH">12.20</pre_price>
+      <stock>50</stock>
+      <image>lait1.webp</image>
+    </product>
+    <product id="2" category-id="1">
+      <name>
+        <lang code="en">Lait UHT entier sans lactose 1L - JAOUDA</lang>
+        <lang code="fr">Lait UHT entier sans lactose 1L - JAOUDA</lang>
+        <lang code="ar">تفاحة</lang>
+      </name>
+      <description>
+        <lang code="en">Lait UHT entier sans lactose 1L - JAOUDA</lang>
+        <lang code="fr">Lait UHT entier sans lactose 1L - JAOUDA</lang>
+        <lang code="ar">تفاح أحمر وعصير</lang>
+      </description>
+      <price currency="DH">11.20</price>
+      <pre_price currency="DH">12.20</pre_price>
+      <stock>50</stock>
+      <image>lait2.webp</image>
+    </product>
+    <product id="3" category-id="1">
+      <name>
+        <lang code="en">Boisson lait d'amande intense bio 1L - BJORG</lang>
+        <lang code="fr">Boisson lait d'amande intense bio 1L - BJORG</lang>
+        <lang code="ar">تفاحة</lang>
+      </name>
+      <description>
+        <lang code="en">Boisson biologique à base d'amandes, avec arôme naturel, stérilisée UHT. Contenance : 1 L.</lang>
+        <lang code="fr">Boisson biologique à base d'amandes, avec arôme naturel, stérilisée UHT. Contenance : 1 L.</lang>
+        <lang code="ar">تفاح أحمر وعصير</lang>
+      </description>
+      <price currency="DH">74.20</price>
+      <pre_price currency="DH">12.20</pre_price>
+      <stock>50</stock>
+      <image>lait3.webp</image>
+    </product>
+    <product id="4" category-id="2">
+      <name>
+        <lang code="en">Farine de luxe boulangère 5Kg - AMGALITA</lang>
+        <lang code="fr">Farine de luxe boulangère 5Kg - AMGALITA</lang>
+        <lang code="ar">تفاحة</lang>
+      </name>
+      <description>
+        <lang code="en">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
+        <lang code="fr">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
+        <lang code="ar">تفاح أحمر وعصير</lang>
+      </description>
+      <price currency="DH">25.20</price>
+      <pre_price currency="DH">12.20</pre_price>
+      <stock>50</stock>
+      <image>Boulangerie1.webp</image>
+    </product>
+    <product id="5" category-id="2">
+      <name>
+        <lang code="en">Farine de luxe boulangère 5Kg - AMGALITA</lang>
+        <lang code="fr">Farine de luxe boulangère 5Kg - AMGALITA</lang>
+        <lang code="ar">تفاحة</lang>
+      </name>
+      <description>
+        <lang code="en">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
+        <lang code="fr">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
+        <lang code="ar">تفاح أحمر وعصير</lang>
+      </description>
+      <price currency="DH">25.20</price>
+      <pre_price currency="DH">12.20</pre_price>
+      <stock>50</stock>
+      <image>Boulangerie.webp</image>
+    </product>
+    <product id="6" category-id="3">
+      <name>
+        <lang code="en">Cocktail de fruit de mer 350g - FAYZ</lang>
+        <lang code="fr">Cocktail de fruit de mer 350g - FAYZ</lang>
+        <lang code="ar">تفاحة</lang>
+      </name>
+      <description>
+        <lang code="en">Cocktail de fruit de mer.Contenance : 350 g.</lang>
+        <lang code="fr">Cocktail de fruit de mer.Contenance : 350 g.</lang>
+        <lang code="ar">تفاح أحمر وعصير</lang>
+      </description>
+      <price currency="DH">25.20</price>
+      <pre_price currency="DH">12.20</pre_price>
+      <stock>50</stock>
+      <image>Sea.webp</image>
+    </product>
+    <product id="7" category-id="4">
+      <name>
+        <lang code="en">Red Bull pack canettes 4x25cl</lang>
+        <lang code="fr">Red Bull pack canettes 4x25cl</lang>
+        <lang code="ar">تفاحة</lang>
+      </name>
+      <description>
+        <lang code="en">Boisson énergisante à base de taurine pour les périodes d'activité.&#xD;
+À conserver dans un endroit frais et sec.&#xD;
 Contenance : 4 x 250 ml = 1 L.</lang>
-                <lang code="fr">Boisson énergisante à base de taurine pour les périodes d'activité.
-À conserver dans un endroit frais et sec.
+        <lang code="fr">Boisson énergisante à base de taurine pour les périodes d'activité.&#xD;
+À conserver dans un endroit frais et sec.&#xD;
 Contenance : 4 x 250 ml = 1 L.</lang>
-                <lang code="ar">تفاح أحمر وعصير</lang>
-            </description>
-            <price currency="DH">65.20</price>
-            <pre_price currency="DH">12.20</pre_price>
-            <stock>50</stock>
-            <image>boi.webp</image>
-        </product>
-        <product id="8" category-id="4">
-            <name>
-                <lang code="en">Boisson énergétique Orange Upgrade 50cl - SAN BENEDETTO</lang>
-                <lang code="fr">Boisson énergétique Orange Upgrade 50cl - SAN BENEDETTO</lang>
-                <lang code="ar">تفاحة</lang>
-            </name>
-            <description>
-                <lang code="en">Boisson énergétique rafraîchissante et sucrée au goût d'orange et de guarana, à base d'eau minérale.
+        <lang code="ar">تفاح أحمر وعصير</lang>
+      </description>
+      <price currency="DH">65.20</price>
+      <pre_price currency="DH">12.20</pre_price>
+      <stock>50</stock>
+      <image>boi.webp</image>
+    </product>
+    <product id="8" category-id="4">
+      <name>
+        <lang code="en">Boisson énergétique Orange Upgrade 50cl - SAN BENEDETTO</lang>
+        <lang code="fr">Boisson énergétique Orange Upgrade 50cl - SAN BENEDETTO</lang>
+        <lang code="ar">تفاحة</lang>
+      </name>
+      <description>
+        <lang code="en">Boisson énergétique rafraîchissante et sucrée au goût d'orange et de guarana, à base d'eau minérale.&#xD;
 Contenance : 50 cl.</lang>
-                <lang code="fr">Boisson énergétique rafraîchissante et sucrée au goût d'orange et de guarana, à base d'eau minérale.
+        <lang code="fr">Boisson énergétique rafraîchissante et sucrée au goût d'orange et de guarana, à base d'eau minérale.&#xD;
 Contenance : 50 cl.</lang>
-                <lang code="ar">تفاح أحمر وعصير</lang>
-            </description>
-            <price currency="DH">15.20</price>
-            <pre_price currency="DH">12.20</pre_price>
-            <stock>50</stock>
-            <image>boi2.webp</image>
-        </product>
-        <product id="9" category-id="5">
-            <name>
-                <lang code="en">Cookies choco XL 184g - MILKA
+        <lang code="ar">تفاح أحمر وعصير</lang>
+      </description>
+      <price currency="DH">15.20</price>
+      <pre_price currency="DH">12.20</pre_price>
+      <stock>50</stock>
+      <image>boi2.webp</image>
+    </product>
+    <product id="9" category-id="5">
+      <name>
+        <lang code="en">Cookies choco XL 184g - MILKA&#xD;
 </lang>
-                <lang code="fr">Cookies choco XL 184g - MILKA
+        <lang code="fr">Cookies choco XL 184g - MILKA&#xD;
 </lang>
-                <lang code="ar">تفاحة</lang>
-            </name>
-            <description>
-                <lang code="en">Biscuits au lait extra larges avec une portion supplémentaire de chocolat. Découvrez le plaisir des biscuits croustillants au format XL. Milka XL Cookies Choco combine de délicieux biscuits avec des morceaux particulièrement volumineux de chocolat au lait éprouvé.
+        <lang code="ar">تفاحة</lang>
+      </name>
+      <description>
+        <lang code="en">Biscuits au lait extra larges avec une portion supplémentaire de chocolat. Découvrez le plaisir des biscuits croustillants au format XL. Milka XL Cookies Choco combine de délicieux biscuits avec des morceaux particulièrement volumineux de chocolat au lait éprouvé.&#xD;
 Contenance : 184 g.</lang>
-                <lang code="fr">Biscuits au lait extra larges avec une portion supplémentaire de chocolat. Découvrez le plaisir des biscuits croustillants au format XL. Milka XL Cookies Choco combine de délicieux biscuits avec des morceaux particulièrement volumineux de chocolat au lait éprouvé.
+        <lang code="fr">Biscuits au lait extra larges avec une portion supplémentaire de chocolat. Découvrez le plaisir des biscuits croustillants au format XL. Milka XL Cookies Choco combine de délicieux biscuits avec des morceaux particulièrement volumineux de chocolat au lait éprouvé.&#xD;
 Contenance : 184 g.</lang>
-                <lang code="ar">تفاح أحمر وعصير</lang>
-            </description>
-            <price currency="DH">15.20</price>
-            <pre_price currency="DH">12.20</pre_price>
-            <stock>50</stock>
-            <image>mil.webp</image>
-        </product>
-        <product id="10" category-id="5">
-            <name>
-                <lang code="en">Milka bâtonnet de glace amande caramel 100ml</lang>
-                <lang code="fr">Milka bâtonnet de glace amande caramel 100ml</lang>
-                <lang code="ar">تفاحة</lang>
-            </name>
-            <description>
-                <lang code="en">Bâtonnet de glace amande caramel.
+        <lang code="ar">تفاح أحمر وعصير</lang>
+      </description>
+      <price currency="DH">15.20</price>
+      <pre_price currency="DH">12.20</pre_price>
+      <stock>50</stock>
+      <image>mil.webp</image>
+    </product>
+    <product id="10" category-id="5">
+      <name>
+        <lang code="en">Milka bâtonnet de glace amande caramel 100ml</lang>
+        <lang code="fr">Milka bâtonnet de glace amande caramel 100ml</lang>
+        <lang code="ar">تفاحة</lang>
+      </name>
+      <description>
+        <lang code="en">Bâtonnet de glace amande caramel.&#xD;
 Contenance : 100 ml.</lang>
-                <lang code="fr">Bâtonnet de glace amande caramel.
+        <lang code="fr">Bâtonnet de glace amande caramel.&#xD;
 Contenance : 100 ml.</lang>
-                <lang code="ar">تفاح أحمر وعصير</lang>
-            </description>
-            <price currency="DH">12.20</price>
-            <pre_price currency="DH">12.20</pre_price>
-            <stock>50</stock>
-            <image>mil2.webp</image>
-        </product>
-        
-    </products>
-    <!-- Users  Data-->
-
-<users>
+        <lang code="ar">تفاح أحمر وعصير</lang>
+      </description>
+      <price currency="DH">12.20</price>
+      <pre_price currency="DH">12.20</pre_price>
+      <stock>50</stock>
+      <image>mil2.webp</image>
+    </product>
+  </products>
+  <users>
     <user id="1" role="1">
-        <firstName>El Mahdi</firstName>
-        <lastName>Bellaziz</lastName>
-        <email>admin</email>
-        <password>admin</password>
+      <firstName>El Mahdi</firstName>
+      <lastName>Bellaziz</lastName>
+      <email>admin</email>
+      <password>admin</password>
     </user>
     <user id="2" role="2">
-        <firstName>Mohamed</firstName>
-        <lastName>ben ali</lastName>
-        <email>manager</email>
-        <password>manager</password>
+      <firstName>Mohamed</firstName>
+      <lastName>ben ali</lastName>
+      <email>manager</email>
+      <password>manager</password>
     </user>
     <user id="3" role="3">
-        <firstName>khalid</firstName>
-        <lastName>simo</lastName>
-        <email>client</email>
-        <password>client</password>
+      <firstName>khalid</firstName>
+      <lastName>simo</lastName>
+      <email>client</email>
+      <password>client</password>
     </user>
-</users>
-
-
-
-
-<!-- Roles and permissions Data -->
-
-
-
-<permissions>
-        <permission id="1">Manage Users</permission>
-        <permission id="2">Manage products</permission>
-        <permission id="3">Manage orders</permission>
-        <permission id="4">view products</permission>
-        <permission id="5">place an order</permission>
-        <permission id="6">view orders</permission>
-        <permission id="7">Manage Roles</permission>
-    </permissions>
-    
-    <roles>
-        <role id="1">
-            <name>Admin</name>
-            <permission-id id="1"/>
-            <permission-id id="2"/>
-            <permission-id id="3"/>
-            <permission-id id="4"/>
-            <permission-id id="5"/>
-            <permission-id id="7"/>
-        </role>
-        <role id="2">
-            <name>Manager</name>
-            <permission-id id="2"/>
-            <permission-id id="3"/>
-            <permission-id id="4"/>
-        </role>
-        <role id="3">
-            <name>Client</name>
-            <permission-id id="4"/>
-            <permission-id id="5"/>
-            <permission-id id="6"/>
-        </role>
-    </roles>
-
-
-
-<!--  My Cart Data  -->
-
-<Carts>
-
+    <user id="4" role="3">
+      <firstName>mohamed</firstName>
+      <lastName>khaldoun</lastName>
+      <email>simo</email>
+      <password>simo</password>
+    </user>
+  </users>
+  <permissions>
+    <permission id="1">Manage Users</permission>
+    <permission id="2">Manage products</permission>
+    <permission id="3">Manage orders</permission>
+    <permission id="4">view products</permission>
+    <permission id="5">place an order</permission>
+    <permission id="6">view orders</permission>
+    <permission id="7">Manage Roles</permission>
+  </permissions>
+  <roles>
+    <role id="1">
+      <name>Admin</name>
+      <permission-id id="1"/>
+      <permission-id id="2"/>
+      <permission-id id="3"/>
+      <permission-id id="4"/>
+      <permission-id id="5"/>
+      <permission-id id="7"/>
+    </role>
+    <role id="2">
+      <name>Manager</name>
+      <permission-id id="2"/>
+      <permission-id id="3"/>
+      <permission-id id="4"/>
+    </role>
+    <role id="3">
+      <name>Client</name>
+      <permission-id id="4"/>
+      <permission-id id="5"/>
+      <permission-id id="6"/>
+    </role>
+  </roles>
+  <Carts>
     <Cart user="1">
-        <item product="1">
-            <quantity>5</quantity>
-        </item>
-        <item product="2">
-            <quantity>3</quantity>
-        </item>
-        <item product="5">
-            <quantity>2</quantity>
-        </item>
+      <item product="1">
+        <quantity>5</quantity>
+      </item>
+      <item product="2">
+        <quantity>3</quantity>
+      </item>
+      <item product="5">
+        <quantity>2</quantity>
+      </item>
     </Cart>
-
     <Cart user="2">
-        <item product="2">
-            <quantity>3</quantity>
-        </item>
+      <item product="2">
+        <quantity>3</quantity>
+      </item>
     </Cart>
-
     <Cart user="3">
-        <item product="2">
-            <quantity>3</quantity>
-        </item>
-        <item product="2">
-            <quantity>3</quantity>
-        </item>
-        <item product="2">
-            <quantity>3</quantity>
-        </item>
-        <item product="2">
-            <quantity>3</quantity>
-        </item>
+      <item product="2">
+        <quantity>3</quantity>
+      </item>
+      <item product="9">
+        <quantity>3</quantity>
+      </item>
+      <item product="5">
+        <quantity>3</quantity>
+      </item>
+      <item product="6">
+        <quantity>1</quantity>
+      </item>
+      <item product="10">
+        <quantity>1</quantity>
+      </item>
     </Cart>
-
-</Carts>
-
-
-<!-- Pending Processing Shipped Delivred-->
-<Orders>
+    <Cart user="4">
+      <item product="6">
+        <quantity>1</quantity>
+      </item>
+      <item product="9">
+        <quantity>1</quantity>
+      </item>
+    </Cart>
+  </Carts>
+  <Orders>
     <Order id="1" user="1">
-    <orderItems>
+      <orderItems>
         <item product="1">
-            <quantity>5</quantity>
+          <quantity>5</quantity>
         </item>
         <item product="2">
-            <quantity>3</quantity>
+          <quantity>3</quantity>
         </item>
         <item product="5">
-            <quantity>2</quantity>
+          <quantity>2</quantity>
         </item>
-    </orderItems>
-        <Date>2021-06-01</Date>
-        <Staus>Pending</Staus>
-        <Address>
-            <city>Agadir</city>
-            <street>Hay salam</street>
-            <zip>80000</zip>
-        </Address>
-        <OrderTotal>100</OrderTotal>
+      </orderItems>
+      <Date>2021-06-01</Date>
+      <Staus>Pending</Staus>
+      <Address>
+        <city>Agadir</city>
+        <street>Hay salam</street>
+        <zip>80000</zip>
+      </Address>
+      <OrderTotal>100</OrderTotal>
     </Order>
     <Order id="2" user="3">
-    <orderItems>
+      <orderItems>
         <item product="1">
-            <quantity>5</quantity>
+          <quantity>5</quantity>
         </item>
         <item product="2">
-            <quantity>3</quantity>
+          <quantity>3</quantity>
         </item>
         <item product="5">
-            <quantity>2</quantity>
+          <quantity>2</quantity>
         </item>
-    </orderItems>
-        <Date>2021-06-01</Date>
-        <Staus>Processing</Staus>
-        <Address>
-            <city>Agadir</city>
-            <street>Hay salam</street>
-            <zip>80000</zip>
-        </Address>
-                <OrderTotal>2000</OrderTotal>
+      </orderItems>
+      <Date>2021-06-01</Date>
+      <Staus>Processing</Staus>
+      <Address>
+        <city>Agadir</city>
+        <street>Hay salam</street>
+        <zip>80000</zip>
+      </Address>
+      <OrderTotal>2000</OrderTotal>
     </Order>
     <Order id="3" user="3">
-    <orderItems>
+      <orderItems>
         <item product="1">
-            <quantity>5</quantity>
+          <quantity>5</quantity>
         </item>
         <item product="2">
-            <quantity>3</quantity>
+          <quantity>3</quantity>
         </item>
         <item product="5">
-            <quantity>2</quantity>
+          <quantity>2</quantity>
         </item>
-    </orderItems>
-        <Date>2021-06-01</Date>
-        <Staus>Shipped</Staus>
-        <Address>
-            <city>Agadir</city>
-            <street>Hay salam</street>
-            <zip>80000</zip>
-        </Address>
-                <OrderTotal>100</OrderTotal>
+      </orderItems>
+      <Date>2021-06-01</Date>
+      <Staus>Shipped</Staus>
+      <Address>
+        <city>Agadir</city>
+        <street>Hay salam</street>
+        <zip>80000</zip>
+      </Address>
+      <OrderTotal>100</OrderTotal>
     </Order>
     <Order id="4" user="3">
-    <orderItems>
+      <orderItems>
         <item product="10">
-            <quantity>5</quantity>
+          <quantity>5</quantity>
         </item>
         <item product="7">
-            <quantity>3</quantity>
+          <quantity>3</quantity>
         </item>
         <item product="1">
-            <quantity>2</quantity>
+          <quantity>2</quantity>
         </item>
-    </orderItems>
-        <Date>2021-06-01</Date>
-        <Staus>Delivred</Staus>
-        <Address>
-            <city>Agadir</city>
-            <street>Hay salam</street>
-            <zip>80000</zip>
-        </Address>
-            <OrderTotal>500</OrderTotal>
+      </orderItems>
+      <Date>2021-06-01</Date>
+      <Staus>Delivred</Staus>
+      <Address>
+        <city>Agadir</city>
+        <street>Hay salam</street>
+        <zip>80000</zip>
+      </Address>
+      <OrderTotal>500</OrderTotal>
     </Order>
-</Orders>
-
+  </Orders>
 </Store>
