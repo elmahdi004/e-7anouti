@@ -246,6 +246,81 @@ console.error("Error during XSLT transformation:", error);
 res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
+app.post("/myCart", isAuthenticatedMiddleware ,async (req, res) => {
+    // try {
+    if(!req.cookies.lang){
+        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+    }
+const authUser = req.session.user['$'].id ? req.session.user['$'].id : 0 ;
+const {address,city,zip,total} = req.body;
+if(address == "" || city == "" || city == "" || zip == "" || total == ""){
+res.redirect('/myCart');
+}else{
+    const dataXml = await fs.readFile("./data/data.xml", "utf8");
+    parser.parseString(dataXml, (err, result) => {
+        if (err) return console.log("first error");
+        
+        const carts = result.Store.Carts[0].Cart;
+        const cart = carts.find(c => c['$'].user == authUser);
+        const orders = result.Store.Orders[0].Order;
+         console.log("Cart",cart);
+         console.log("orders",orders[0]['orderItems'][0].item);
+
+
+        if(cart){
+            const order = { '$': {id:orders.length+1, user: authUser},
+            orderItems:[{item:[]}],
+            Date : [`${new Date().toISOString().slice(0, 10)}`],
+            Status:['Pending'],
+            Address : {city:city,street:address,zip:zip},
+            OrderTotal : [`${total}`]
+        };
+        cart['item'].forEach(element => {
+            const nItem = {'$':{product:element['$'].product},quantity:[`${element.quantity[0]}`]};
+            order.orderItems[0].item.push(nItem);
+        });
+        orders.push(order);
+        result.Store.Carts[0].Cart = result.Store.Carts[0].Cart.filter(cart => cart['$'].user != authUser);
+        carts.push({ '$': {user:authUser}, item: [] });    
+    }else{
+            carts.push({ '$': {user:authUser}, item: [] });
+            res.redirect('/myCart');
+        }
+            // Convert the updated object back to XML
+            const updatedXml = builder.buildObject(result);
+            fs.writeFile("./data/data.xml", updatedXml, "utf8");
+      });
+      return res.redirect("/admin/orders");
+}
+
+// Read XML and XSLT files
+// const xmlData = await fs.readFile("./data/data.xml", "utf8");
+// const xslData = await fs.readFile("./pages/myCart.xsl", "utf8");
+
+// // Initialize the Xslt and XmlParser classes
+// const options = {
+//     escape: false,
+//     selfClosingTags: true,
+//     parameters: [{ name:"lang",value: req.cookies.lang },{name:"authUser",value:authUser}],
+//     outputMethod: 'xml'
+//   };
+
+// const xslt = new Xslt(options);
+// const xmlParser = new XmlParser();
+
+
+// const outXmlString = await xslt.xsltProcess(
+//     xmlParser.xmlParse(xmlData),
+//     xmlParser.xmlParse(xslData)
+// );
+// // Send the transformed HTML to the client
+// res.set("Content-Type", "text/html");
+// res.send(outXmlString); // Transformed XML or HTML as string
+// } catch (error) {
+// console.error("Error during XSLT transformation:", error);
+// res.status(500).send("An error occurred during XSLT transformation.");
+// }
+});
 
 
 

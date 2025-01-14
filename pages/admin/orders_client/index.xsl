@@ -180,7 +180,7 @@
     <tr>
       <td><xsl:value-of select="@id"/></td>
       <td><xsl:value-of select="Date"/></td>
-      <td><xsl:value-of select="Staus"/></td>
+      <td><xsl:value-of select="Status"/></td>
       <td><xsl:value-of select="Address/street"/><span>, </span><xsl:value-of select="Address/city"/><span>&nbsp;</span><xsl:value-of select="Address/zip"/><span></span></td>
       <td><xsl:value-of select="OrderTotal"/><span> MAD</span></td>
       <td>

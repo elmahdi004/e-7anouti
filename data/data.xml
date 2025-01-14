@@ -338,17 +338,6 @@ Contenance : 100 ml.</lang>
     </role>
   </roles>
   <Carts>
-    <Cart user="1">
-      <item product="1">
-        <quantity>5</quantity>
-      </item>
-      <item product="2">
-        <quantity>3</quantity>
-      </item>
-      <item product="5">
-        <quantity>2</quantity>
-      </item>
-    </Cart>
     <Cart user="2">
       <item product="2">
         <quantity>3</quantity>
@@ -394,7 +383,7 @@ Contenance : 100 ml.</lang>
         </item>
       </orderItems>
       <Date>2021-06-01</Date>
-      <Staus>Pending</Staus>
+      <Status>Pending</Status>
       <Address>
         <city>Agadir</city>
         <street>Hay salam</street>
@@ -415,7 +404,7 @@ Contenance : 100 ml.</lang>
         </item>
       </orderItems>
       <Date>2021-06-01</Date>
-      <Staus>Processing</Staus>
+      <Status>Processing</Status>
       <Address>
         <city>Agadir</city>
         <street>Hay salam</street>
@@ -436,7 +425,7 @@ Contenance : 100 ml.</lang>
         </item>
       </orderItems>
       <Date>2021-06-01</Date>
-      <Staus>Shipped</Staus>
+      <Status>Shipped</Status>
       <Address>
         <city>Agadir</city>
         <street>Hay salam</street>
@@ -444,26 +433,31 @@ Contenance : 100 ml.</lang>
       </Address>
       <OrderTotal>100</OrderTotal>
     </Order>
-    <Order id="4" user="3">
+    <Order id="4" user="1">
       <orderItems>
-        <item product="10">
+        <item product="1">
           <quantity>5</quantity>
         </item>
-        <item product="7">
+        <item product="2">
           <quantity>3</quantity>
         </item>
-        <item product="1">
+        <item product="5">
           <quantity>2</quantity>
         </item>
+        <item product="8">
+          <quantity>1</quantity>
+        </item>
       </orderItems>
-      <Date>2021-06-01</Date>
-      <Staus>Delivred</Staus>
+      <Date>2025-01-14</Date>
+      <Status>Pending</Status>
       <Address>
-        <city>Agadir</city>
-        <street>Hay salam</street>
-        <zip>80000</zip>
+        <city>safi</city>
+        <street>dr lamarahate cr saadla</street>
+        <zip>40601</zip>
       </Address>
-      <OrderTotal>500</OrderTotal>
+      <OrderTotal>153</OrderTotal>
     </Order>
+    
+
   </Orders>
 </Store>
