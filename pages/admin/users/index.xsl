@@ -33,7 +33,7 @@
         <div class="dashboard" id="dashboard">
             <div class="logo">
                 <div>
-                    LOGO
+                <a href="/"><img style="width:100px;" src="/images/logo.png"/></a>
                 </div>
 
             </div>

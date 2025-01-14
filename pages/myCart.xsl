@@ -25,7 +25,7 @@
         <div class="content">
             <div class="part_one">
                 <img src="./icons/menu.svg" alt="menu" srcset=""/>
-                <h1>Brand</h1>
+                <a href="/"><img style="width:60px;" src="/images/logo.png"/></a>
                 <div class="search">
                     <input type="text" name="search" id="" placeholder="Search your product"/>
                     <img src="./icons/bx_search.svg" alt="search" srcset=""/>
