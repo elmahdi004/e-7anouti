@@ -15,7 +15,7 @@
             </xsl:attribute>
             <head>
                 <title>Product List</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
         <!-- Optional Bootstrap JavaScript Bundle (with Popper.js) -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>                <link rel="stylesheet" href="/style/style.css"/> -->
                 <link rel="stylesheet" href="/style/admin.css"/>
@@ -160,32 +160,39 @@
                         </div>
                     </div>
                     <div class="body">
+                    <div class="add_section"style="display:flex;align-items:center;justify-content:space-between;">
+                        <h5 class="py-4">Products list :</h5>
+                        <a href="/admin/products/add" class="btn  btn-sm btn-primary">Add Product</a>
+                    </div>
                     <div class="table_section">
 <table class="table">
   <thead>
     <tr>
       <th >#</th>
-      <th >Date</th>
-      <th >Status</th>
-      <th >Address</th>
-      <th >Total</th>
+      <th >Image</th>
+      <th >title</th>
+      <th>category</th>
+      <th >price</th>
+      <th >stock</th>
       <th >Actions</th>
     </tr>
   </thead>
   <tbody>
-  <xsl:for-each select="/Store/Orders/Order">
+  <xsl:for-each select="/Store/products/product">
     <tr>
-      <td><xsl:value-of select="@id"/></td>
-      <td><xsl:value-of select="Date"/></td>
-      <td><xsl:value-of select="Staus"/></td>
-      <td><xsl:value-of select="@id"/></td>
-      <td><xsl:value-of select="OrderTotal"/><span> MAD</span></td>
+     <xsl:variable name="category-id" select="@category-id"/>
+      <td><xsl:value-of select="$category-id"/></td>
+    <td><img style="width:40px;" src="/images/products/{image}"/></td>
+    <td><xsl:value-of select="name/lang[@code=$lang]"/></td>
+      <td><xsl:value-of select="/Store/categories/category[@id=$category-id]/name/lang[@code=$lang]"/></td>
+      <td><xsl:value-of select="price"/></td>
+      <td><xsl:value-of select="stock"/><span> MAD</span></td>
       <td>
         <select style="width:40px;" id="dropdown" class="form-select form-select-sm" aria-label="Default select example">
   <option  selected></option>
-  <option value="/admin/orders/{@id}/delete">Update</option>
-  <option value="/admin/orders/{@id}/delete">Delete</option>
-  <option value="/admin/orders/{@id}/details">Details</option>
+  <option value="/admin/products/{@id}/update">Update</option>
+  <option value="/admin/products/{@id}/delete">Delete</option>
+  <!-- <option value="/admin/orders/{@id}/details">Details</option> -->
 </select>
       </td>
     </tr>

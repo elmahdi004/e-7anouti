@@ -354,6 +354,41 @@ console.error("Error during XSLT transformation:", error);
 res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
+app.get("/admin/clients", isAuthenticatedMiddleware ,async (req, res) => {
+    try {
+    if(!req.cookies.lang){
+        res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
+    }
+const authUser = req.session.user['$'].id
+const authRole = req.session.user['$'].role
+// Read XML and XSLT files
+const xmlData = await fs.readFile("./data/data.xml", "utf8");
+const xslData = await fs.readFile("./pages/admin/users/index.xsl", "utf8");
+
+// Initialize the Xslt and XmlParser classes
+const options = {
+    escape: false,
+    selfClosingTags: true,
+    parameters: [{ name:"lang",value: req.cookies.lang },{name:"authUser",value:authUser},{name:"authRole",value:authRole}],
+    outputMethod: 'xml'
+  };
+
+const xslt = new Xslt(options);
+const xmlParser = new XmlParser();
+
+
+const outXmlString = await xslt.xsltProcess(
+    xmlParser.xmlParse(xmlData),
+    xmlParser.xmlParse(xslData)
+);
+// Send the transformed HTML to the client
+res.set("Content-Type", "text/html");
+res.send(outXmlString); // Transformed XML or HTML as string
+} catch (error) {
+console.error("Error during XSLT transformation:", error);
+res.status(500).send("An error occurred during XSLT transformation.");
+}
+});
 
 
 
@@ -421,8 +456,8 @@ app.post('/signup', async (req, res) => {
                 // Add new user
                 const user = {
                     '$': { id: users.length + 1, role: 3 },
-                    first_name: [first_name],
-                    last_name: [last_name],
+                    firstName: [first_name],
+                    lastName: [last_name],
                     email: [email],
                     password: [password]
                 };

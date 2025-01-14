@@ -303,12 +303,6 @@ Contenance : 100 ml.</lang>
       <email>simo</email>
       <password>simo</password>
     </user>
-    <user id="5" role="3">
-      <first_name>elmahdi</first_name>
-      <last_name>bellaziz</last_name>
-      <email>admin@gmail.com</email>
-      <password>123456789</password>
-    </user>
   </users>
   <permissions>
     <permission id="1">Manage Users</permission>
