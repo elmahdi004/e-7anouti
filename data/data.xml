@@ -322,13 +322,13 @@ Contenance : 100 ml.</lang>
   <roles>
     <role id="1">
       <name>Admin</name>
-      <permission-id id="1"/>
-      <permission-id id="2"/>
-      <permission-id id="3"/>
       <permission-id id="4"/>
       <permission-id id="5"/>
       <permission-id id="6"/>
       <permission-id id="7"/>
+      <permission-id id="1"/>
+      <permission-id id="2"/>
+      <permission-id id="3"/>
     </role>
     <role id="2">
       <name>Manager</name>

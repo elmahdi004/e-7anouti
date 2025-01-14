@@ -15,7 +15,7 @@ const cookieParser = require('cookie-parser');
 
 const session = require('express-session');
 const xml2js = require('xml2js');
-const { console } = require("inspector");
+// const { console } = require("inspector");
 
 
 const app = express();
@@ -676,8 +676,37 @@ console.error("Error during XSLT transformation:", error);
 res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
-app.get("/admin/update-roles/:role/permission/:permission", isAuthenticatedMiddleware ,async (req, res) => {
-console.log("Hello World");
+app.get("/admin/update-roles/:role/permission/:permission", isAuthenticatedMiddleware , async(req, res) => {
+const permissionId = req.params.permission;
+const roleID = req.params.role;
+
+const dataXml = await fs.readFile("./data/data.xml", "utf8");
+parser.parseString(dataXml, (err, result) => {
+    if (err) return console.log("first error");
+    
+    const roles = result.Store.roles[0].role;
+    const role = roles.find(c => c['$'].id == roleID);
+    const permission = role["permission-id"].find(c => c['$'].id == permissionId);
+    // const product = req.params.productId;
+    if(permission){
+        role["permission-id"] = role["permission-id"].filter(c => c['$'].id != permissionId);
+        console.log("Yes i find it",permission);
+    }else{
+        const newPermission = { '$': {id:permissionId} };
+        role["permission-id"].push(newPermission);
+        console.log("Permission does not extste");
+    }
+    // if(cart){
+    //     const item = { '$': {product:product}, quantity: [1] };
+    //     cart.item.push(item);
+    // }else{
+    //     carts.push({ '$': {user:authUser}, item: [{ '$': {product:product}, quantity: [1] }] });
+    // }
+    //     // Convert the updated object back to XML
+        const updatedXml = builder.buildObject(result);
+        fs.writeFile("./data/data.xml", updatedXml, "utf8");
+  });
+    res.redirect('/admin/roles');
 });
 
 
@@ -721,10 +750,7 @@ res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
 
-// // Start the server 
-app.listen(port, () => {
-    console.log(`App is running at http://localhost:${port}`);
-});
+
 
 
 
@@ -834,3 +860,7 @@ async function authenticate(username, password, callback) {
   }
 
 
+// // Start the server 
+app.listen(port, () => {
+    console.log(`App is running at http://localhost:${port}`);
+});

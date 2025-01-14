@@ -184,27 +184,27 @@
             <a href="/admin/update-roles/1/permission/{$permissionId}" class="btn btn-success btn-sm">Granted</a>
           </xsl:if>
           <xsl:if test="not(/Store/roles/role[@id='1']/permission-id[@id=$permissionId])">
-            <a class="btn btn-danger btn-sm">Not Granted</a>
+            <a href="/admin/update-roles/1/permission/{$permissionId}" class="btn btn-danger btn-sm">Not Granted</a>
           </xsl:if>
         </td>
 
         <!-- Manager Role -->
         <td>
           <xsl:if test="/Store/roles/role[@id='2']/permission-id[@id=$permissionId]">
-            <a class="btn btn-success btn-sm">Granted</a>
+            <a href="/admin/update-roles/2/permission/{$permissionId}" class="btn btn-success btn-sm">Granted</a>
           </xsl:if>
           <xsl:if test="not(/Store/roles/role[@id='2']/permission-id[@id=$permissionId])">
-            <a class="btn btn-danger btn-sm">Not Granted</a>
+            <a href="/admin/update-roles/2/permission/{$permissionId}" class="btn btn-danger btn-sm">Not Granted</a>
           </xsl:if>
         </td>
 
         <!-- Client Role -->
         <td>
           <xsl:if test="/Store/roles/role[@id='3']/permission-id[@id=$permissionId]">
-            <a class="btn btn-success btn-sm">Granted</a>
+            <a href="/admin/update-roles/3/permission/{$permissionId}" class="btn btn-success btn-sm">Granted</a>
           </xsl:if>
           <xsl:if test="not(/Store/roles/role[@id='3']/permission-id[@id=$permissionId])">
-            <a class="btn btn-danger btn-sm">Not Granted</a>
+            <a href="/admin/update-roles/3/permission/{$permissionId}" class="btn btn-danger btn-sm">Not Granted</a>
           </xsl:if>
         </td>
       </tr>
