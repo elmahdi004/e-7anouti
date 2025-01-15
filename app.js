@@ -246,7 +246,7 @@ console.error("Error during XSLT transformation:", error);
 res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
-app.post("/myCart", isAuthenticatedMiddleware ,async (req, res) => {
+app.post("/myCart", isAuthenticatedMiddleware,checkPermission(5) ,async (req, res) => {
     // try {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
@@ -394,7 +394,7 @@ res.status(500).send("An error occurred during XSLT transformation.");
 });
 
 
-app.get("/admin/products", isAuthenticatedMiddleware ,async (req, res) => {
+app.get("/admin/products", isAuthenticatedMiddleware,checkPermission(2) ,async (req, res) => {
     try {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
@@ -429,7 +429,7 @@ console.error("Error during XSLT transformation:", error);
 res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
-app.get("/admin/clients", isAuthenticatedMiddleware ,async (req, res) => {
+app.get("/admin/clients", isAuthenticatedMiddleware,checkPermission(1) ,async (req, res) => {
     try {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
@@ -650,7 +650,7 @@ authenticate(email, password, async (err, authenticated) => {
 });
 
 
-app.get("/admin/orders", isAuthenticatedMiddleware ,async (req, res) => {
+app.get("/admin/orders", isAuthenticatedMiddleware,checkPermission(6) ,async (req, res) => {
     try {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
@@ -718,7 +718,7 @@ console.error("Error during XSLT transformation:", error);
 res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
-app.get("/admin/m-orders", isAuthenticatedMiddleware ,async (req, res) => {
+app.get("/admin/m-orders", isAuthenticatedMiddleware,checkPermission(3) ,async (req, res) => {
     try {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
@@ -752,7 +752,7 @@ console.error("Error during XSLT transformation:", error);
 res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
-app.get("/admin/roles", isAuthenticatedMiddleware ,async (req, res) => {
+app.get("/admin/roles", isAuthenticatedMiddleware,checkPermission(7) ,async (req, res) => {
     try {
     if(!req.cookies.lang){
         res.cookie("lang", "en", { maxAge: 365 * 24 * 60 * 60 * 1000 })
@@ -786,7 +786,7 @@ console.error("Error during XSLT transformation:", error);
 res.status(500).send("An error occurred during XSLT transformation.");
 }
 });
-app.get("/admin/update-roles/:role/permission/:permission", isAuthenticatedMiddleware , async(req, res) => {
+app.get("/admin/update-roles/:role/permission/:permission", isAuthenticatedMiddleware,checkPermission(7) , async(req, res) => {
 const permissionId = req.params.permission;
 const roleID = req.params.role;
 
@@ -951,6 +951,33 @@ function isAuthenticatedMiddleware(req, res, next) {
 
 
 
+   function checkPermission(requiredPermission) {
+    return async (req, res, next) => {
+      if (req.session.user) {
+        console.log('required Role',requiredPermission);
+        const dataXml = await fs.readFile("./data/data.xml", "utf8");
+        parser.parseString(dataXml, (err, result) => {
+            if (err) return callback(err);
+            
+            const users = result.Store.users[0].user;
+            const user = users.find(u => u['$'].id === req.session.user['$'].id);
+            const userRole = user['$'].role;
+            const permissions = result.Store.roles[0].role.find(role => role['$'].id == userRole)['permission-id'];
+            if (permissions.find(per => per['$'].id == requiredPermission)) {
+                console.log("Yes he has the permission");
+                        next(); 
+            } else {
+                console.log("You have an error please try again");
+                res.redirect('/logout');
+            }
+          });
+      } else {
+        res.status(403).send('Access denied. Insufficient permissions.');
+      }
+    };
+  }
+
+// end middleware section
 async function authenticate(username, password, callback) {
     const dataXml = await fs.readFile("./data/data.xml", "utf8");
     parser.parseString(dataXml, (err, result) => {

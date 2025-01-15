@@ -120,6 +120,16 @@
                     </xsl:if>
                     </xsl:for-each>
                 </ul>
+                                <div class="d-flex text-align-center justify-content-center mt-5">
+                        <div>
+                            <a href="/logout" style="display:flex;column-gap:10px;">
+                                <div class="icon">
+                                        <img src="/icons/dashboard/logout.png" width="20px"/>
+                                </div>
+                                <h4>Logout</h4>
+                            </a>
+                        </div>
+                </div>
             </div>
         </div>
         <div class="content" id="content">
@@ -182,7 +192,7 @@
     <tr>
       <td><xsl:value-of select="@id"/></td>
       <td><xsl:value-of select="Date"/></td>
-      <td><xsl:value-of select="Staus"/></td>
+      <td><xsl:value-of select="Status"/></td>
       <td><xsl:value-of select="Address/street"/><span>, </span><xsl:value-of select="Address/city"/><span>&nbsp;</span><xsl:value-of select="Address/zip"/><span></span></td>
       <td><xsl:value-of select="/Store/users/user[@id=$userOrder]/firstName"/><span>&nbsp;</span><xsl:value-of select="/Store/users/user[@id=$userOrder]/lastName"/></td>
       <td><xsl:value-of select="OrderTotal"/><span> MAD</span></td>

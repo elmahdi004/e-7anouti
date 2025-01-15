@@ -120,6 +120,16 @@
                     </xsl:if>
                     </xsl:for-each>
                 </ul>
+                                <div class="d-flex text-align-center justify-content-center mt-5">
+                        <div>
+                            <a href="/logout" style="display:flex;column-gap:10px;">
+                                <div class="icon">
+                                        <img src="/icons/dashboard/logout.png" width="20px"/>
+                                </div>
+                                <h4>Logout</h4>
+                            </a>
+                        </div>
+                </div>
             </div>
         </div>
         <div class="content" id="content">

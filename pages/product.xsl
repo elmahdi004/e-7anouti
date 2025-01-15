@@ -88,7 +88,7 @@
                             <h2>MAD<xsl:value-of select="/Store/products/product[@id=$productId]/pre_price" /></h2>
                         </div>
                             <div class="buttons">
-                                <a href="/add-to-cart/{/Store/products/product[@id=$productId]/@id}"><img src="/icons/r.svg" /><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='add-to-bucket']"/></a>
+                                <a href="/add-to-cart/{/Store/products/product[@id=$productId]/@id}"><img class="" src="/icons/r.svg" /><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='add-to-bucket']"/></a>
                                 <a><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='buy-now']"/></a>
                             </div>
         </div>

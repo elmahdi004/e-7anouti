@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Store xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:noNamespaceSchemaLocation="validation.xsd">
+<Store xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="validation.xsd">
   <languages>
     <lang code="ar" title="Arabic">
       <content key="main-title">نحن نجلب المتجر إلى باب منزلك</content>
@@ -25,11 +24,11 @@
       <content key="add-to-bucket">أضف إلى السلة</content>
       <content key="product-description">تفاصيل المنتج</content>
       <content key="product-details">تفاصيل المنتج</content>
-      <content key="shoppingBag">سلة التسوق</content>  
-      <content key="shoppingAddress">عنوان الشحن</content>  
-      <content key="shoppingDetails">تفاصيل الشحن</content>  
-      <content key="cartSubtotal">المجموع الفرعي للسلة</content>  
-      <content key="shipping">الشحن</content>  
+      <content key="shoppingBag">سلة التسوق</content>
+      <content key="shoppingAddress">عنوان الشحن</content>
+      <content key="shoppingDetails">تفاصيل الشحن</content>
+      <content key="cartSubtotal">المجموع الفرعي للسلة</content>
+      <content key="shipping">الشحن</content>
       <content key="cartTotal">إجمالي السلة</content>
       <content key="orderNow">اطلب الآن</content>
       <content key="itemsInYourBag">العناصر في سلتك</content>
@@ -65,7 +64,6 @@
       <content key="cartTotal">Cart total</content>
       <content key="orderNow">Order now</content>
       <content key="itemsInYourBag">Items in your bag</content>
-
     </lang>
     <lang code="fr" title="Français">
       <content key="main-title">Nous apportons le magasin à votre porte.</content>
@@ -90,11 +88,11 @@
       <content key="add-to-bucket">Ajouter au panier</content>
       <content key="product-description">Description du produit :</content>
       <content key="product-details">Détails du produit</content>
-      <content key="shoppingBag">Sac de courses</content>  
-      <content key="shoppingAddress">Adresse de livraison</content>  
-      <content key="shoppingDetails">Détails de livraison</content>  
-      <content key="cartSubtotal">Sous-total du panier</content>  
-      <content key="shipping">Livraison</content>  
+      <content key="shoppingBag">Sac de courses</content>
+      <content key="shoppingAddress">Adresse de livraison</content>
+      <content key="shoppingDetails">Détails de livraison</content>
+      <content key="cartSubtotal">Sous-total du panier</content>
+      <content key="shipping">Livraison</content>
       <content key="cartTotal">Total du panier</content>
       <content key="orderNow">Commander maintenant</content>
       <content key="itemsInYourBag">Articles dans votre panier</content>
@@ -352,10 +350,10 @@ Contenance : 100 ml.</lang>
       <permission-id id="4"/>
       <permission-id id="5"/>
       <permission-id id="6"/>
-      <permission-id id="7"/>
       <permission-id id="1"/>
       <permission-id id="2"/>
       <permission-id id="3"/>
+      <permission-id id="7"/>
     </role>
     <role id="2">
       <name>Manager</name>
@@ -398,14 +396,6 @@ Contenance : 100 ml.</lang>
         <quantity>1</quantity>
       </item>
       <item product="9">
-        <quantity>1</quantity>
-      </item>
-    </Cart>
-    <Cart user="1">
-      <item product="1">
-        <quantity>1</quantity>
-      </item>
-      <item product="7">
         <quantity>1</quantity>
       </item>
     </Cart>
@@ -497,6 +487,42 @@ Contenance : 100 ml.</lang>
         <zip>40601</zip>
       </Address>
       <OrderTotal>153</OrderTotal>
+    </Order>
+    <Order id="5" user="1">
+      <orderItems>
+        <item product="1">
+          <quantity>1</quantity>
+        </item>
+        <item product="7">
+          <quantity>1</quantity>
+        </item>
+      </orderItems>
+      <Date>2025-01-15</Date>
+      <Status>Pending</Status>
+      <Address>
+        <city>safi</city>
+        <street>rue el massira</street>
+        <zip>40601</zip>
+      </Address>
+      <OrderTotal>76</OrderTotal>
+    </Order>
+    <Order id="6" user="1">
+      <orderItems>
+        <item product="10">
+          <quantity>1</quantity>
+        </item>
+        <item product="7">
+          <quantity>1</quantity>
+        </item>
+      </orderItems>
+      <Date>2025-01-15</Date>
+      <Status>Pending</Status>
+      <Address>
+        <city>safi</city>
+        <street>dr lamarahate cr saadla</street>
+        <zip>40601</zip>
+      </Address>
+      <OrderTotal>77</OrderTotal>
     </Order>
   </Orders>
 </Store>
