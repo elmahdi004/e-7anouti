@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Store>
+<Store xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="validation.xsd">
   <languages>
     <lang code="ar" title="Arabic">
       <content key="main-title">نحن نجلب المتجر إلى باب منزلك</content>
