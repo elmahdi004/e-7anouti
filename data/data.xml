@@ -334,6 +334,12 @@ Contenance : 100 ml.</lang>
       <email>simo</email>
       <password>simo</password>
     </user>
+    <user id="5" role="3">
+      <firstName>mohamed</firstName>
+      <lastName>ait ali</lastName>
+      <email>mohamedaitali@gmail.com</email>
+      <password>admin</password>
+    </user>
   </users>
   <permissions>
     <permission id="1">Manage Users</permission>
@@ -523,6 +529,39 @@ Contenance : 100 ml.</lang>
         <zip>40601</zip>
       </Address>
       <OrderTotal>77</OrderTotal>
+    </Order>
+    <Order id="7" user="5">
+      <orderItems>
+        <item product="2">
+          <quantity>1</quantity>
+        </item>
+      </orderItems>
+      <Date>2025-01-15</Date>
+      <Status>Pending</Status>
+      <Address>
+        <city>safi</city>
+        <street>address exemple</street>
+        <zip>40601</zip>
+      </Address>
+      <OrderTotal>11</OrderTotal>
+    </Order>
+    <Order id="8" user="5">
+      <orderItems>
+        <item product="6">
+          <quantity>1</quantity>
+        </item>
+        <item product="8">
+          <quantity>1</quantity>
+        </item>
+      </orderItems>
+      <Date>2025-01-15</Date>
+      <Status>Pending</Status>
+      <Address>
+        <city>safi</city>
+        <street>dr lamarahate cr saadla</street>
+        <zip>40601</zip>
+      </Address>
+      <OrderTotal>40</OrderTotal>
     </Order>
   </Orders>
 </Store>

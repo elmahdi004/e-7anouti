@@ -95,7 +95,7 @@
                     </xsl:for-each>
                     <xsl:for-each select="/Store/roles/role[@id=$authRole]/permission-id">
                     <xsl:if test="@id = 6">
-                    <li class="/admin/orders">
+                    <li class="active">
                         <div>
                             <a href="/admin/orders" style="display:flex;column-gap:10px;">
                                 <div class="icon">
