@@ -53,7 +53,7 @@
     </div>
     
     <div class="container"> 
-    <h1>Product Details</h1>
+    <h1><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='product-details']"/></h1>
     </div>
     <div class="product_details_section container">
         <div class="images">
@@ -81,15 +81,15 @@
                                 <img src="/icons/star.svg" alt="star" srcset=""/>
                                 <img src="/icons/star-wc.svg" alt="star" srcset=""/>
                             </div>
-                            <h2>Description du produit :</h2>
+                            <h2><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='product-description']"/></h2>
                             <p><xsl:value-of select="/Store/products/product[@id=$productId]/description/lang[@code=$lang]" /></p>
                         <div class="pricing">
                             <h1>MAD<xsl:value-of select="/Store/products/product[@id=$productId]/price" /></h1>
                             <h2>MAD<xsl:value-of select="/Store/products/product[@id=$productId]/pre_price" /></h2>
                         </div>
                             <div class="buttons">
-                                <a href="/add-to-cart/{/Store/products/product[@id=$productId]/@id}"><img src="/icons/r.svg" />Add to bucket</a>
-                                <a>Buy now</a>
+                                <a href="/add-to-cart/{/Store/products/product[@id=$productId]/@id}"><img src="/icons/r.svg" /><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='add-to-bucket']"/></a>
+                                <a><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='buy-now']"/></a>
                             </div>
         </div>
     </div>

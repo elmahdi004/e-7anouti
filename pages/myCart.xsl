@@ -54,8 +54,8 @@
 
     <div class="cart_section">
         <div class="container">
-            <h1>Shopping bag</h1>
-            <p style="font-weight:bold;"><xsl:value-of select="count(/Store/Carts/Cart[@user=$authUser]/item)"/><span> items in your bag</span></p>
+            <h1><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='shoppingBag']"/></h1>
+            <p style="font-weight:bold;"><xsl:value-of select="count(/Store/Carts/Cart[@user=$authUser]/item)"/><span> <xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='itemsInYourBag']"/></span></p>
             <div class="cart">
                 <div class="products_list">
                     <div class="cart_item">
@@ -110,14 +110,14 @@
                     </xsl:if>
                 </div>
             <div class="shopping_address">
-                <h2>Shipping Address</h2>
+                <h2><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='shoppingAddress']"/></h2>
                 <form action="/myCart" method="POST">
                     <input type="text" placeholder="Full address" name="address"/>
                         <input type="text" placeholder="City" name="city"/>
                         <input type="text" placeholder="ZIP code" name="zip"/>
                         <input type="text" placeholder="ZIP code" name="total" value="{$cartTotal}" style="display:none;"/>
                     <div class="total_price">
-                        <h2>Shipping Details</h2>
+                        <h2><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='shoppingDetails']"/></h2>
                         <div class="infos">
                             <!-- <xsl:for-each select="/Store/Carts/Cart[@user=$authUser]/item">
                             <xsl:variable name="price" select="/Store/products/product[@id = $product]/price"/>
@@ -125,19 +125,19 @@
                             <xsl:variable name="cartTotal" select="10"/>
                                 </xsl:for-each> -->
                             <div class="info_line">
-                                <p>Cart subtotal</p>
+                                <p><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='cartSubtotal']"/></p>
                                 <p><xsl:value-of select="$cartTotal"/><span>&nbsp;MAD</span></p>
                             </div>
                             <div class="info_line">
-                                <p>Shipping </p>
+                                <p><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='shipping']"/></p>
                                 <p>Free</p>
                             </div>
                             <div class="info_line">
-                                <p class="p_total">Cart total</p>
+                                <p class="p_total"><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='cartTotal']"/></p>
                                 <p class="p_total"><xsl:value-of select="$cartTotal"/><span style="font-weight:bold;" >&nbsp;MAD</span></p>
                             </div>
                         </div>
-                        <button class="order">Order now</button>
+                        <button class="order"><xsl:value-of select="/Store/languages/lang[@code=$lang]/content[@key='orderNow']"/></button>
                     </div>
                 </form>
             </div>

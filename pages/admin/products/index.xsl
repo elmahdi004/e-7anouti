@@ -185,8 +185,8 @@
     <td><img style="width:40px;" src="/images/products/{image}"/></td>
     <td><xsl:value-of select="name/lang[@code=$lang]"/></td>
       <td><xsl:value-of select="/Store/categories/category[@id=$category-id]/name/lang[@code=$lang]"/></td>
-      <td><xsl:value-of select="price"/></td>
-      <td><xsl:value-of select="stock"/><span> MAD</span></td>
+      <td><xsl:value-of select="price"/><span> MAD</span></td>
+      <td><xsl:value-of select="stock"/></td>
       <td>
         <select style="width:40px;" id="dropdown" class="form-select form-select-sm" aria-label="Default select example">
   <option  selected></option>

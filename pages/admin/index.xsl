@@ -161,8 +161,6 @@
                         </div>
                     </div>
                     <div class="body">
-                        Put your content here
-                        <button class="btn btn-primary">Oky</button>
                     </div>
             </div>
         </div>

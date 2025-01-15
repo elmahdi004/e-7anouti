@@ -20,6 +20,18 @@
       <content key="copyright">حقوق الطبع والنشر 2025 جميع الحقوق محفوظة</content>
       <content key="search-hover">ابحث عن منتجك</content>
       <content key="category">فئة</content>
+      <content key="buy-now">اشترِ الآن</content>
+      <content key="add-to-bucket">أضف إلى السلة</content>
+      <content key="product-description">تفاصيل المنتج</content>
+      <content key="product-details">تفاصيل المنتج</content>
+      <content key="shoppingBag">سلة التسوق</content>  
+      <content key="shoppingAddress">عنوان الشحن</content>  
+      <content key="shoppingDetails">تفاصيل الشحن</content>  
+      <content key="cartSubtotal">المجموع الفرعي للسلة</content>  
+      <content key="shipping">الشحن</content>  
+      <content key="cartTotal">إجمالي السلة</content>
+      <content key="orderNow">اطلب الآن</content>
+      <content key="itemsInYourBag">العناصر في سلتك</content>
     </lang>
     <lang code="en" title="English">
       <content key="main-title">We bring store to your dore</content>
@@ -40,6 +52,19 @@
       <content key="copyright">Copyright 2025 all rights reserved</content>
       <content key="search-hover">Search your product</content>
       <content key="category">Category</content>
+      <content key="buy-now">Buy now</content>
+      <content key="add-to-bucket">Add to bucket</content>
+      <content key="product-description">Product description :</content>
+      <content key="product-details">Product Details</content>
+      <content key="shoppingBag">Shopping bag</content>
+      <content key="shoppingAddress">Shipping Address</content>
+      <content key="shoppingDetails">Shipping Details</content>
+      <content key="cartSubtotal">Cart subtotal</content>
+      <content key="shipping">Shipping</content>
+      <content key="cartTotal">Cart total</content>
+      <content key="orderNow">Order now</content>
+      <content key="itemsInYourBag">Items in your bag</content>
+
     </lang>
     <lang code="fr" title="Français">
       <content key="main-title">Nous apportons le magasin à votre porte.</content>
@@ -60,6 +85,18 @@
       <content key="copyright">Droits d'auteur 2025, tous droits réservés</content>
       <content key="search-hover">Recherchez votre produit</content>
       <content key="category">Catégorie</content>
+      <content key="buy-now">Acheter maintenant</content>
+      <content key="add-to-bucket">Ajouter au panier</content>
+      <content key="product-description">Description du produit :</content>
+      <content key="product-details">Détails du produit</content>
+      <content key="shoppingBag">Sac de courses</content>  
+      <content key="shoppingAddress">Adresse de livraison</content>  
+      <content key="shoppingDetails">Détails de livraison</content>  
+      <content key="cartSubtotal">Sous-total du panier</content>  
+      <content key="shipping">Livraison</content>  
+      <content key="cartTotal">Total du panier</content>
+      <content key="orderNow">Commander maintenant</content>
+      <content key="itemsInYourBag">Articles dans votre panier</content>
     </lang>
   </languages>
   <categories>
@@ -107,9 +144,9 @@
   <products>
     <product id="1" category-id="1">
       <name>
-        <lang code="en">Lait UHT écrémé Linéa 1L - JAOUDA</lang>
+        <lang code="en">Skimmed UHT Milk Linéa 1L - JAOUDA</lang>
         <lang code="fr">Lait UHT écrémé Linéa 1L - JAOUDA</lang>
-        <lang code="ar">تفاحة</lang>
+        <lang code="ar">حليب خالي الدسم طويل الأمد 1 لتر - جودة</lang>
       </name>
       <description>
         <lang code="en">Lait écrémé stérilisé UHT. 0% de matière grasse. Lait naturel est garanti sans acides gras, ni cholestérol. Riche en protéines, calcium et phosphore du lait. Valeur énergétique : 32 Kcal pour 100 ml. Volume : 1 L.</lang>
@@ -123,9 +160,9 @@
     </product>
     <product id="2" category-id="1">
       <name>
-        <lang code="en">Lait UHT entier sans lactose 1L - JAOUDA</lang>
+        <lang code="en">Whole UHT Milk Lactose-Free 1L - JAOUDA</lang>
         <lang code="fr">Lait UHT entier sans lactose 1L - JAOUDA</lang>
-        <lang code="ar">تفاحة</lang>
+        <lang code="ar">حليب كامل الدسم خالٍ من اللاكتوز طويل الأمد 1 لتر - جودة</lang>
       </name>
       <description>
         <lang code="en">Lait UHT entier sans lactose 1L - JAOUDA</lang>
@@ -139,9 +176,9 @@
     </product>
     <product id="3" category-id="1">
       <name>
-        <lang code="en">Boisson lait d'amande intense bio 1L - BJORG</lang>
+        <lang code="en">Organic Intense Almond Milk Drink 1L - BJORG</lang>
         <lang code="fr">Boisson lait d'amande intense bio 1L - BJORG</lang>
-        <lang code="ar">تفاحة</lang>
+        <lang code="ar">مشروب حليب اللوز العضوي المكثف 1 لتر - بيورغ</lang>
       </name>
       <description>
         <lang code="en">Boisson biologique à base d'amandes, avec arôme naturel, stérilisée UHT. Contenance : 1 L.</lang>
@@ -155,14 +192,14 @@
     </product>
     <product id="4" category-id="2">
       <name>
-        <lang code="en">Farine de luxe boulangère 5Kg - AMGALITA</lang>
+        <lang code="en">Premium Baker’s Flour 5Kg - AMGALITA</lang>
         <lang code="fr">Farine de luxe boulangère 5Kg - AMGALITA</lang>
-        <lang code="ar">تفاحة</lang>
+        <lang code="ar"> دقيق فاخر للمخابز 5 كغ - أمغاليتا</lang>
       </name>
       <description>
-        <lang code="en">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
+        <lang code="en">Premium Baker’s Flour 5Kg - AMGALITA</lang>
         <lang code="fr">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
-        <lang code="ar">تفاح أحمر وعصير</lang>
+        <lang code="ar">دقيق فاخر للمخابز 5 كغ - أمغاليت</lang>
       </description>
       <price currency="DH">25.20</price>
       <pre_price currency="DH">12.20</pre_price>
@@ -171,14 +208,14 @@
     </product>
     <product id="5" category-id="2">
       <name>
-        <lang code="en">Farine de luxe boulangère 5Kg - AMGALITA</lang>
+        <lang code="en">Premium Baker’s Flour 5Kg - AMGALITA</lang>
         <lang code="fr">Farine de luxe boulangère 5Kg - AMGALITA</lang>
-        <lang code="ar">تفاحة</lang>
+        <lang code="ar">دقيق فاخر للمخابز 5 كغ - أمغاليتا</lang>
       </name>
       <description>
-        <lang code="en">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
+        <lang code="en">Premium Baker’s Flour 5Kg - AMGALITA.</lang>
         <lang code="fr">Farine de Luxe de blé tendre . Poids net : 5 Kg.</lang>
-        <lang code="ar">تفاح أحمر وعصير</lang>
+        <lang code="ar">دقيق فاخر للمخابز 5 كغ - أمغاليتا</lang>
       </description>
       <price currency="DH">25.20</price>
       <pre_price currency="DH">12.20</pre_price>
@@ -187,14 +224,14 @@
     </product>
     <product id="6" category-id="3">
       <name>
-        <lang code="en">Cocktail de fruit de mer 350g - FAYZ</lang>
+        <lang code="en">Seafood Cocktail 350g - FAYZ</lang>
         <lang code="fr">Cocktail de fruit de mer 350g - FAYZ</lang>
-        <lang code="ar">تفاحة</lang>
+        <lang code="ar">كوكتيل مأكولات بحرية 350 غرام - فايز</lang>
       </name>
       <description>
-        <lang code="en">Cocktail de fruit de mer.Contenance : 350 g.</lang>
-        <lang code="fr">Cocktail de fruit de mer.Contenance : 350 g.</lang>
-        <lang code="ar">تفاح أحمر وعصير</lang>
+        <lang code="en">Seafood Cocktail 350g - FAYZ</lang>
+        <lang code="fr">Cocktail de fruit de mer 350g - FAYZ</lang>
+        <lang code="ar">كوكتيل مأكولات بحرية 350 غرام - فايز</lang>
       </description>
       <price currency="DH">25.20</price>
       <pre_price currency="DH">12.20</pre_price>
@@ -203,18 +240,14 @@
     </product>
     <product id="7" category-id="4">
       <name>
-        <lang code="en">Red Bull pack canettes 4x25cl</lang>
+        <lang code="en">Red Bull Pack of Cans 4x25cl</lang>
         <lang code="fr">Red Bull pack canettes 4x25cl</lang>
-        <lang code="ar">تفاحة</lang>
+        <lang code="ar">ريد بول عبوة علب 4 × 25 سل</lang>
       </name>
       <description>
-        <lang code="en">Boisson énergisante à base de taurine pour les périodes d'activité.&#xD;
-À conserver dans un endroit frais et sec.&#xD;
-Contenance : 4 x 250 ml = 1 L.</lang>
-        <lang code="fr">Boisson énergisante à base de taurine pour les périodes d'activité.&#xD;
-À conserver dans un endroit frais et sec.&#xD;
-Contenance : 4 x 250 ml = 1 L.</lang>
-        <lang code="ar">تفاح أحمر وعصير</lang>
+        <lang code="en">Red Bull Pack of Cans 4x25cl</lang>
+        <lang code="fr">Red Bull pack canettes 4x25cl</lang>
+        <lang code="ar">ريد بول عبوة علب 4 × 25 سل</lang>
       </description>
       <price currency="DH">65.20</price>
       <pre_price currency="DH">12.20</pre_price>
@@ -223,16 +256,14 @@ Contenance : 4 x 250 ml = 1 L.</lang>
     </product>
     <product id="8" category-id="4">
       <name>
-        <lang code="en">Boisson énergétique Orange Upgrade 50cl - SAN BENEDETTO</lang>
+        <lang code="en">Orange Energy Drink Upgrade 50cl - SAN BENEDETTO</lang>
         <lang code="fr">Boisson énergétique Orange Upgrade 50cl - SAN BENEDETTO</lang>
-        <lang code="ar">تفاحة</lang>
+        <lang code="ar">مشروب طاقة بنكهة البرتقال 50 سل - سان بينيديتو</lang>
       </name>
       <description>
-        <lang code="en">Boisson énergétique rafraîchissante et sucrée au goût d'orange et de guarana, à base d'eau minérale.&#xD;
-Contenance : 50 cl.</lang>
-        <lang code="fr">Boisson énergétique rafraîchissante et sucrée au goût d'orange et de guarana, à base d'eau minérale.&#xD;
-Contenance : 50 cl.</lang>
-        <lang code="ar">تفاح أحمر وعصير</lang>
+        <lang code="en">Orange Energy Drink Upgrade 50cl - SAN BENEDETTO</lang>
+        <lang code="fr">Boisson énergétique Orange Upgrade 50cl - SAN BENEDETTO</lang>
+        <lang code="ar">مشروب طاقة بنكهة البرتقال 50 سل - سان بينيديتو</lang>
       </description>
       <price currency="DH">15.20</price>
       <pre_price currency="DH">12.20</pre_price>
@@ -241,18 +272,18 @@ Contenance : 50 cl.</lang>
     </product>
     <product id="9" category-id="5">
       <name>
-        <lang code="en">Cookies choco XL 184g - MILKA&#xD;
+        <lang code="en">hocolate Cookies XL 184g - MILKA&#xD;
 </lang>
         <lang code="fr">Cookies choco XL 184g - MILKA&#xD;
 </lang>
-        <lang code="ar">تفاحة</lang>
+        <lang code="ar">كوكيز الشوكولاتة XL 184 غرام - ميلكا</lang>
       </name>
       <description>
-        <lang code="en">Biscuits au lait extra larges avec une portion supplémentaire de chocolat. Découvrez le plaisir des biscuits croustillants au format XL. Milka XL Cookies Choco combine de délicieux biscuits avec des morceaux particulièrement volumineux de chocolat au lait éprouvé.&#xD;
-Contenance : 184 g.</lang>
-        <lang code="fr">Biscuits au lait extra larges avec une portion supplémentaire de chocolat. Découvrez le plaisir des biscuits croustillants au format XL. Milka XL Cookies Choco combine de délicieux biscuits avec des morceaux particulièrement volumineux de chocolat au lait éprouvé.&#xD;
-Contenance : 184 g.</lang>
-        <lang code="ar">تفاح أحمر وعصير</lang>
+        <lang code="en">hocolate Cookies XL 184g - MILKA&#xD;
+</lang>
+        <lang code="fr">Cookies choco XL 184g - MILKA&#xD;
+</lang>
+        <lang code="ar">كوكيز الشوكولاتة XL 184 غرام - ميلكا</lang>
       </description>
       <price currency="DH">15.20</price>
       <pre_price currency="DH">12.20</pre_price>
@@ -261,16 +292,17 @@ Contenance : 184 g.</lang>
     </product>
     <product id="10" category-id="5">
       <name>
-        <lang code="en">Milka bâtonnet de glace amande caramel 100ml</lang>
+        <lang code="en">Milka Almond Caramel Ice Cream Stick 100ml&#xD;
+Contenance : 100 ml.</lang>
         <lang code="fr">Milka bâtonnet de glace amande caramel 100ml</lang>
-        <lang code="ar">تفاحة</lang>
+        <lang code="ar">آيس كريم ميلكا بالعصا بنكهة اللوز والكراميل 100 مل</lang>
       </name>
       <description>
-        <lang code="en">Bâtonnet de glace amande caramel.&#xD;
+        <lang code="en">Milka Almond Caramel Ice Cream Stick 100ml&#xD;
 Contenance : 100 ml.</lang>
         <lang code="fr">Bâtonnet de glace amande caramel.&#xD;
 Contenance : 100 ml.</lang>
-        <lang code="ar">تفاح أحمر وعصير</lang>
+        <lang code="ar">آيس كريم ميلكا بالعصا بنكهة اللوز والكراميل 100 مل</lang>
       </description>
       <price currency="DH">12.20</price>
       <pre_price currency="DH">12.20</pre_price>
@@ -368,6 +400,14 @@ Contenance : 100 ml.</lang>
         <quantity>1</quantity>
       </item>
     </Cart>
+    <Cart user="1">
+      <item product="1">
+        <quantity>1</quantity>
+      </item>
+      <item product="7">
+        <quantity>1</quantity>
+      </item>
+    </Cart>
   </Carts>
   <Orders>
     <Order id="1" user="1">
@@ -457,7 +497,5 @@ Contenance : 100 ml.</lang>
       </Address>
       <OrderTotal>153</OrderTotal>
     </Order>
-    
-
   </Orders>
 </Store>
